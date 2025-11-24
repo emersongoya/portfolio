@@ -97,7 +97,7 @@ Design Thinking • Lean UX • Agile • Design Sprints • Jobs to be Done
 ## 🔗 Connect With Me
 
 - **LinkedIn:** [Emerson Goya](https://linkedin.com/in/emersongoya)
-- **Email:** emerson@example.com
+- **Email:** emersongoya@gmail.com
 - **GitHub:** [@emersongoya](https://github.com/emersongoya)
 - **Portfolio Website:** [Coming Soon]
 
