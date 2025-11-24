@@ -4,313 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emerson Goya - Product Designer Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
         body {
-            font-family: 'Roboto', sans-serif;
-            background: #1a1a1a;
-            color: #e0e0e0;
-            line-height: 1.7;
-            font-weight: 300;
-        }
-        
-        .header {
-            background-color: #222222;
-            border-bottom: 1px solid #333333;
-            padding: 3rem 0;
-            text-align: center;
-        }
-        
-        .container {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
             max-width: 900px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 20px;
+            background-color: #f5f5f5;
         }
-        
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 0.75rem;
-            color: #ffffff;
-            font-weight: 300;
-            letter-spacing: -0.5px;
-        }
-        
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #ffffff;
-            font-weight: 400;
-            border-bottom: 1px solid #333333;
-            padding-bottom: 0.5rem;
-        }
-        
-        h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: #ffffff;
-            font-weight: 500;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            color: #b0b0b0;
-            margin-bottom: 0.5rem;
-            font-weight: 400;
-        }
-        
-        .tagline {
-            font-size: 1rem;
-            color: #909090;
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-        }
-        
-        .section {
-            margin: 2.5rem 0;
-            padding: 2rem;
-            background-color: #242424;
-            border: 1px solid #2d2d2d;
+        .container {
+            background: white;
+            padding: 40px;
             border-radius: 8px;
-            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        
-        .section:hover {
-            border-color: #3a3a3a;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
         }
-        
-        p {
-            margin-bottom: 1rem;
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 8px;
         }
-        
+        h3 {
+            color: #7f8c8d;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
         ul {
-            margin-left: 2rem;
-            margin-bottom: 1rem;
+            margin-left: 20px;
+            margin-bottom: 15px;
         }
-        
         li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 8px;
         }
-        
         a {
-            color: #6fa8dc;
+            color: #3498db;
             text-decoration: none;
         }
-        
         a:hover {
             text-decoration: underline;
         }
-        
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        
-        .project-card {
-            background-color: #2a2a2a;
-            border: 1px solid #333333;
-            border-radius: 6px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-        
-        .project-card:hover {
-            border-color: #4a4a4a;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-        }
-        
-        .project-tag {
-            display: inline-block;
-            background-color: #333333;
-            padding: 0.3rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            margin-right: 0.5rem;
-            margin-top: 0.5rem;
-            color: #a0a0a0;
-        }
-        
-        .footer {
-            margin-top: 4rem;
-            padding: 2rem;
-            text-align: center;
-            border-top: 1px solid #333333;
-            color: #707070;
-            font-size: 0.9rem;
-        }
-        
-        code {
-            background-color: #2a2a2a;
-            padding: 0.2rem 0.4rem;
-            border-radius: 3px;
-            font-family: monospace;
-        }
-        
-        pre {
-            background-color: #2a2a2a;
-            padding: 1rem;
-            border-radius: 5px;
-            overflow-x: auto;
-            margin-bottom: 1rem;
-        }
-        
         hr {
             border: none;
-            border-top: 1px solid #333333;
-            margin: 2rem 0;
+            border-top: 1px solid #ecf0f1;
+            margin: 30px 0;
+        }
+        code {
+            background: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        strong {
+            color: #2c3e50;
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <h1>🎨 Emerson Goya - Product Designer Portfolio</h1>
-            <p class="subtitle">Product Designer</p>
-            <p class="tagline">Crafting intuitive experiences through research-driven design - Updated 2025</p>
-        </div>
-    </header>
-    
-    <main class="container">
-        <!-- README Content Converted to HTML -->
-        <section class="section">
-            <p>I offer specialized services in:</p>
-            <ul>
-                <li>🎨 <strong>UX/UI Design Consultation</strong></li>
-                <li>👁️ <strong>Educational Consulting</strong> - UX/UI Training &amp; Mentorship</li>
-                <li>🧪 <strong>Software Testing &amp; QA</strong> - UX Testing Methodology</li>
-                <li>🎯 <strong>Design Systems</strong> - Building scalable component libraries</li>
-            </ul>
-        </section>
+    <div class="container">
+        <h1>🎨 Emerson Goya - Product Designer Portfolio</h1>
+        
+        <p>I offer specialized services in:</p>
+        <ul>
+            <li>🎨 <strong>UX/UI Design Consultation</strong></li>
+            <li>👁️ <strong>Educational Consulting</strong> - UX/UI Training &amp; Mentorship</li>
+            <li>🧪 <strong>Software Testing &amp; QA</strong> - UX Testing Methodology</li>
+            <li>🎯 <strong>Design Systems</strong> - Building scalable component libraries</li>
+        </ul>
         
         <hr>
         
-        <section class="section">
-            <h2>🛠️ Tools &amp; Technologies</h2>
-            <p><strong>Design &amp; Prototyping:</strong><br>
-            Figma • Adobe XD • Sketch • Adobe Creative Suite • Framer</p>
-            
-            <p><strong>Research &amp; Analysis:</strong><br>
-            User Research • Usability Testing • A/B Testing • Analytics • Data Visualization</p>
-            
-            <p><strong>Development:</strong><br>
-            HTML5 • CSS3 • JavaScript • PHP • MySQL • C#</p>
-            
-            <p><strong>Methodologies:</strong><br>
-            Design Thinking • Lean UX • Agile • Design Sprints • Jobs to be Done</p>
-        </section>
+        <h2>🛠️ Tools &amp; Technologies</h2>
+        
+        <h3>Design &amp; Prototyping:</h3>
+        <p>Figma • Adobe XD • Sketch • Adobe Creative Suite • Framer</p>
+        
+        <h3>Research &amp; Analysis:</h3>
+        <p>User Research • Usability Testing • A/B Testing • Analytics • Data Visualization</p>
+        
+        <h3>Development:</h3>
+        <p>HTML5 • CSS3 • JavaScript • PHP • MySQL • C#</p>
+        
+        <h3>Methodologies:</h3>
+        <p>Design Thinking • Lean UX • Agile • Design Sprints • Jobs to be Done</p>
         
         <hr>
         
-        <section class="section">
-            <h2>🔗 Connect With Me</h2>
-            <ul>
-                <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/emersongoya">Emerson Goya</a></li>
-                <li><strong>Email:</strong> emersongoya@gmail.com</li>
-                <li><strong>GitHub:</strong> <a href="https://github.com/emersongoya">@emersongoya</a></li>
-                <li><strong>Portfolio Website:</strong> [Coming Soon]</li>
-            </ul>
-        </section>
+        <h2>🔗 Connect With Me</h2>
+        <ul>
+            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/emersongoya">Emerson Goya</a></li>
+            <li><strong>Email:</strong> <a href="mailto:emersongoya@gmail.com">emersongoya@gmail.com</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/emersongoya">@emersongoya</a></li>
+            <li><strong>Portfolio Website:</strong> [Coming Soon]</li>
+        </ul>
         
         <hr>
         
-        <section class="section">
-            <h2>📁 Repository Structure</h2>
-            <pre><code>portfolio/
+        <h2>📁 Repository Structure</h2>
+        <pre><code>portfolio/
 ├── case-studies/           # Detailed project case studies (web pages)
 ├── design-systems/         # Component libraries &amp; design tokens (web pages)
 ├── teaching-materials/     # UX courses, frameworks &amp; resources (web pages)
 ├── index.html             # Main portfolio web page
 └── README.md              # This file</code></pre>
-            <p><strong>Note:</strong> All Markdown documentation has been converted to accessible web pages for easier viewing and navigation.</p>
-        </section>
+        
+        <p><strong>Note:</strong> All Markdown documentation has been converted to accessible web pages for easier viewing and navigation.</p>
         
         <hr>
         
-        <section class="section">
-            <h2>🚀 Next Steps</h2>
-            <p>I'm currently expanding this portfolio with detailed case studies, interactive prototypes, and comprehensive design documentation.</p>
-            <p><strong>Coming Soon:</strong></p>
-            <ul>
-                <li>📌 Complete case study documentation with before/after comparisons</li>
-                <li>📌 Interactive Figma prototypes</li>
-                <li>📌 Design system showcase</li>
-                <li>📌 Teaching resources and frameworks</li>
-            </ul>
-        </section>
+        <h2>🚀 Next Steps</h2>
+        <p>I'm currently expanding this portfolio with detailed case studies, interactive prototypes, and comprehensive design documentation.</p>
+        
+        <p><strong>Coming Soon:</strong></p>
+        <ul>
+            <li>📌 Complete case study documentation with before/after comparisons</li>
+            <li>📌 Interactive Figma prototypes</li>
+            <li>📌 Design system showcase</li>
+            <li>📌 Teaching resources and frameworks</li>
+        </ul>
         
         <hr>
         
-        <section class="section">
-            <h2>👥 Let's Work Together</h2>
-            <p>I'm open to discussing:</p>
-            <ul>
-                <li>🎯 Senior Product Designer opportunities</li>
-                <li>🎯 Design leadership &amp; strategy roles</li>
-                <li>🎯 International relocations (Europe &amp; Global Markets)</li>
-                <li>🎯 Mentorship &amp; consulting engagements</li>
-            </ul>
-        </section>
+        <h2>👥 Let's Work Together</h2>
+        <p>I'm open to discussing:</p>
+        <ul>
+            <li>🎯 Senior Product Designer opportunities</li>
+            <li>🎯 Design leadership &amp; strategy roles</li>
+            <li>🎯 International relocations (Europe &amp; Global Markets)</li>
+            <li>🎯 Mentorship &amp; consulting engagements</li>
+        </ul>
         
-        <section class="section">
-            <h2>Case Studies</h2>
-            <p>Explore detailed explorations of my design process and outcomes.</p>
-            <div class="project-grid">
-                <a href="case-studies/bossanova.html" class="project-card">
-                    <h3>Bossanova: Digital Strategy</h3>
-                    <p>Comprehensive digital transformation for a leading retail brand.</p>
-                    <span class="project-tag">UX Research</span>
-                    <span class="project-tag">Strategy</span>
-                    <span class="project-tag">Design Systems</span>
-                </a>
-            </div>
-        </section>
+        <hr>
         
-        <section class="section">
-            <h2>Design Systems</h2>
-            <p>Scalable component libraries and design frameworks I've developed.</p>
-            <div class="project-grid">
-                <a href="design-systems/component-library.html" class="project-card">
-                    <h3>Component Library</h3>
-                    <p>A comprehensive design system built for scalability and consistency.</p>
-                    <span class="project-tag">Design Tokens</span>
-                    <span class="project-tag">Components</span>
-                    <span class="project-tag">Documentation</span>
-                </a>
-            </div>
-        </section>
-        
-        <section class="section">
-            <h2>Teaching Materials</h2>
-            <p>Educational resources and workshops for design education.</p>
-            <div class="project-grid">
-                <a href="teaching-materials/ux-research.html" class="project-card">
-                    <h3>UX Research Methods</h3>
-                    <p>Comprehensive guide to user research methodologies and best practices.</p>
-                    <span class="project-tag">Research</span>
-                    <span class="project-tag">Methods</span>
-                    <span class="project-tag">Education</span>
-                </a>
-            </div>
-        </section>
-    </main>
-    
-    <footer class="footer">
         <p><strong>Updated: 2025 | Made with ❤️ in Sao Paulo, Brazil</strong></p>
-        <p>© 2025 Emerson Goya. All rights reserved.</p>
-    </footer>
+    </div>
 </body>
 </html>
