@@ -71,232 +71,132 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
         
-        .section h2 {
-            font-size: 1.6rem;
-            margin-bottom: 1.25rem;
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
             color: #ffffff;
+            font-weight: 400;
             border-bottom: 1px solid #333333;
-            padding-bottom: 0.75rem;
-            font-weight: 400;
-            letter-spacing: -0.3px;
-        }
-        
-        .expertise {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.25rem;
-            margin: 1.5rem 0;
-        }
-        
-        .skill-badge {
-            background-color: #2a2a2a;
-            padding: 1.25rem;
-            border-radius: 6px;
-            border-left: 2px solid #505050;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        
-        .skill-badge:hover {
-            background-color: #2f2f2f;
-            border-left-color: #707070;
-            transform: translateY(-2px);
-        }
-        
-        .skill-badge strong {
-            color: #ffffff;
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            font-size: 1.05rem;
-        }
-        
-        .highlight {
-            color: #d0d0d0;
-            font-weight: 400;
-        }
-        
-        .button {
-            display: inline-block;
-            padding: 0.85rem 1.75rem;
-            background-color: #404040;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 400;
-            margin: 0.5rem 0.5rem 0.5rem 0;
-            transition: all 0.3s ease;
-            border: 1px solid #4a4a4a;
-            cursor: pointer;
-            font-size: 0.95rem;
-        }
-        
-        .button:hover {
-            background-color: #4a4a4a;
-            border-color: #555555;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-            transform: translateY(-1px);
-        }
-        
-        .button-secondary {
-            background-color: #353535;
-            border-color: #404040;
-        }
-        
-        .button-secondary:hover {
-            background-color: #3f3f3f;
-            border-color: #4a4a4a;
-        }
-        
-        .footer {
-            text-align: center;
-            padding: 2.5rem 0;
-            border-top: 1px solid #2d2d2d;
-            color: #808080;
-            font-size: 0.9rem;
-            font-weight: 300;
-        }
-        
-        .contact-links {
-            margin: 1.5rem 0;
-        }
-        
-        .contact-link {
-            display: inline-block;
-            margin: 0.5rem 0.5rem 0.5rem 0;
-            padding: 0.75rem 1.25rem;
-            background-color: #2a2a2a;
-            border: 1px solid #353535;
-            border-radius: 6px;
-            color: #d0d0d0;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: 400;
-        }
-        
-        .contact-link:hover {
-            border-color: #4a4a4a;
-            background-color: #303030;
-            transform: translateY(-1px);
-        }
-        
-        .experience-item {
-            margin-bottom: 1.75rem;
-            padding-bottom: 1.75rem;
-            border-bottom: 1px solid #2d2d2d;
-        }
-        
-        .experience-item:last-child {
-            border-bottom: none;
-        }
-        
-        .experience-item strong {
-            color: #ffffff;
-            display: block;
-            font-size: 1.15rem;
-            font-weight: 500;
-            margin-bottom: 0.25rem;
-        }
-        
-        .experience-item em {
-            color: #909090;
-            display: block;
-            font-size: 0.9rem;
-            margin-top: 0.25rem;
-            font-weight: 300;
-            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
         }
         
         p {
             margin-bottom: 1rem;
-            line-height: 1.8;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .project-card {
+            background-color: #2a2a2a;
+            border: 1px solid #333333;
+            border-radius: 6px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .project-card:hover {
+            border-color: #4a4a4a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        
+        .project-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-weight: 500;
+        }
+        
+        .project-card p {
+            font-size: 0.95rem;
+            color: #b0b0b0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-tag {
+            display: inline-block;
+            background-color: #333333;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+            color: #a0a0a0;
+        }
+        
+        .footer {
+            margin-top: 4rem;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid #333333;
+            color: #707070;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-    <div class="header">
+    <header class="header">
         <div class="container">
             <h1>Emerson Goya</h1>
-            <p class="subtitle">Product Designer & UX/UI Specialist</p>
-            <p class="tagline">20+ Years of Strategic Design Excellence</p>
+            <p class="subtitle">Product Designer</p>
+            <p class="tagline">Crafting intuitive experiences through research-driven design</p>
         </div>
-    </div>
+    </header>
     
-    <div class="container">
-        <div class="section">
-            <h2>About Me</h2>
-            <p>I'm a passionate Product Designer and UX/UI Specialist with over 20 years of experience creating intuitive digital experiences. My expertise spans from user research and wireframing to high-fidelity prototypes and design systems.</p>
-            <p>I specialize in <span class="highlight">transforming complex problems into elegant, user-centered solutions</span> that drive business results and delight users.</p>
-        </div>
+    <main class="container">
+        <section class="section">
+            <h2>Case Studies</h2>
+            <p>Explore detailed explorations of my design process and outcomes.</p>
+            <div class="project-grid">
+                <a href="case-studies/bossanova.html" class="project-card">
+                    <h3>Bossanova: Digital Strategy</h3>
+                    <p>Comprehensive digital transformation for a leading retail brand.</p>
+                    <span class="project-tag">UX Research</span>
+                    <span class="project-tag">Strategy</span>
+                    <span class="project-tag">Design Systems</span>
+                </a>
+            </div>
+        </section>
         
-        <div class="section">
-            <h2>Core Expertise</h2>
-            <div class="expertise">
-                <div class="skill-badge">
-                    <strong>UX Design</strong>
-                    <span>User Research & Testing</span>
-                </div>
-                <div class="skill-badge">
-                    <strong>UI Design</strong>
-                    <span>Design Systems</span>
-                </div>
-                <div class="skill-badge">
-                    <strong>Prototyping</strong>
-                    <span>Interactive Mockups</span>
-                </div>
-                <div class="skill-badge">
-                    <strong>Tools</strong>
-                    <span>Figma, Adobe XD, Sketch</span>
-                </div>
-                <div class="skill-badge">
-                    <strong>Strategy</strong>
-                    <span>Design Thinking</span>
-                </div>
-                <div class="skill-badge">
-                    <strong>Web Design</strong>
-                    <span>Responsive Design</span>
-                </div>
+        <section class="section">
+            <h2>Design Systems</h2>
+            <p>Scalable component libraries and design frameworks I've developed.</p>
+            <div class="project-grid">
+                <a href="design-systems/component-library.html" class="project-card">
+                    <h3>Component Library</h3>
+                    <p>A comprehensive design system built for scalability and consistency.</p>
+                    <span class="project-tag">Design Tokens</span>
+                    <span class="project-tag">Components</span>
+                    <span class="project-tag">Documentation</span>
+                </a>
             </div>
-        </div>
+        </section>
         
-        <div class="section">
-            <h2>Experience Highlights</h2>
-            <div class="experience-item">
-                <strong>Strategic Design Leadership</strong>
-                <em>20+ years in Design & UX/UI Excellence</em>
-                <p>Led design initiatives for multiple Fortune 500 companies, delivering award-winning digital products that increased user engagement by 150%+.</p>
+        <section class="section">
+            <h2>Teaching Materials</h2>
+            <p>Educational resources and workshops for design education.</p>
+            <div class="project-grid">
+                <a href="teaching-materials/ux-research.html" class="project-card">
+                    <h3>UX Research Methods</h3>
+                    <p>Comprehensive guide to user research methodologies and best practices.</p>
+                    <span class="project-tag">Research</span>
+                    <span class="project-tag">Methods</span>
+                    <span class="project-tag">Education</span>
+                </a>
             </div>
-            <div class="experience-item">
-                <strong>Design Systems & Scale</strong>
-                <em>Enterprise-level Solutions</em>
-                <p>Architected comprehensive design systems for large organizations, ensuring consistency across 50+ product teams and platforms.</p>
-            </div>
-            <div class="experience-item">
-                <strong>User-Centered Innovation</strong>
-                <em>Research-Driven Approach</em>
-                <p>Conducted extensive user research programs impacting product strategy and resulting in 200%+ ROI improvement.</p>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2>Let's Connect</h2>
-            <p>I'm always interested in discussing design challenges, collaborating on innovative projects, or sharing insights about the design industry.</p>
-            <div class="contact-links">
-                <a class="contact-link" href="https://linkedin.com/in/emersongoya" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a class="contact-link" href="https://github.com/emersongoya" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a class="contact-link" href="mailto:emerson@example.com">Email</a>
-            </div>
-            <div>
-                <a class="button button-secondary" href="https://github.com/emersongoya/portfolio" target="_blank" rel="noopener noreferrer">View Repository</a>
-            </div>
-        </div>
-    </div>
+        </section>
+    </main>
     
-    <div class="footer">
-        <div class="container">
-            <p>© 2025 Emerson Goya. All rights reserved.</p>
-            <p>Built with passion for design excellence • Hosted on GitHub Pages</p>
-        </div>
-    </div>
+    <footer class="footer">
+        <p>&copy; 2025 Emerson Goya. All rights reserved.</p>
+    </footer>
 </body>
 </html>
