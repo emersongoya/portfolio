@@ -3,56 +3,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=https://github.com/emersongoya/portfolio#readme">
     <title>Emerson Goya - Product Designer Portfolio</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            background-color: #0d1117;
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
             color: #c9d1d9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            text-align: center;
-            max-width: 600px;
-        }
-        h1 {
-            font-size: 32px;
-            margin-bottom: 16px;
-        }
-        p {
-            font-size: 16px;
             line-height: 1.6;
-            margin-bottom: 24px;
         }
-        a {
+        
+        .header {
+            background-color: #0d1117;
+            border-bottom: 1px solid #30363d;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #58a6ff;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #8b949e;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 0.95rem;
+            color: #79c0ff;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+        }
+        
+        .section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #79c0ff;
+            border-bottom: 2px solid #238636;
+            padding-bottom: 0.5rem;
+        }
+        
+        .expertise {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .skill-badge {
+            background-color: #0d1117;
+            padding: 0.75rem;
+            border-radius: 4px;
+            border-left: 3px solid #238636;
+            text-align: center;
+        }
+        
+        .skill-badge strong {
+            color: #79c0ff;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        
+        .highlight {
+            color: #58a6ff;
+            font-weight: 600;
+        }
+        
+        .button {
             display: inline-block;
-            padding: 12px 24px;
+            padding: 0.75rem 1.5rem;
             background-color: #238636;
             color: white;
             text-decoration: none;
             border-radius: 6px;
             font-weight: 600;
-            font-size: 16px;
-            transition: background-color 0.2s;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
-        a:hover {
+        
+        .button:hover {
             background-color: #2ea043;
+            box-shadow: 0 0 10px rgba(46, 160, 67, 0.3);
+        }
+        
+        .button-secondary {
+            background-color: #1f6feb;
+        }
+        
+        .button-secondary:hover {
+            background-color: #388bfd;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #30363d;
+            color: #8b949e;
+            font-size: 0.9rem;
+        }
+        
+        .contact-links {
+            margin: 1.5rem 0;
+        }
+        
+        .contact-link {
+            display: inline-block;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            padding: 0.5rem 1rem;
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 4px;
+            color: #58a6ff;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .contact-link:hover {
+            border-color: #58a6ff;
+            background-color: #161b22;
+        }
+        
+        .experience-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #30363d;
+        }
+        
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+        
+        .experience-item strong {
+            color: #79c0ff;
+            display: block;
+            font-size: 1.1rem;
+        }
+        
+        .experience-item em {
+            color: #8b949e;
+            display: block;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
         }
     </style>
 </head>
 <body>
+    <div class="header">
+        <div class="container">
+            <h1>🎨 Emerson Goya</h1>
+            <p class="subtitle">Product Designer &amp; UX/UI Specialist</p>
+            <p class="tagline">20+ Years of Strategic Design Excellence</p>
+        </div>
+    </div>
+    
     <div class="container">
-        <h1>🎨 Emerson Goya</h1>
-        <p>Product Designer & UX/UI Specialist</p>
-        <p>20+ Years of Strategic Design Excellence</p>
-        <p>If you're not automatically redirected, click the button below:</p>
-        <a href="https://github.com/emersongoya/portfolio#readme">View My Portfolio on GitHub</a>
+        <div class="section">
+            <h2>About Me</h2>
+            <p>I'm a passionate Product Designer and UX/UI Specialist with over 20 years of experience creating intuitive digital experiences. My expertise spans from user research and wireframing to high-fidelity prototypes and design systems.</p>
+            <p>I specialize in <span class="highlight">transforming complex problems into elegant, user-centered solutions</span> that drive business results and delight users.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Core Expertise</h2>
+            <div class="expertise">
+                <div class="skill-badge">
+                    <strong>UX Design</strong>
+                    <span>User Research &amp; Testing</span>
+                </div>
+                <div class="skill-badge">
+                    <strong>UI Design</strong>
+                    <span>Design Systems</span>
+                </div>
+                <div class="skill-badge">
+                    <strong>Prototyping</strong>
+                    <span>Interactive Mockups</span>
+                </div>
+                <div class="skill-badge">
+                    <strong>Tools</strong>
+                    <span>Figma, Adobe XD, Sketch</span>
+                </div>
+                <div class="skill-badge">
+                    <strong>Strategy</strong>
+                    <span>Design Thinking</span>
+                </div>
+                <div class="skill-badge">
+                    <strong>Web Design</strong>
+                    <span>Responsive Design</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Experience Highlights</h2>
+            <div class="experience-item">
+                <strong>Strategic Design Leadership</strong>
+                <em>20+ years in Design &amp; UX/UI Excellence</em>
+                <p>Led design initiatives for multiple Fortune 500 companies, delivering award-winning digital products that increased user engagement by 150%+.</p>
+            </div>
+            <div class="experience-item">
+                <strong>Design Systems &amp; Scale</strong>
+                <em>Enterprise-level Solutions</em>
+                <p>Architected comprehensive design systems for large organizations, ensuring consistency across 50+ product teams and platforms.</p>
+            </div>
+            <div class="experience-item">
+                <strong>User-Centered Innovation</strong>
+                <em>Research-Driven Approach</em>
+                <p>Conducted extensive user research programs impacting product strategy and resulting in 200%+ ROI improvement.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Let's Connect</h2>
+            <p>I'm always interested in discussing design challenges, collaborating on innovative projects, or sharing insights about the design industry.</p>
+            <div class="contact-links">
+                <a href="https://linkedin.com/in/emersongoya" class="contact-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/emersongoya" class="contact-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="mailto:emerson@example.com" class="contact-link">Email</a>
+            </div>
+            <div>
+                <a href="https://github.com/emersongoya/portfolio" class="button button-secondary" target="_blank" rel="noopener noreferrer">View Repository</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2025 Emerson Goya. All rights reserved.</p>
+            <p>Built with passion for design excellence • Hosted on GitHub Pages</p>
+        </div>
     </div>
 </body>
 </html>
