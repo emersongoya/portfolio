@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emerson Goya - Product Designer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,16 +15,17 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
-            color: #c9d1d9;
-            line-height: 1.6;
+            font-family: 'Roboto', sans-serif;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            line-height: 1.7;
+            font-weight: 300;
         }
         
         .header {
-            background-color: #0d1117;
-            border-bottom: 1px solid #30363d;
-            padding: 2rem 0;
+            background-color: #222222;
+            border-bottom: 1px solid #333333;
+            padding: 3rem 0;
             text-align: center;
         }
         
@@ -32,99 +36,125 @@
         }
         
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: #58a6ff;
+            font-size: 2.8rem;
+            margin-bottom: 0.75rem;
+            color: #ffffff;
+            font-weight: 300;
+            letter-spacing: -0.5px;
         }
         
         .subtitle {
             font-size: 1.2rem;
-            color: #8b949e;
+            color: #b0b0b0;
             margin-bottom: 0.5rem;
+            font-weight: 400;
         }
         
         .tagline {
-            font-size: 0.95rem;
-            color: #79c0ff;
+            font-size: 1rem;
+            color: #909090;
             margin-bottom: 1.5rem;
+            font-weight: 300;
         }
         
         .section {
-            margin: 2rem 0;
-            padding: 1.5rem;
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 6px;
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background-color: #242424;
+            border: 1px solid #2d2d2d;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .section:hover {
+            border-color: #3a3a3a;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
         
         .section h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #79c0ff;
-            border-bottom: 2px solid #238636;
-            padding-bottom: 0.5rem;
+            font-size: 1.6rem;
+            margin-bottom: 1.25rem;
+            color: #ffffff;
+            border-bottom: 1px solid #333333;
+            padding-bottom: 0.75rem;
+            font-weight: 400;
+            letter-spacing: -0.3px;
         }
         
         .expertise {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 1rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0;
         }
         
         .skill-badge {
-            background-color: #0d1117;
-            padding: 0.75rem;
-            border-radius: 4px;
-            border-left: 3px solid #238636;
+            background-color: #2a2a2a;
+            padding: 1.25rem;
+            border-radius: 6px;
+            border-left: 2px solid #505050;
             text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-badge:hover {
+            background-color: #2f2f2f;
+            border-left-color: #707070;
+            transform: translateY(-2px);
         }
         
         .skill-badge strong {
-            color: #79c0ff;
+            color: #ffffff;
             display: block;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 1.05rem;
         }
         
         .highlight {
-            color: #58a6ff;
-            font-weight: 600;
+            color: #d0d0d0;
+            font-weight: 400;
         }
         
         .button {
             display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background-color: #238636;
-            color: white;
+            padding: 0.85rem 1.75rem;
+            background-color: #404040;
+            color: #ffffff;
             text-decoration: none;
             border-radius: 6px;
-            font-weight: 600;
+            font-weight: 400;
             margin: 0.5rem 0.5rem 0.5rem 0;
-            transition: background-color 0.3s, box-shadow 0.3s;
-            border: none;
+            transition: all 0.3s ease;
+            border: 1px solid #4a4a4a;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
         
         .button:hover {
-            background-color: #2ea043;
-            box-shadow: 0 0 10px rgba(46, 160, 67, 0.3);
+            background-color: #4a4a4a;
+            border-color: #555555;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            transform: translateY(-1px);
         }
         
         .button-secondary {
-            background-color: #1f6feb;
+            background-color: #353535;
+            border-color: #404040;
         }
         
         .button-secondary:hover {
-            background-color: #388bfd;
+            background-color: #3f3f3f;
+            border-color: #4a4a4a;
         }
         
         .footer {
             text-align: center;
-            padding: 2rem 0;
-            border-top: 1px solid #30363d;
-            color: #8b949e;
+            padding: 2.5rem 0;
+            border-top: 1px solid #2d2d2d;
+            color: #808080;
             font-size: 0.9rem;
+            font-weight: 300;
         }
         
         .contact-links {
@@ -134,24 +164,26 @@
         .contact-link {
             display: inline-block;
             margin: 0.5rem 0.5rem 0.5rem 0;
-            padding: 0.5rem 1rem;
-            background-color: #0d1117;
-            border: 1px solid #30363d;
-            border-radius: 4px;
-            color: #58a6ff;
+            padding: 0.75rem 1.25rem;
+            background-color: #2a2a2a;
+            border: 1px solid #353535;
+            border-radius: 6px;
+            color: #d0d0d0;
             text-decoration: none;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+            font-weight: 400;
         }
         
         .contact-link:hover {
-            border-color: #58a6ff;
-            background-color: #161b22;
+            border-color: #4a4a4a;
+            background-color: #303030;
+            transform: translateY(-1px);
         }
         
         .experience-item {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #30363d;
+            margin-bottom: 1.75rem;
+            padding-bottom: 1.75rem;
+            border-bottom: 1px solid #2d2d2d;
         }
         
         .experience-item:last-child {
@@ -159,16 +191,25 @@
         }
         
         .experience-item strong {
-            color: #79c0ff;
+            color: #ffffff;
             display: block;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
         }
         
         .experience-item em {
-            color: #8b949e;
+            color: #909090;
             display: block;
             font-size: 0.9rem;
             margin-top: 0.25rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
         }
     </style>
 </head>
@@ -176,7 +217,7 @@
     <div class="header">
         <div class="container">
             <h1>Emerson Goya</h1>
-            <p class="subtitle">Product Designer &amp; UX/UI Specialist</p>
+            <p class="subtitle">Product Designer & UX/UI Specialist</p>
             <p class="tagline">20+ Years of Strategic Design Excellence</p>
         </div>
     </div>
@@ -193,7 +234,7 @@
             <div class="expertise">
                 <div class="skill-badge">
                     <strong>UX Design</strong>
-                    <span>User Research &amp; Testing</span>
+                    <span>User Research & Testing</span>
                 </div>
                 <div class="skill-badge">
                     <strong>UI Design</strong>
@@ -222,11 +263,11 @@
             <h2>Experience Highlights</h2>
             <div class="experience-item">
                 <strong>Strategic Design Leadership</strong>
-                <em>20+ years in Design &amp; UX/UI Excellence</em>
+                <em>20+ years in Design & UX/UI Excellence</em>
                 <p>Led design initiatives for multiple Fortune 500 companies, delivering award-winning digital products that increased user engagement by 150%+.</p>
             </div>
             <div class="experience-item">
-                <strong>Design Systems &amp; Scale</strong>
+                <strong>Design Systems & Scale</strong>
                 <em>Enterprise-level Solutions</em>
                 <p>Architected comprehensive design systems for large organizations, ensuring consistency across 50+ product teams and platforms.</p>
             </div>
@@ -241,19 +282,19 @@
             <h2>Let's Connect</h2>
             <p>I'm always interested in discussing design challenges, collaborating on innovative projects, or sharing insights about the design industry.</p>
             <div class="contact-links">
-                <a href="https://linkedin.com/in/emersongoya" class="contact-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://github.com/emersongoya" class="contact-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="mailto:emerson@example.com" class="contact-link">Email</a>
+                <a class="contact-link" href="https://linkedin.com/in/emersongoya" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a class="contact-link" href="https://github.com/emersongoya" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a class="contact-link" href="mailto:emerson@example.com">Email</a>
             </div>
             <div>
-                <a href="https://github.com/emersongoya/portfolio" class="button button-secondary" target="_blank" rel="noopener noreferrer">View Repository</a>
+                <a class="button button-secondary" href="https://github.com/emersongoya/portfolio" target="_blank" rel="noopener noreferrer">View Repository</a>
             </div>
         </div>
     </div>
     
     <div class="footer">
         <div class="container">
-            <p>&copy; 2025 Emerson Goya. All rights reserved.</p>
+            <p>© 2025 Emerson Goya. All rights reserved.</p>
             <p>Built with passion for design excellence • Hosted on GitHub Pages</p>
         </div>
     </div>
