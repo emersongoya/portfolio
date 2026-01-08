@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Design Systems - Emerson Goya Portfolio">
+    <title>Design Systems - Emerson Goya</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .design-system-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+        .design-system-item h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .feature-box {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .feature-box h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Emerson Goya</div>
+            <ul class="nav-menu">
+                <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#services" class="nav-link">Services</a></li>
+                <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="../index.html#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section style="margin-top: 80px; padding: 60px 20px; background: var(--light-bg); min-height: 80vh;">
+        <div class="container">
+            <a href="../index.html#portfolio" class="back-link">← Back to Portfolio</a>
+            
+            <h1 class="section-title">🎨 Design Systems</h1>
+            
+            <div class="about-content">
+                <p>Reusable component libraries, design tokens, and pattern documentation that ensure consistency and efficiency across digital products.</p>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <div class="design-system-item">
+                    <h3>Component Library</h3>
+                    <p>Comprehensive collection of reusable UI components built with accessibility and scalability in mind.</p>
+                    <div class="feature-grid">
+                        <div class="feature-box">
+                            <h4>🧩 Buttons</h4>
+                            <p>Primary, secondary, and tertiary button variants</p>
+                        </div>
+                        <div class="feature-box">
+                            <h4>📝 Forms</h4>
+                            <p>Input fields, dropdowns, checkboxes, and validation</p>
+                        </div>
+                        <div class="feature-box">
+                            <h4>🎴 Cards</h4>
+                            <p>Content containers with various layouts</p>
+                        </div>
+                        <div class="feature-box">
+                            <h4>🗺️ Navigation</h4>
+                            <p>Menus, breadcrumbs, and navigation patterns</p>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem;"><strong>Coming Soon:</strong> Interactive component documentation</p>
+                </div>
+
+                <div class="design-system-item">
+                    <h3>Design Tokens</h3>
+                    <p>Centralized design decisions including colors, typography, spacing, and more.</p>
+                    <div class="feature-grid">
+                        <div class="feature-box">
+                            <h4>🎨 Colors</h4>
+                            <p>Primary, secondary, and semantic color palettes</p>
+                        </div>
+                        <div class="feature-box">
+                            <h4>📐 Spacing</h4>
+                            <p>Consistent spacing scale for layouts</p>
+                        </div>
+                        <div class="feature-box">
+                            <h4>✍️ Typography</h4>
+                            <p>Type scale, font families, and text styles</p>
+                        </div>
+                        <div class="feature-box">
+                            <h4>🌗 Elevation</h4>
+                            <p>Shadow and depth system</p>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem;"><strong>Coming Soon:</strong> Visual language documentation</p>
+                </div>
+
+                <div class="design-system-item">
+                    <h3>Figma Design System</h3>
+                    <p>Complete design system library in Figma with auto-layout, variants, and documentation.</p>
+                    <p><strong>Coming Soon:</strong> Public Figma file links and usage guidelines</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; padding: 2rem; background: var(--white); border-radius: 10px;">
+                <h3 style="color: var(--secondary-color); margin-bottom: 1rem;">Design System Benefits:</h3>
+                <ul style="margin-left: 2rem; color: var(--light-text);">
+                    <li>🚀 Faster design and development workflows</li>
+                    <li>✨ Consistent user experience across products</li>
+                    <li>♿ Built-in accessibility best practices</li>
+                    <li>📱 Responsive and mobile-friendly components</li>
+                    <li>🔄 Easy to maintain and scale</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Emerson Goya | Made with ❤️ in São Paulo, Brazil</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

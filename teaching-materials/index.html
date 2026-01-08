@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Teaching Materials - Emerson Goya Portfolio">
+    <title>Teaching Materials - Emerson Goya</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .material-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+        .material-item h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .topic-tag {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            color: var(--dark-text);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Emerson Goya</div>
+            <ul class="nav-menu">
+                <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#services" class="nav-link">Services</a></li>
+                <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="../index.html#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section style="margin-top: 80px; padding: 60px 20px; background: var(--light-bg); min-height: 80vh;">
+        <div class="container">
+            <a href="../index.html#portfolio" class="back-link">← Back to Portfolio</a>
+            
+            <h1 class="section-title">📖 Teaching Materials</h1>
+            
+            <div class="about-content">
+                <p>UX/UI design courses, frameworks, and educational resources to help teams and individuals master user-centered design.</p>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <div class="material-item">
+                    <h3>UX Design Principles Guide</h3>
+                    <p>Comprehensive guide covering fundamental UX design principles and their practical applications.</p>
+                    <div class="topic-grid">
+                        <div class="topic-tag">User Research</div>
+                        <div class="topic-tag">Information Architecture</div>
+                        <div class="topic-tag">Interaction Design</div>
+                        <div class="topic-tag">Visual Design</div>
+                        <div class="topic-tag">Usability Testing</div>
+                        <div class="topic-tag">Accessibility</div>
+                    </div>
+                    <p style="margin-top: 1rem;"><strong>Coming Soon:</strong> Complete downloadable guide</p>
+                </div>
+
+                <div class="material-item">
+                    <h3>Course Materials</h3>
+                    <p>Structured learning paths for aspiring and intermediate UX/UI designers.</p>
+                    <ul style="margin-left: 2rem; margin-top: 1rem; color: var(--light-text);">
+                        <li>Introduction to UX/UI Design</li>
+                        <li>Advanced User Research Methods</li>
+                        <li>Design Systems Fundamentals</li>
+                        <li>Figma for Designers</li>
+                        <li>Portfolio Building for Designers</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>Coming Soon:</strong> Course outlines and materials</p>
+                </div>
+
+                <div class="material-item">
+                    <h3>Design Frameworks</h3>
+                    <p>Practical frameworks and methodologies for solving design challenges.</p>
+                    <div class="topic-grid">
+                        <div class="topic-tag">Design Thinking</div>
+                        <div class="topic-tag">Lean UX</div>
+                        <div class="topic-tag">Design Sprints</div>
+                        <div class="topic-tag">Jobs to be Done</div>
+                        <div class="topic-tag">User Story Mapping</div>
+                        <div class="topic-tag">Atomic Design</div>
+                    </div>
+                    <p style="margin-top: 1rem;"><strong>Coming Soon:</strong> Framework templates and examples</p>
+                </div>
+
+                <div class="material-item">
+                    <h3>Best Practices</h3>
+                    <p>Industry best practices, checklists, and guidelines for professional UX/UI work.</p>
+                    <ul style="margin-left: 2rem; margin-top: 1rem; color: var(--light-text);">
+                        <li>📋 UX/UI Design Checklists</li>
+                        <li>♿ Accessibility Guidelines (WCAG)</li>
+                        <li>📱 Responsive Design Patterns</li>
+                        <li>🎨 Color and Typography Systems</li>
+                        <li>🔍 Usability Heuristics</li>
+                        <li>📊 UX Metrics and KPIs</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>Coming Soon:</strong> Downloadable resources and templates</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; padding: 2rem; background: var(--white); border-radius: 10px;">
+                <h3 style="color: var(--secondary-color); margin-bottom: 1rem;">Mentorship & Training</h3>
+                <p style="color: var(--light-text); margin-bottom: 1rem;">
+                    I offer personalized mentorship and team training programs tailored to your organization's needs. Whether you're looking to upskill your design team or establish UX practices from scratch, I can help.
+                </p>
+                <p>
+                    <a href="../index.html#contact" style="color: var(--primary-color); font-weight: 600;">Get in touch →</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Emerson Goya | Made with ❤️ in São Paulo, Brazil</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
