@@ -474,7 +474,7 @@ footer p {
 @media (max-width: 640px) {
     nav ul {
         gap: 1rem;
-        font-size: 0.85rem;
+        font-size: 0.875rem;
     }
 }
 
@@ -498,4 +498,9 @@ footer p {
 .section-title p {
     font-size: 1.25rem;
     color: var(--text-secondary);
+}
+
+.btn-card {
+    margin-top: 1.5rem;
+    display: inline-block;
 }
