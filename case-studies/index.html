@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies - Emerson Goya</title>
+    <meta name="description" content="Detailed case studies from Emerson Goya's portfolio, showcasing UX/UI design processes and measurable outcomes.">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Case Studies Specific Styles */
+        .case-studies-header {
+            padding: 120px 0 60px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-surface) 100%);
+        }
+
+        .case-studies-header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .case-studies-header p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            gap: 0.75rem;
+        }
+
+        .case-study-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-layered);
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 1px var(--accent-primary), 
+                        0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .case-study-header {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .case-study-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: left;
+            color: var(--text-primary);
+        }
+
+        .case-study-header h2::after {
+            display: none;
+        }
+
+        .case-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .case-meta-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .case-meta-value {
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .case-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .achievements-section {
+            margin-bottom: 2rem;
+        }
+
+        .achievements-section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+
+        .achievements-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievements-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .achievements-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .pdf-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .pdf-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .case-studies-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .case-studies-header {
+                padding: 100px 0 40px;
+            }
+
+            .case-study-card {
+                padding: 2rem;
+            }
+
+            .case-study-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .case-meta {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .case-studies-header h1 {
+                font-size: 2rem;
+            }
+
+            .case-study-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../index.html" class="logo">Emerson Goya</a>
+            <ul class="nav-links">
+                <li><a href="../index.html#hero">About</a></li>
+                <li><a href="../case-studies/index.html">Cases</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#tools">Tools</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="case-studies-header">
+        <div class="container">
+            <h1>Case Studies</h1>
+            <p>Detailed explorations of design processes, research findings, and measurable outcomes from real projects.</p>
+        </div>
+    </header>
+
+    <!-- Case Studies Content -->
+    <section>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Portfolio</a>
+
+            <!-- Case Study 1: Prudential -->
+            <article class="case-study-card">
+                <div class="case-study-header">
+                    <h2>Prudential – Individual Life Insurance Platform</h2>
+                    <div class="case-meta">
+                        <div class="case-meta-item">
+                            <span class="case-meta-label">Role</span>
+                            <span class="case-meta-value">Product Designer</span>
+                        </div>
+                        <div class="case-meta-item">
+                            <span class="case-meta-label">Period</span>
+                            <span class="case-meta-value">2020–2021 (1.5 years)</span>
+                        </div>
+                        <div class="case-meta-item">
+                            <span class="case-meta-label">Location</span>
+                            <span class="case-meta-value">São Paulo, Brazil</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-description">
+                    <p>Conception and design of a new individual life insurance sales platform, integrating partners such as Itaú, XP, and BTG. Worked on quantitative and qualitative research, persona definition, journey mapping, ideation, and prototyping.</p>
+                </div>
+
+                <div class="achievements-section">
+                    <h3>Key Achievements</h3>
+                    <ul class="achievements-list">
+                        <li>Created 10 personas and complete sales journey mapping</li>
+                        <li>Led workshops with 64 participants to prioritize features</li>
+                        <li>Prototyping and testing with consultants and wholesalers</li>
+                        <li>Achieved usability improvements and reduced average policy issuance cycle to 11 days</li>
+                    </ul>
+                </div>
+
+                <a href="https://github.com/emersongoya/portfolio/raw/refs/heads/main/pdf/00-Portfolio-Prudential_eng_v30Jan2022.pdf" class="pdf-link" target="_blank" rel="noopener">
+                    View Full Case Study (PDF) →
+                </a>
+            </article>
+
+            <!-- Case Study 2: Wher -->
+            <article class="case-study-card">
+                <div class="case-study-header">
+                    <h2>Wher – Safe Navigation App for Women</h2>
+                    <div class="case-meta">
+                        <div class="case-meta-item">
+                            <span class="case-meta-label">Role</span>
+                            <span class="case-meta-value">UX/UI Designer</span>
+                        </div>
+                        <div class="case-meta-item">
+                            <span class="case-meta-label">Period</span>
+                            <span class="case-meta-value">2018–2019</span>
+                        </div>
+                        <div class="case-meta-item">
+                            <span class="case-meta-label">Location</span>
+                            <span class="case-meta-value">Turin, Italy</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-description">
+                    <p>Experience and interface design for the first app that suggests safe routes for women, based on collaborative assessments of streets and regions.</p>
+                </div>
+
+                <div class="achievements-section">
+                    <h3>Key Achievements</h3>
+                    <ul class="achievements-list">
+                        <li>Research with 178 women across 6 European cities (Milan, Turin, Catania, London, Barcelona, and Berlin)</li>
+                        <li>Created personas and empathy maps to guide design decisions</li>
+                        <li>Structured screen flows and user journeys for improved navigation clarity</li>
+                        <li>App launched with 4.7-star average rating in app stores</li>
+                    </ul>
+                </div>
+
+                <a href="https://github.com/emersongoya/portfolio/raw/refs/heads/main/pdf/01-Portfolio-App-Wher-eng.pdf" class="pdf-link" target="_blank" rel="noopener">
+                    View Full Case Study (PDF) →
+                </a>
+            </article>
+
+            <!-- Case Study 3: Revista Ferroviária -->
+            <article class="case-study-card">
+                <div class="case-study-header">
+                    <h2>Revista Ferroviária – Responsive Website</h2>
+                    <div class="case-meta">
+                        <div class="case-meta-item">
+                            <span class="case-meta-label">Role</span>
+                            <span class="case-meta-value">UX Researcher, UX/UI Designer, Frontend & Backend Developer</span>
+                        </div>
+                        <div class="case-meta-item">
+                            <span class="case-meta-label">Period</span>
+                            <span class="case-meta-value">2018</span>
+                        </div>
+                        <div class="case-meta-item">
+                            <span class="case-meta-label">Location</span>
+                            <span class="case-meta-value">São Paulo, Brazil</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-description">
+                    <p>Complete redesign of Revista Ferroviária website, modernizing the interface while preserving the essence of the previous version.</p>
+                </div>
+
+                <div class="achievements-section">
+                    <h3>Key Achievements</h3>
+                    <ul class="achievements-list">
+                        <li>Research with 459 users (subscribers, newsletter readers, and visitors)</li>
+                        <li>Identified three main personas (CEO, young engineer, and commercial manager)</li>
+                        <li>Implemented responsive design with improved navigation for desktop and mobile</li>
+                        <li>Achieved +81% increase in new user rate according to Google Analytics</li>
+                    </ul>
+                </div>
+
+                <a href="https://github.com/emersongoya/portfolio/raw/refs/heads/main/pdf/02-Portfolio-RevistaFerroviaria.pdf" class="pdf-link" target="_blank" rel="noopener">
+                    View Full Case Study (PDF) →
+                </a>
+            </article>
+
+            <!-- Case Study 4: Birra Virgilius -->
+            <article class="case-study-card">
+                <div class="case-study-header">
+                    <h2>Birra Virgilius – Craft Brewery Website</h2>
+                    <div class="case-meta">
+                        <div class="case-meta-item">
+                            <span class="case-meta-label">Role</span>
+                            <span class="case-meta-value">UI Designer, Frontend Developer, Photography & Image Production</span>
+                        </div>
+                        <div class="case-meta-item">
+                            <span class="case-meta-label">Period</span>
+                            <span class="case-meta-value">2018</span>
+                        </div>
+                        <div class="case-meta-item">
+                            <span class="case-meta-label">Location</span>
+                            <span class="case-meta-value">Mantova, Italy</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-description">
+                    <p>Creation of the institutional website for Birra Virgilius, including visual identity, typography, color palette, and photographic production of products.</p>
+                </div>
+
+                <div class="achievements-section">
+                    <h3>Key Achievements</h3>
+                    <ul class="achievements-list">
+                        <li>WordPress development with responsive design</li>
+                        <li>Photographic production and image editing for beer catalog</li>
+                        <li>Brand consolidation with "Birra da Favola" narrative, reinforcing artisanal and premium positioning</li>
+                    </ul>
+                </div>
+
+                <a href="https://github.com/emersongoya/portfolio/raw/refs/heads/main/pdf/03-Porfolio-birra-virgilius.pdf" class="pdf-link" target="_blank" rel="noopener">
+                    View Full Case Study (PDF) →
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Emerson Goya • Senior Product Designer • São Paulo, Brazil</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
