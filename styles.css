@@ -278,41 +278,6 @@ nav .container {
     font-weight: 600;
 }
 
-.experience-highlights {
-    display: grid;
-    gap: 2rem;
-    margin: 3rem 0;
-}
-
-.highlight-item {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    border-radius: 12px;
-    padding: 2rem;
-    transition: all 0.3s ease;
-}
-
-.highlight-item:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 0 1px var(--accent-primary), 
-                0 12px 24px rgba(0, 0, 0, 0.2);
-}
-
-.highlight-item h3 {
-    font-size: 1.5rem;
-    color: var(--accent-primary);
-    margin-bottom: 0.75rem;
-    font-weight: 600;
-}
-
-.highlight-item p {
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin: 0;
-}
-
 .methodology {
     background: var(--glass-bg);
     border-left: 3px solid var(--accent-primary);
