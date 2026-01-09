@@ -152,8 +152,17 @@ nav .container {
 .hero .subtitle {
     font-size: 1.5rem;
     color: var(--text-secondary);
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
     font-weight: 400;
+}
+
+/* Hero Description */
+.hero-description {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 1.5rem auto 2rem;
 }
 
 .cta-buttons {
@@ -196,6 +205,100 @@ nav .container {
 .btn-secondary:hover {
     border-color: var(--accent-primary);
     background: rgba(99, 102, 241, 0.1);
+    transform: translateY(-2px);
+}
+
+/* About Section */
+.about-section {
+    padding: 100px 0;
+    background: var(--bg-surface);
+}
+
+.about-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.about-text {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-text > p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.experience-highlights {
+    display: grid;
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.highlight-item {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 1px var(--accent-primary), 
+                0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-item h3 {
+    font-size: 1.5rem;
+    color: var(--accent-primary);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.highlight-item p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.methodology {
+    background: var(--glass-bg);
+    border-left: 3px solid var(--accent-primary);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+}
+
+.methodology strong {
+    color: var(--accent-primary);
+}
+
+.expertise-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+.expertise-tags .tag {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 0.625rem 1.25rem;
+    border-radius: 24px;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.expertise-tags .tag:hover {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
     transform: translateY(-2px);
 }
 
@@ -394,6 +497,22 @@ footer p {
     
     .hero .subtitle {
         font-size: 1.25rem;
+    }
+    
+    .about-section {
+        padding: 60px 0;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .highlight-item {
+        padding: 1.5rem;
+    }
+    
+    .expertise-tags {
+        justify-content: center;
     }
     
     section h2 {
