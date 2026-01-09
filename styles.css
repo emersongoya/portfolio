@@ -219,6 +219,25 @@ nav .container {
     margin-bottom: 3rem;
 }
 
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-content .intro {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.about-content .expertise-summary {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
 .about-text {
     max-width: 900px;
     margin: 0 auto;
@@ -229,6 +248,34 @@ nav .container {
     color: var(--text-secondary);
     line-height: 1.8;
     margin-bottom: 2rem;
+}
+
+/* Invisible container for company experiences */
+.experience-container {
+    /* NO background, NO border - completely invisible */
+    background: transparent;
+    border: none;
+    
+    /* Only padding for spacing */
+    padding: 1.5rem 0;
+    margin: 1rem 0 2rem;
+}
+
+.experience-container p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.experience-container p:last-child {
+    margin-bottom: 0;
+}
+
+/* Company name highlighting */
+.company-highlight {
+    color: var(--text-primary);
+    font-weight: 600;
 }
 
 .experience-highlights {
