@@ -1,18 +1,30 @@
-prototypes/README.md  # Interactive Prototypes
+# Teaching Materials
 
-Clickable prototypes and live demonstrations of design solutions.
+Visit the portfolio: [Teaching Materials](https://emersongoya.github.io/portfolio/teaching-materials/)
 
-## Coming Soon
+## Overview
 
-- Figma Prototype Links
-- Interactive Demos
-- HTML/CSS/JS Prototypes# Teaching Materials
+Comprehensive UX/UI design courses, frameworks, and educational resources developed through 20+ years of industry experience.
 
-UX/UI design courses, frameworks, and educational resources.
+## Professional Training Programs
 
-## Coming Soon
+### Foundation Courses
+- **UX Design Fundamentals** - Comprehensive introduction to user experience design principles
 
-- UX Design Principles Guide
-- Course Materials
-- Design Frameworks
-- Best Practices
+### Advanced Courses
+- **Design Systems Mastery** - Building and scaling enterprise design systems
+- **Enterprise UX Strategy** - Strategic approach to UX in large organizations
+
+### Specialized Training
+- **Rapid Prototyping** - High-fidelity prototype creation with Figma
+- **Agile UX Integration** - UX design within agile workflows
+- **Inclusive Design** - Creating accessible experiences for all users
+
+## Design Frameworks & Resources
+
+- **UX Research Framework** - Structured approach to user research
+- **Design Critique Guide** - Effective design review methodology
+- **Heuristic Evaluation Toolkit** - Interface evaluation checklist
+- **Component Documentation Template** - Standardized documentation format
+
+Detailed course content, video tutorials, downloadable resources, and interactive exercises are currently being prepared for public access.

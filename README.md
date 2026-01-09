@@ -1,51 +1,80 @@
-# 🎨 Emerson Goya - Product Designer Portfolio
+# Emerson Goya - Senior Product Designer Portfolio
+
+**20+ Years of Design Excellence**
+
+Visit the portfolio: [emersongoya.github.io/portfolio](https://emersongoya.github.io/portfolio)
+
+## About
+
+Senior Product Designer with over two decades of experience leading transformative projects across enterprise platforms, SaaS products, and global design systems. Specialized in bridging business objectives with user needs through strategic design thinking and hands-on interface craftsmanship.
+
+## Services
+
 I offer specialized services in:
-- 🎨 **UX/UI Design Consultation**
-- 👁️ **Educational Consulting** - UX/UI Training & Mentorship
-- 🧪 **Software Testing & QA** - UX Testing Methodology
-- 🎯 **Design Systems** - Building scalable component libraries
----
-## 🛠️ Tools & Technologies
+
+- **UX/UI Design Consultation** - Strategic design for enterprise platforms and SaaS products
+- **Design Systems Architecture** - Building scalable component libraries and design tokens
+- **Educational Consulting** - UX/UI training and mentorship programs
+- **UX Research & Testing** - Comprehensive research methodologies and usability testing
+
+## Expertise
+
 **Design & Prototyping:**
-Figma • Adobe XD • Sketch • Adobe Creative Suite • Framer
+Figma • Adobe XD • Sketch • Adobe Creative Suite • Framer • InVision
+
 **Research & Analysis:**
-User Research • Usability Testing • A/B Testing • Analytics • Data Visualization
+User Research • Usability Testing • A/B Testing • Analytics • Data Visualization • Heuristic Evaluation
+
 **Development:**
-HTML5 • CSS3 • JavaScript • PHP • MySQL • C#
+HTML5 • CSS3 • JavaScript • React • PHP • MySQL • C# • Responsive Design
+
 **Methodologies:**
-Design Thinking • Lean UX • Agile • Design Sprints • Jobs to be Done
----
-## 🔗 Connect With Me
-- **LinkedIn:** [Emerson Goya](https://linkedin.com/in/emersongoya)
-- **Email:** emersongoya@gmail.com
-- **GitHub:** [@emersongoya](https://github.com/emersongoya)
-- **Portfolio Website:** [Coming Soon]
----
-## 📁 Repository Structure
+Design Thinking • Lean UX • Agile • Design Sprints • Jobs to be Done • Design Systems
+
+## Portfolio Highlights
+
+- **20+** Years of Experience
+- **100+** Projects Delivered
+- **50+** Enterprise Clients
+- **15+** Design Systems Built
+
+## Repository Structure
+
 ```
 portfolio/
-├── case-studies/           # Detailed project case studies (web pages)
-├── design-systems/         # Component libraries & design tokens (web pages)
-├── teaching-materials/     # UX courses, frameworks & resources (web pages)
-├── index.html             # Main portfolio web page
-└── README.md              # This file
+├── case-studies/           # Detailed project case studies
+├── design-systems/         # Component libraries & design tokens
+├── teaching-materials/     # UX courses, frameworks & resources
+└── index.html             # Main portfolio page
 ```
 
-**Note:** All Markdown documentation has been converted to accessible web pages for easier viewing and navigation.
+All content is presented as professional web pages for optimal viewing and navigation.
+
+## Featured Work
+
+### Case Studies
+Detailed explorations of design processes from companies like Dell Technologies, Prudential, and various startups, showcasing measurable outcomes and business impact.
+
+### Design Systems
+Enterprise-grade component libraries and design documentation built for scalability and consistency across products.
+
+### Teaching Materials
+Comprehensive UX/UI design courses and frameworks developed through 20+ years of industry experience.
+
+## Contact
+
+- **Email:** emersongoya@gmail.com
+- **LinkedIn:** [linkedin.com/in/emersongoya](https://linkedin.com/in/emersongoya)
+- **GitHub:** [@emersongoya](https://github.com/emersongoya)
+- **Location:** São Paulo, Brazil
+
+## Open to Opportunities
+
+- Senior Product Designer Roles
+- Design Leadership & Strategy Positions
+- International Relocations (Europe & Global Markets)
+- Consulting & Mentorship Engagements
+
 ---
-## 🚀 Next Steps
-I'm currently expanding this portfolio with detailed case studies, interactive prototypes, and comprehensive design documentation.
-**Coming Soon:**
-- 📌 Complete case study documentation with before/after comparisons
-- 📌 Interactive Figma prototypes
-- 📌 Design system showcase
-- 📌 Teaching resources and frameworks
----
-## 👥 Let's Work Together
-I'm open to discussing:
-- 🎯 Senior Product Designer opportunities
-- 🎯 Design leadership & strategy roles
-- 🎯 International relocations (Europe & Global Markets)
-- 🎯 Mentorship & consulting engagements
----
-**Updated: 2025 | Made with ❤️ in Sao Paulo, Brazil**
+
+© 2025 Emerson Goya. All rights reserved.
