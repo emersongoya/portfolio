@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Systems - Emerson Goya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --surface: #1e1e1e;
+            --accent-primary: #00d4ff;
+            --accent-secondary: #8b5cf6;
+            --text-primary: #f8f8f8;
+            --text-secondary: #a0a0a0;
+            --text-tertiary: #666666;
+            --border-subtle: #2a2a2a;
+            --border-medium: #333333;
+            --glow-primary: 0 0 20px rgba(0, 212, 255, 0.3);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-primary);
+        }
+        
+        .hero {
+            padding: 160px 0 100px;
+            text-align: center;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #0a0a0a 100%);
+        }
+        
+        .hero-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-primary);
+            margin-bottom: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 32px;
+            color: var(--text-primary);
+        }
+        
+        .systems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .system-card {
+            background: var(--surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .system-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-primary);
+            box-shadow: var(--glow-primary);
+        }
+        
+        .system-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .system-card p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin-top: 24px;
+        }
+        
+        .feature-list li {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+        }
+        
+        .feature-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+        }
+        
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .principle-card {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 32px;
+        }
+        
+        .principle-card h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        
+        .principle-card p {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+        }
+        
+        .coming-soon {
+            text-align: center;
+            padding: 60px 0;
+            background: var(--surface);
+            border-radius: 12px;
+            border: 1px solid var(--border-subtle);
+            margin-top: 60px;
+        }
+        
+        .coming-soon h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .coming-soon p {
+            color: var(--text-secondary);
+        }
+        
+        footer {
+            background: var(--bg-primary);
+            padding: 40px 0;
+            border-top: 1px solid var(--border-subtle);
+            text-align: center;
+            color: var(--text-tertiary);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .system-card {
+                padding: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../" class="logo">E.G.</a>
+            <ul class="nav-links">
+                <li><a href="../#about">About</a></li>
+                <li><a href="../#services">Services</a></li>
+                <li><a href="../#portfolio">Work</a></li>
+                <li><a href="../#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="hero">
+        <div class="container">
+            <div class="hero-label">Portfolio</div>
+            <h1>Design Systems</h1>
+            <p class="hero-subtitle">Scalable component libraries, design tokens, and comprehensive pattern documentation for enterprise-grade products.</p>
+        </div>
+    </div>
+    
+    <section>
+        <div class="container">
+            <h2 class="section-title">Enterprise Design Systems</h2>
+            <div class="systems-grid">
+                <div class="system-card">
+                    <h3>Dell Design System</h3>
+                    <p>Comprehensive enterprise design system serving 20+ product teams with unified components and patterns.</p>
+                    <ul class="feature-list">
+                        <li>150+ reusable components</li>
+                        <li>Comprehensive design tokens</li>
+                        <li>Multi-platform support (Web, iOS, Android)</li>
+                        <li>Accessibility-first approach</li>
+                    </ul>
+                </div>
+                
+                <div class="system-card">
+                    <h3>Financial Services Platform</h3>
+                    <p>Design system for Prudential's enterprise portal, ensuring consistency across complex B2B workflows.</p>
+                    <ul class="feature-list">
+                        <li>Data visualization components</li>
+                        <li>Form patterns for complex workflows</li>
+                        <li>Role-based interface components</li>
+                        <li>Comprehensive documentation</li>
+                    </ul>
+                </div>
+                
+                <div class="system-card">
+                    <h3>SaaS Product Library</h3>
+                    <p>Modular component library for rapidly scaling startup products with consistent UX.</p>
+                    <ul class="feature-list">
+                        <li>Rapid prototyping kit</li>
+                        <li>Responsive grid system</li>
+                        <li>Motion and interaction patterns</li>
+                        <li>Theme customization framework</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h2 class="section-title">Design System Principles</h2>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <h4>Consistency</h4>
+                    <p>Unified patterns and components ensure coherent user experiences across all touchpoints.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <h4>Scalability</h4>
+                    <p>Flexible architecture supports growth from startup MVPs to enterprise platforms.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <h4>Accessibility</h4>
+                    <p>WCAG 2.1 AA compliance built into every component from the ground up.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <h4>Documentation</h4>
+                    <p>Comprehensive guides, code examples, and best practices for seamless adoption.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <h4>Governance</h4>
+                    <p>Clear processes for contribution, review, and evolution of the system.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <h4>Performance</h4>
+                    <p>Optimized components ensure fast load times and smooth interactions.</p>
+                </div>
+            </div>
+            
+            <div class="coming-soon">
+                <h3>Interactive Component Library</h3>
+                <p>Explore live components, design tokens, and Figma libraries. Detailed documentation and public Figma links coming soon.</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 Emerson Goya. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

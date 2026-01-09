@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching Materials - Emerson Goya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --surface: #1e1e1e;
+            --accent-primary: #00d4ff;
+            --accent-secondary: #8b5cf6;
+            --accent-emerald: #10b981;
+            --text-primary: #f8f8f8;
+            --text-secondary: #a0a0a0;
+            --text-tertiary: #666666;
+            --border-subtle: #2a2a2a;
+            --border-medium: #333333;
+            --glow-primary: 0 0 20px rgba(0, 212, 255, 0.3);
+            --glow-secondary: 0 0 20px rgba(139, 92, 246, 0.3);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-primary);
+        }
+        
+        .hero {
+            padding: 160px 0 100px;
+            text-align: center;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #0a0a0a 100%);
+        }
+        
+        .hero-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-primary);
+            margin-bottom: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 32px;
+            color: var(--text-primary);
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .course-card {
+            background: var(--surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-secondary);
+            box-shadow: var(--glow-secondary);
+        }
+        
+        .course-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-emerald);
+            margin-bottom: 12px;
+        }
+        
+        .course-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .course-card p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+        
+        .course-topics {
+            list-style: none;
+            margin-top: 24px;
+        }
+        
+        .course-topics li {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+        }
+        
+        .course-topics li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+        }
+        
+        .frameworks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .framework-card {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 32px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .framework-card:hover {
+            border-color: var(--accent-primary);
+            box-shadow: var(--glow-primary);
+        }
+        
+        .framework-card h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        
+        .framework-card p {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+        }
+        
+        .coming-soon {
+            text-align: center;
+            padding: 60px 0;
+            background: var(--surface);
+            border-radius: 12px;
+            border: 1px solid var(--border-subtle);
+            margin-top: 60px;
+        }
+        
+        .coming-soon h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .coming-soon p {
+            color: var(--text-secondary);
+        }
+        
+        footer {
+            background: var(--bg-primary);
+            padding: 40px 0;
+            border-top: 1px solid var(--border-subtle);
+            text-align: center;
+            color: var(--text-tertiary);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .course-card {
+                padding: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../" class="logo">E.G.</a>
+            <ul class="nav-links">
+                <li><a href="../#about">About</a></li>
+                <li><a href="../#services">Services</a></li>
+                <li><a href="../#portfolio">Work</a></li>
+                <li><a href="../#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="hero">
+        <div class="container">
+            <div class="hero-label">Education</div>
+            <h1>Teaching Materials</h1>
+            <p class="hero-subtitle">Comprehensive UX/UI design courses, frameworks, and educational resources developed through 20+ years of industry experience.</p>
+        </div>
+    </div>
+    
+    <section>
+        <div class="container">
+            <h2 class="section-title">Professional Training Programs</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-label">Foundation Course</div>
+                    <h3>UX Design Fundamentals</h3>
+                    <p>Comprehensive introduction to user experience design principles, methodologies, and best practices.</p>
+                    <ul class="course-topics">
+                        <li>User Research Methods</li>
+                        <li>Information Architecture</li>
+                        <li>Interaction Design Principles</li>
+                        <li>Usability Testing</li>
+                        <li>Design Thinking Process</li>
+                    </ul>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-label">Advanced Course</div>
+                    <h3>Design Systems Mastery</h3>
+                    <p>Deep dive into building, maintaining, and scaling enterprise design systems.</p>
+                    <ul class="course-topics">
+                        <li>Component Architecture</li>
+                        <li>Design Tokens Strategy</li>
+                        <li>Documentation Best Practices</li>
+                        <li>Governance Models</li>
+                        <li>Cross-Platform Consistency</li>
+                    </ul>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-label">Specialized Training</div>
+                    <h3>Enterprise UX Strategy</h3>
+                    <p>Strategic approach to UX design in large organizations and complex systems.</p>
+                    <ul class="course-topics">
+                        <li>Stakeholder Management</li>
+                        <li>UX Metrics & KPIs</li>
+                        <li>Team Leadership</li>
+                        <li>Design Operations</li>
+                        <li>Business Case Development</li>
+                    </ul>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-label">Workshop Series</div>
+                    <h3>Rapid Prototyping</h3>
+                    <p>Hands-on training for creating high-fidelity prototypes quickly and effectively.</p>
+                    <ul class="course-topics">
+                        <li>Figma Advanced Techniques</li>
+                        <li>Interactive Prototypes</li>
+                        <li>Animation & Transitions</li>
+                        <li>User Testing Prototypes</li>
+                        <li>Design Handoff</li>
+                    </ul>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-label">Methodology Training</div>
+                    <h3>Agile UX Integration</h3>
+                    <p>Integrating UX design processes within agile development workflows.</p>
+                    <ul class="course-topics">
+                        <li>Sprint Planning for UX</li>
+                        <li>Lean UX Principles</li>
+                        <li>Continuous Discovery</li>
+                        <li>Collaborative Design</li>
+                        <li>Design Sprints</li>
+                    </ul>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-label">Accessibility Focus</div>
+                    <h3>Inclusive Design</h3>
+                    <p>Creating accessible, inclusive digital experiences for all users.</p>
+                    <ul class="course-topics">
+                        <li>WCAG Compliance</li>
+                        <li>Accessible Components</li>
+                        <li>Screen Reader Testing</li>
+                        <li>Color & Contrast</li>
+                        <li>Inclusive Research</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h2 class="section-title">Design Frameworks & Resources</h2>
+            <div class="frameworks-grid">
+                <div class="framework-card">
+                    <h4>UX Research Framework</h4>
+                    <p>Structured approach to planning, conducting, and synthesizing user research across various methodologies.</p>
+                </div>
+                
+                <div class="framework-card">
+                    <h4>Design Critique Guide</h4>
+                    <p>Framework for conducting effective design reviews that foster collaboration and improve outcomes.</p>
+                </div>
+                
+                <div class="framework-card">
+                    <h4>Heuristic Evaluation Toolkit</h4>
+                    <p>Comprehensive checklist and methodology for evaluating interfaces against UX best practices.</p>
+                </div>
+                
+                <div class="framework-card">
+                    <h4>Component Documentation Template</h4>
+                    <p>Standardized template for documenting design system components with usage guidelines and examples.</p>
+                </div>
+            </div>
+            
+            <div class="coming-soon">
+                <h3>Course Materials Available Soon</h3>
+                <p>Detailed course content, video tutorials, downloadable resources, and interactive exercises are currently being prepared for public access.</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 Emerson Goya. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

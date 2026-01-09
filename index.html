@@ -3,160 +3,757 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emerson Goya - Product Designer Portfolio</title>
+    <title>Emerson Goya - Senior Product Designer | 20+ Years Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            /* Dark Mode Colors */
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-tertiary: #1a1a1a;
+            --surface: #1e1e1e;
+            --surface-elevated: #252525;
+            
+            /* Accent Colors */
+            --accent-primary: #00d4ff;
+            --accent-secondary: #8b5cf6;
+            --accent-tertiary: #ff6b9d;
+            --accent-emerald: #10b981;
+            
+            /* Text Colors */
+            --text-primary: #f8f8f8;
+            --text-secondary: #a0a0a0;
+            --text-tertiary: #666666;
+            
+            /* Borders */
+            --border-subtle: #2a2a2a;
+            --border-medium: #333333;
+            
+            /* Effects */
+            --glow-primary: 0 0 20px rgba(0, 212, 255, 0.3);
+            --glow-secondary: 0 0 20px rgba(139, 92, 246, 0.3);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.6);
+            
+            /* Spacing */
+            --section-padding: 120px 0;
+            --container-max-width: 1100px;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 900px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        
+        .nav-container {
+            max-width: var(--container-max-width);
             margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        h2 {
-            color: #34495e;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #ecf0f1;
-            padding-bottom: 8px;
-        }
-        h3 {
-            color: #7f8c8d;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-        ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-        a {
-            color: #3498db;
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
             text-decoration: none;
         }
-        a:hover {
-            text-decoration: underline;
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
         }
-        hr {
-            border: none;
-            border-top: 1px solid #ecf0f1;
-            margin: 30px 0;
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
         }
-        code {
-            background: #f8f9fa;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-family: 'Courier New', monospace;
+        
+        .nav-links a:hover {
+            color: var(--accent-primary);
         }
-        pre {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto;
-            margin: 15px 0;
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-primary);
+            transition: width 0.3s ease;
         }
-        strong {
-            color: #2c3e50;
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #0a0a0a 100%);
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+        
+        .hero-content {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 40px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-primary);
+            margin-bottom: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .btn {
+            padding: 16px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .btn-primary {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            border-color: var(--accent-primary);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow-primary);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border-color: var(--border-medium);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: var(--section-padding);
+            position: relative;
+        }
+        
+        .container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        .section-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-primary);
+            margin-bottom: 16px;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+        
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-bottom: 60px;
+        }
+        
+        /* About Section */
+        .about {
+            background: var(--bg-secondary);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .stat-card {
+            background: var(--surface);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-subtle);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .service-card {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-primary);
+            box-shadow: var(--glow-primary);
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .service-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        /* Skills Section */
+        .skills {
+            background: var(--bg-secondary);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .skill-category h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.875rem;
+        }
+        
+        .skill-list {
+            color: var(--text-secondary);
+            line-height: 2;
+        }
+        
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .portfolio-card {
+            background: var(--surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-secondary);
+            box-shadow: var(--glow-secondary);
+        }
+        
+        .portfolio-card-content {
+            padding: 32px;
+        }
+        
+        .portfolio-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        
+        .portfolio-card p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        
+        .portfolio-link {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s ease;
+        }
+        
+        .portfolio-link:hover {
+            gap: 12px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: var(--bg-secondary);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .contact-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-tertiary);
+        }
+        
+        .contact-value {
+            font-size: 1.125rem;
+            color: var(--text-primary);
+        }
+        
+        .contact-value a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-value a:hover {
+            color: var(--accent-secondary);
+        }
+        
+        .opportunities-list {
+            list-style: none;
+        }
+        
+        .opportunities-list li {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+        }
+        
+        .opportunities-list li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--bg-primary);
+            padding: 40px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+        
+        .footer-content {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 40px;
+            text-align: center;
+            color: var(--text-tertiary);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🎨 Emerson Goya - Product Designer Portfolio</h1>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">E.G.</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-label">Senior Product Designer</div>
+            <h1>Emerson Goya</h1>
+            <p class="hero-subtitle">20+ Years Crafting Digital Experiences<br>From Strategy to Execution</p>
+            <div class="hero-cta">
+                <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-label">About</div>
+            <h2 class="section-title">Two Decades of Design Excellence</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>With over 20 years of experience in product design, I've led transformative projects across enterprise platforms, SaaS products, and global design systems. My expertise spans from strategic design thinking to hands-on interface craftsmanship.</p>
+                    <p>I specialize in bridging the gap between business objectives and user needs, creating design solutions that are not only beautiful but drive measurable business impact. My work encompasses UX research, design systems architecture, and team leadership.</p>
+                    <p>Throughout my career, I've collaborated with Fortune 500 companies, tech startups, and everything in between, always maintaining a focus on creating intuitive, accessible, and delightful user experiences.</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Projects Delivered</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Enterprise Clients</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Design Systems</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-label">Services</div>
+            <h2 class="section-title">Strategic Design Solutions</h2>
+            <p class="section-description">Comprehensive design services that drive business value and elevate user experiences across digital touchpoints.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>UX/UI Design Consultation</h3>
+                    <p>Strategic design consultation for enterprise platforms and SaaS products. From user research and information architecture to high-fidelity prototypes and usability testing.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Design Systems Architecture</h3>
+                    <p>Building scalable, maintainable design systems that ensure consistency across products. Component libraries, design tokens, and comprehensive documentation.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Educational Consulting</h3>
+                    <p>UX/UI training and mentorship programs for design teams. Workshops on design thinking, best practices, and modern design methodologies.</p>
+                </div>
+                <div class="service-card">
+                    <h3>UX Research & Testing</h3>
+                    <p>Comprehensive UX research methodologies including user interviews, usability testing, A/B testing, and analytics-driven insights to inform design decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section class="skills">
+        <div class="container">
+            <div class="section-label">Expertise</div>
+            <h2 class="section-title">Tools & Methodologies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Design & Prototyping</h3>
+                    <p class="skill-list">Figma • Adobe XD • Sketch • Adobe Creative Suite • Framer • InVision</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Research & Analysis</h3>
+                    <p class="skill-list">User Research • Usability Testing • A/B Testing • Analytics • Data Visualization • Heuristic Evaluation</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Development</h3>
+                    <p class="skill-list">HTML5 • CSS3 • JavaScript • React • PHP • MySQL • C# • Responsive Design</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Methodologies</h3>
+                    <p class="skill-list">Design Thinking • Lean UX • Agile • Design Sprints • Jobs to be Done • Design Systems</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="section-label">Portfolio</div>
+            <h2 class="section-title">Featured Work</h2>
+            <p class="section-description">A selection of projects showcasing strategic design thinking, user-centered solutions, and measurable business impact.</p>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-card-content">
+                        <h3>Case Studies</h3>
+                        <p>Detailed explorations of design processes, research findings, and measurable outcomes from enterprise and startup projects.</p>
+                        <a href="case-studies/" class="portfolio-link">Explore Case Studies →</a>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-card-content">
+                        <h3>Design Systems</h3>
+                        <p>Comprehensive component libraries, design tokens, and pattern documentation for scalable product development.</p>
+                        <a href="design-systems/" class="portfolio-link">View Design Systems →</a>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-card-content">
+                        <h3>Teaching Materials</h3>
+                        <p>UX/UI design courses, frameworks, and educational resources developed for design teams and aspiring designers.</p>
+                        <a href="teaching-materials/" class="portfolio-link">Browse Resources →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-label">Contact</div>
+            <h2 class="section-title">Let's Work Together</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value"><a href="mailto:emersongoya@gmail.com">emersongoya@gmail.com</a></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">LinkedIn</div>
+                        <div class="contact-value"><a href="https://linkedin.com/in/emersongoya" target="_blank">Emerson Goya</a></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">GitHub</div>
+                        <div class="contact-value"><a href="https://github.com/emersongoya" target="_blank">@emersongoya</a></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">Location</div>
+                        <div class="contact-value">São Paulo, Brazil</div>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 24px; color: var(--text-primary);">Open to Opportunities</h3>
+                    <ul class="opportunities-list">
+                        <li>Senior Product Designer Roles</li>
+                        <li>Design Leadership & Strategy Positions</li>
+                        <li>International Relocations (Europe & Global Markets)</li>
+                        <li>Consulting & Mentorship Engagements</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 Emerson Goya. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Smooth scroll with offset for fixed nav
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
         
-        <p>I offer specialized services in:</p>
-        <ul>
-            <li>🎨 <strong>UX/UI Design Consultation</strong></li>
-            <li>👁️ <strong>Educational Consulting</strong> - UX/UI Training &amp; Mentorship</li>
-            <li>🧪 <strong>Software Testing &amp; QA</strong> - UX Testing Methodology</li>
-            <li>🎯 <strong>Design Systems</strong> - Building scalable component libraries</li>
-        </ul>
+        // Add scroll effect to nav
+        let lastScroll = 0;
+        const nav = document.querySelector('nav');
         
-        <hr>
-        
-        <h2>🛠️ Tools &amp; Technologies</h2>
-        
-        <h3>Design &amp; Prototyping:</h3>
-        <p>Figma • Adobe XD • Sketch • Adobe Creative Suite • Framer</p>
-        
-        <h3>Research &amp; Analysis:</h3>
-        <p>User Research • Usability Testing • A/B Testing • Analytics • Data Visualization</p>
-        
-        <h3>Development:</h3>
-        <p>HTML5 • CSS3 • JavaScript • PHP • MySQL • C#</p>
-        
-        <h3>Methodologies:</h3>
-        <p>Design Thinking • Lean UX • Agile • Design Sprints • Jobs to be Done</p>
-        
-        <hr>
-        
-        <h2>🔗 Connect With Me</h2>
-        <ul>
-            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/emersongoya">Emerson Goya</a></li>
-            <li><strong>Email:</strong> <a href="mailto:emersongoya@gmail.com">emersongoya@gmail.com</a></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/emersongoya">@emersongoya</a></li>
-            <li><strong>Portfolio Website:</strong> [Coming Soon]</li>
-        </ul>
-        
-        <hr>
-        
-        <h2>📁 Repository Structure</h2>
-        <pre><code>portfolio/
-├── case-studies/           # Detailed project case studies (web pages)
-├── design-systems/         # Component libraries &amp; design tokens (web pages)
-├── teaching-materials/     # UX courses, frameworks &amp; resources (web pages)
-├── index.html             # Main portfolio web page
-└── README.md              # This file</code></pre>
-        
-        <p><strong>Note:</strong> All Markdown documentation has been converted to accessible web pages for easier viewing and navigation.</p>
-        
-        <hr>
-        
-        <h2>🚀 Next Steps</h2>
-        <p>I'm currently expanding this portfolio with detailed case studies, interactive prototypes, and comprehensive design documentation.</p>
-        
-        <p><strong>Coming Soon:</strong></p>
-        <ul>
-            <li>📌 Complete case study documentation with before/after comparisons</li>
-            <li>📌 Interactive Figma prototypes</li>
-            <li>📌 Design system showcase</li>
-            <li>📌 Teaching resources and frameworks</li>
-        </ul>
-        
-        <hr>
-        
-        <h2>👥 Let's Work Together</h2>
-        <p>I'm open to discussing:</p>
-        <ul>
-            <li>🎯 Senior Product Designer opportunities</li>
-            <li>🎯 Design leadership &amp; strategy roles</li>
-            <li>🎯 International relocations (Europe &amp; Global Markets)</li>
-            <li>🎯 Mentorship &amp; consulting engagements</li>
-        </ul>
-        
-        <hr>
-        
-        <p><strong>Updated: 2025 | Made with ❤️ in Sao Paulo, Brazil</strong></p>
-    </div>
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.style.background = 'rgba(10, 10, 10, 0.95)';
+            } else {
+                nav.style.background = 'rgba(30, 30, 30, 0.6)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
 </body>
 </html>
