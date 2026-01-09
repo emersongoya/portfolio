@@ -203,10 +203,19 @@
             letter-spacing: -0.02em;
             line-height: 1.1;
             margin-bottom: 1.5rem;
+            color: var(--text-primary);
             background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+        
+        /* Fallback for browsers that don't support background-clip */
+        @supports not (background-clip: text) {
+            .hero h1 {
+                color: var(--text-primary);
+                background: none;
+            }
         }
 
         .hero .subtitle {
@@ -489,7 +498,7 @@
                 <li><a href="#tools">Tools</a></li>
                 <li><a href="#connect">Connect</a></li>
             </ul>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -499,9 +508,9 @@
 
     <div class="mobile-menu" id="mobileMenu">
         <ul>
-            <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
-            <li><a href="#tools" onclick="closeMobileMenu()">Tools</a></li>
-            <li><a href="#connect" onclick="closeMobileMenu()">Connect</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#tools">Tools</a></li>
+            <li><a href="#connect">Connect</a></li>
         </ul>
     </div>
 
@@ -675,30 +684,36 @@
     </footer>
 
     <script>
-        function toggleMobileMenu() {
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
             const menu = document.getElementById('mobileMenu');
             const toggle = document.querySelector('.mobile-menu-toggle');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
             
-            menu.classList.toggle('active');
-            toggle.classList.toggle('active');
-        }
-
-        function closeMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            const toggle = document.querySelector('.mobile-menu-toggle');
-            
-            menu.classList.remove('active');
-            toggle.classList.remove('active');
-        }
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const menu = document.getElementById('mobileMenu');
-            const toggle = document.querySelector('.mobile-menu-toggle');
-            
-            if (!menu.contains(event.target) && !toggle.contains(event.target)) {
-                closeMobileMenu();
+            function toggleMobileMenu() {
+                menu.classList.toggle('active');
+                toggle.classList.toggle('active');
             }
+            
+            function closeMobileMenu() {
+                menu.classList.remove('active');
+                toggle.classList.remove('active');
+            }
+            
+            // Toggle mobile menu on button click
+            toggle.addEventListener('click', toggleMobileMenu);
+            
+            // Close mobile menu when clicking on menu links
+            mobileMenuLinks.forEach(function(link) {
+                link.addEventListener('click', closeMobileMenu);
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+                    closeMobileMenu();
+                }
+            });
         });
     </script>
 </body>
