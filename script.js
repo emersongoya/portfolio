@@ -42,20 +42,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
     
-    // Observe all cards and sections
-    document.querySelectorAll('.card, section').forEach(element => {
+    // Observe cards in sections below the fold
+    document.querySelectorAll('.card').forEach(element => {
         observer.observe(element);
     });
     
-    // Add gradient animation to hero title
-    const heroTitle = document.querySelector('.hero h1');
-    if (heroTitle) {
-        setInterval(() => {
-            heroTitle.style.animation = 'none';
-            setTimeout(() => {
-                heroTitle.style.animation = 'fadeInUp 1s ease-out';
-            }, 10);
-        }, 5000);
-    }
+    // Hero title animation runs once on page load via CSS
     
 });

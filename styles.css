@@ -55,6 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     font-size: 4.5rem;
     font-weight: 700;
+    color: var(--text-primary);
     background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -483,7 +484,8 @@ footer p {
     }
     
     .nav-links {
-        display: none;
+        gap: 1rem;
+        font-size: 0.875rem;
     }
 }
 
