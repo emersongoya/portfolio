@@ -113,6 +113,84 @@
             width: 100%;
         }
 
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 101;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            margin: 5px 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 26, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 2rem;
+            z-index: 99;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mobile-menu.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-menu li {
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.125rem;
+            transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: block;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--text-primary);
+        }
+
         /* Hero Section */
         .hero {
             padding: 120px 0;
@@ -327,6 +405,16 @@
             border-bottom: none;
         }
 
+        /* Utility Classes */
+        .text-muted {
+            color: var(--text-secondary);
+        }
+
+        .note-text {
+            color: var(--text-secondary);
+            margin-top: 1.5rem;
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -385,6 +473,10 @@
             .nav-links {
                 display: none;
             }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
         }
     </style>
 </head>
@@ -397,8 +489,21 @@
                 <li><a href="#tools">Tools</a></li>
                 <li><a href="#connect">Connect</a></li>
             </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
+            <li><a href="#tools" onclick="closeMobileMenu()">Tools</a></li>
+            <li><a href="#connect" onclick="closeMobileMenu()">Connect</a></li>
+        </ul>
+    </div>
 
     <main>
         <section class="hero">
@@ -498,7 +603,7 @@
                     
                     <div class="connect-item">
                         <strong>Portfolio Website</strong>
-                        <span style="color: var(--text-secondary);">Coming Soon</span>
+                        <span class="text-muted">Coming Soon</span>
                     </div>
                 </div>
             </div>
@@ -522,7 +627,7 @@
 └── README.md              # Documentation</pre>
                 </div>
                 
-                <p style="color: var(--text-secondary); margin-top: 1.5rem;">All Markdown documentation has been converted to accessible web pages for easier viewing and navigation.</p>
+                <p class="note-text">All Markdown documentation has been converted to accessible web pages for easier viewing and navigation.</p>
             </div>
         </section>
 
@@ -568,5 +673,33 @@
             <p>Updated: 2025 | Sao Paulo, Brazil</p>
         </div>
     </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            menu.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            menu.classList.remove('active');
+            toggle.classList.remove('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+                closeMobileMenu();
+            }
+        });
+    </script>
 </body>
 </html>
