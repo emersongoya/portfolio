@@ -219,6 +219,25 @@ nav .container {
     margin-bottom: 3rem;
 }
 
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-content .intro {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.about-content .expertise-summary {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
 .about-text {
     max-width: 900px;
     margin: 0 auto;
@@ -231,39 +250,32 @@ nav .container {
     margin-bottom: 2rem;
 }
 
-.experience-highlights {
-    display: grid;
-    gap: 2rem;
-    margin: 3rem 0;
+/* Invisible container for company experiences */
+.experience-container {
+    /* NO background, NO border - completely invisible */
+    background: transparent;
+    border: none;
+    
+    /* Only padding for spacing */
+    padding: 1.5rem 0;
+    margin: 1rem 0 2rem;
 }
 
-.highlight-item {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    border-radius: 12px;
-    padding: 2rem;
-    transition: all 0.3s ease;
-}
-
-.highlight-item:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 0 1px var(--accent-primary), 
-                0 12px 24px rgba(0, 0, 0, 0.2);
-}
-
-.highlight-item h3 {
-    font-size: 1.5rem;
-    color: var(--accent-primary);
-    margin-bottom: 0.75rem;
-    font-weight: 600;
-}
-
-.highlight-item p {
+.experience-container p {
+    font-size: 1.125rem;
     color: var(--text-secondary);
-    line-height: 1.7;
-    margin: 0;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.experience-container p:last-child {
+    margin-bottom: 0;
+}
+
+/* Company name highlighting */
+.company-highlight {
+    color: var(--text-primary);
+    font-weight: 600;
 }
 
 .methodology {
