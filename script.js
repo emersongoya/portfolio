@@ -48,22 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
     cards.forEach(card => observer.observe(card));
 });
 
-// Optional: Add typing effect to hero subtitle (can be enabled if desired)
-function typeWriter(element, text, speed = 50) {
-    let i = 0;
-    element.textContent = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    
-    type();
-}
-
 // Mobile menu toggle (for future enhancement)
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 const navLinks = document.querySelector('.nav-links');
