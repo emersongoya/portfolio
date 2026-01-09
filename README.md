@@ -42,21 +42,32 @@ This portfolio is configured to use the custom domain **emersongoya.com**.
    - `.nojekyll` file added for proper rendering
 
 2. **DNS Configuration** (Required)
-   Configure the following DNS records with your domain registrar:
    
-   **For Apex Domain (emersongoya.com):**
-   - Type: A
-   - Name: @ (or leave blank for root domain)
-   - Value: Add these GitHub Pages IP addresses:
+   **IMPORTANTE:** Não altere os nameservers do seu domínio! Mantenha os nameservers padrão do seu registrador de domínio.
+   
+   Configure os seguintes registros DNS no painel de controle do seu registrador de domínio:
+   
+   **Para o Domínio Raiz (emersongoya.com):**
+   - Tipo: A (ou Host A)
+   - Nome/Host: @ (ou deixe em branco, ou use "emersongoya.com")
+   - Valor/Aponta para: Adicione estes 4 endereços IP do GitHub Pages:
      - 185.199.108.153
      - 185.199.109.153
      - 185.199.110.153
      - 185.199.111.153
+   - TTL: 3600 (ou deixe o padrão)
    
-   **For WWW Subdomain (www.emersongoya.com):**
-   - Type: CNAME
-   - Name: www
-   - Value: emersongoya.github.io
+   **Para o Subdomínio WWW (www.emersongoya.com):**
+   - Tipo: CNAME
+   - Nome/Host: www
+   - Valor/Aponta para: emersongoya.github.io
+   - TTL: 3600 (ou deixe o padrão)
+   
+   **Nota sobre Nameservers:**
+   - **NÃO** altere os nameservers (NS) do seu domínio
+   - Mantenha os nameservers padrão fornecidos pelo seu registrador (ex: ns1.seuregistrador.com, ns2.seuregistrador.com)
+   - Você só precisa adicionar os registros A e CNAME acima no painel DNS do registrador
+   - Os nameservers são usados para gerenciar TODO o DNS do domínio, não apenas para apontar para o GitHub Pages
    
 3. **GitHub Repository Settings** (Required)
    - Go to: `https://github.com/emersongoya/portfolio/settings/pages`
