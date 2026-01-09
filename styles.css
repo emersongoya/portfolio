@@ -255,9 +255,9 @@ nav .container {
 
 .highlight-item h3 {
     font-size: 1.5rem;
-    color: var(--accent-primary);
+    color: var(--text-primary);
     margin-bottom: 0.75rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .highlight-item p {
