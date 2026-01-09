@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
-            if (pageYOffset >= sectionTop - 100) {
+            if (window.scrollY >= sectionTop - 100) {
                 current = section.getAttribute('id');
             }
         });
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const hero = document.querySelector('.hero');
     if (hero) {
         window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
+            const scrolled = window.scrollY;
             const parallax = scrolled * 0.5;
             hero.style.transform = `translateY(${parallax}px)`;
         });
@@ -83,14 +83,4 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transition = 'all 0.3s ease';
         });
     });
-
-    // Mobile menu toggle (if needed)
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navMenu = document.querySelector('nav ul');
-    
-    if (mobileMenuToggle && navMenu) {
-        mobileMenuToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-        });
-    }
 });

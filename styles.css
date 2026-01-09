@@ -471,19 +471,10 @@ footer p {
     }
 }
 
-/* Mobile Navigation */
 @media (max-width: 640px) {
     nav ul {
-        display: none;
-    }
-    
-    .mobile-menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        color: var(--text-primary);
-        font-size: 1.5rem;
-        cursor: pointer;
+        gap: 1rem;
+        font-size: 0.85rem;
     }
 }
 
