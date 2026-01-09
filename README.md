@@ -27,7 +27,51 @@ Design Thinking • Lean UX • Agile • Design Sprints • Jobs to be Done
 - **LinkedIn:** [Emerson Goya](https://linkedin.com/in/emersongoya)
 - **Email:** emersongoya@gmail.com
 - **GitHub:** [@emersongoya](https://github.com/emersongoya)
-- **Portfolio Website:** [Coming Soon]
+- **Portfolio Website:** [emersongoya.com](https://emersongoya.com)
+
+---
+
+## Custom Domain Configuration
+
+This portfolio is configured to use the custom domain **emersongoya.com**.
+
+### Steps to Complete Domain Setup:
+
+1. **GitHub Pages Configuration** (Already Done ✓)
+   - CNAME file created with `emersongoya.com`
+   - `.nojekyll` file added for proper rendering
+
+2. **DNS Configuration** (Required)
+   Configure the following DNS records with your domain registrar:
+   
+   **For Apex Domain (emersongoya.com):**
+   - Type: A
+   - Name: @ (or leave blank for root domain)
+   - Value: Add these GitHub Pages IP addresses:
+     - 185.199.108.153
+     - 185.199.109.153
+     - 185.199.110.153
+     - 185.199.111.153
+   
+   **For WWW Subdomain (www.emersongoya.com):**
+   - Type: CNAME
+   - Name: www
+   - Value: emersongoya.github.io
+   
+3. **GitHub Repository Settings** (Required)
+   - Go to: `https://github.com/emersongoya/portfolio/settings/pages`
+   - Under "Custom domain", verify that `emersongoya.com` is entered
+   - Check "Enforce HTTPS" once DNS propagates (wait 24-48 hours)
+
+4. **DNS Propagation**
+   - DNS changes can take 24-48 hours to propagate
+   - Test with: `nslookup emersongoya.com` or `dig emersongoya.com`
+
+### Troubleshooting:
+- If the site doesn't load, verify DNS records are correct
+- Ensure GitHub Pages is enabled in repository settings
+- Check that the CNAME file contains only `emersongoya.com` (no http:// or https://)
+- Wait for DNS propagation before enabling HTTPS
 
 ---
 
