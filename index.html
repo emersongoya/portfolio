@@ -58,12 +58,20 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            background: var(--bg-secondary); /* Fallback for browsers without backdrop-filter */
             background: rgba(26, 26, 26, 0.8);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-subtle);
             padding: 1.5rem 0;
             margin-bottom: 4rem;
+        }
+        
+        /* Enhanced fallback for backdrop-filter support */
+        @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+            nav {
+                background: rgba(26, 26, 26, 0.8);
+            }
         }
 
         nav .container {
@@ -151,6 +159,7 @@
             top: 80px;
             left: 0;
             right: 0;
+            background: var(--bg-secondary); /* Fallback for browsers without backdrop-filter */
             background: rgba(26, 26, 26, 0.98);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
@@ -712,6 +721,14 @@
             document.addEventListener('click', function(event) {
                 if (!menu.contains(event.target) && !toggle.contains(event.target)) {
                     closeMobileMenu();
+                }
+            });
+            
+            // Close mobile menu with Escape key for keyboard accessibility
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && menu.classList.contains('active')) {
+                    closeMobileMenu();
+                    toggle.focus(); // Return focus to toggle button
                 }
             });
         });
