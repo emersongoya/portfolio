@@ -1,13 +1,16 @@
 // Navigation scroll effect
 const nav = document.querySelector('nav.main-nav');
+const NAV_HEIGHT = 80; // Fixed navigation height
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
-    } else {
-        nav.classList.remove('scrolled');
-    }
-});
+if (nav) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+}
 
 // Dynamic Breadcrumb Management
 const dynamicBreadcrumb = document.getElementById('dynamicBreadcrumb');
@@ -67,7 +70,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const offsetTop = target.offsetTop - 80; // Account for fixed nav
+            const offsetTop = target.offsetTop - NAV_HEIGHT; // Account for fixed nav
             window.scrollTo({
                 top: offsetTop,
                 behavior: 'smooth'
