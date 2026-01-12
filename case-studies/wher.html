@@ -9,7 +9,7 @@
     <style>
         /* Case Study Page Styles */
         .case-header {
-            padding: 120px 0 60px;
+            padding: 0 0 60px;
             background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-surface) 100%);
         }
 
@@ -19,7 +19,7 @@
             gap: 0.5rem;
             font-size: 0.875rem;
             color: var(--text-secondary);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .breadcrumb a {
@@ -226,7 +226,7 @@
 
         @media (max-width: 480px) {
             .case-header {
-                padding: 100px 0 40px;
+                padding: 0 0 40px;
             }
 
             .case-title {
@@ -256,17 +256,20 @@
         </div>
     </nav>
 
+    <!-- Breadcrumb -->
+    <div class="container" style="padding-top: 100px;">
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Case Studies</a>
+            <span class="breadcrumb-separator">›</span>
+            <span>Wher</span>
+        </nav>
+    </div>
+
     <!-- Case Header -->
     <header class="case-header">
         <div class="container">
-            <nav class="breadcrumb">
-                <a href="../index.html">Home</a>
-                <span class="breadcrumb-separator">›</span>
-                <a href="index.html">Case Studies</a>
-                <span class="breadcrumb-separator">›</span>
-                <span>Wher</span>
-            </nav>
-
             <h1 class="case-title">Wher – Safe Navigation App for Women</h1>
 
             <div class="case-metadata">
@@ -354,10 +357,10 @@
             <!-- Navigation -->
             <div class="case-navigation">
                 <a href="braskem.html" class="nav-button back">
-                    ← Case Anterior: Braskem
+                    ← Previous Case: Braskem
                 </a>
                 <a href="revista-ferroviaria.html" class="nav-button">
-                    Próximo Case: Revista Ferroviária →
+                    Next Case: Revista Ferroviária →
                 </a>
             </div>
         </div>
@@ -373,7 +376,7 @@
     <script src="auth.js"></script>
     <script src="../script.js"></script>
     <script>
-        // Proteger página
+        // Protect page
         protectPage();
     </script>
 </body>
