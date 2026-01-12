@@ -119,6 +119,55 @@ nav.main-nav .container {
     width: 100%;
 }
 
+/* Dynamic Breadcrumb */
+.dynamic-breadcrumb {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 0.75rem 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.dynamic-breadcrumb.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.dynamic-breadcrumb .container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.dynamic-breadcrumb a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.dynamic-breadcrumb a:hover {
+    color: var(--accent-hover);
+}
+
+.dynamic-breadcrumb .breadcrumb-separator {
+    color: var(--text-secondary);
+}
+
+.dynamic-breadcrumb #breadcrumbSection {
+    color: var(--text-primary);
+}
+
 /* Hero Section */
 .hero {
     min-height: 100vh;
