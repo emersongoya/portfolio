@@ -39,7 +39,7 @@
             font-size: 0.875rem;
             color: var(--text-secondary);
             margin-bottom: 2rem;
-            padding-top: 120px;
+            padding-top: 120px; /* Account for fixed navigation */
         }
 
         .breadcrumb a {
@@ -211,10 +211,10 @@
 
     <!-- Breadcrumb -->
     <div class="container">
-        <nav class="breadcrumb">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
             <a href="../index.html">Home</a>
             <span class="breadcrumb-separator">›</span>
-            <span>Case Studies</span>
+            <span aria-current="page">Case Studies</span>
         </nav>
     </div>
 
