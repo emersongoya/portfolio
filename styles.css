@@ -125,7 +125,7 @@ nav.main-nav .container {
     top: 80px;
     left: 0;
     right: 0;
-    z-index: 999;
+    z-index: 100;
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--glass-border);

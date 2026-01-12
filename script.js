@@ -13,47 +13,53 @@ window.addEventListener('scroll', () => {
 const dynamicBreadcrumb = document.getElementById('dynamicBreadcrumb');
 const breadcrumbSection = document.getElementById('breadcrumbSection');
 
-// Section name mapping
-const sectionNames = {
-    'hero': 'Home',
-    'about': 'About',
-    'skills': 'Skills',
-    'tools': 'Tools',
-    'contact': 'Contact'
-};
+// Only initialize breadcrumb if elements exist
+if (dynamicBreadcrumb && breadcrumbSection) {
+    // Section name mapping
+    const sectionNames = {
+        'hero': 'Home',
+        'about': 'About',
+        'skills': 'Skills',
+        'tools': 'Tools',
+        'contact': 'Contact'
+    };
 
-// Track active section and update breadcrumb
-function updateBreadcrumb() {
-    const sections = document.querySelectorAll('section[id]');
-    const scrollPosition = window.scrollY + 150; // Offset for fixed nav
-    
-    let currentSection = 'hero';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
+    // Navigation offset constant
+    const NAV_OFFSET = 150;
+
+    // Track active section and update breadcrumb
+    function updateBreadcrumb() {
+        const sections = document.querySelectorAll('section[id]');
+        const scrollPosition = window.scrollY + NAV_OFFSET;
         
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            currentSection = section.id;
+        let currentSection = 'hero';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                currentSection = section.id;
+            }
+        });
+        
+        // Update breadcrumb text
+        const sectionName = sectionNames[currentSection] || 'Home';
+        breadcrumbSection.textContent = sectionName;
+        
+        // Show breadcrumb only if not on hero section
+        if (currentSection === 'hero') {
+            dynamicBreadcrumb.classList.remove('visible');
+        } else {
+            dynamicBreadcrumb.classList.add('visible');
         }
-    });
-    
-    // Update breadcrumb text
-    const sectionName = sectionNames[currentSection] || 'Home';
-    breadcrumbSection.textContent = sectionName;
-    
-    // Show breadcrumb only if not on hero section
-    if (currentSection === 'hero') {
-        dynamicBreadcrumb.classList.remove('visible');
-    } else {
-        dynamicBreadcrumb.classList.add('visible');
     }
-}
 
-// Update breadcrumb on scroll
-window.addEventListener('scroll', updateBreadcrumb);
-// Update on page load
-window.addEventListener('load', updateBreadcrumb);
+    // Update breadcrumb on scroll
+    window.addEventListener('scroll', updateBreadcrumb);
+    // Update on page load
+    window.addEventListener('load', updateBreadcrumb);
+}
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
