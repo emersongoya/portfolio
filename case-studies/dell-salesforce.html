@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dell Salesforce Case Study - Emerson Goya</title>
+    <meta name="description" content="Dell Salesforce SMB sales rep journey optimization case study by Emerson Goya.">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Case Study Page Styles */
+        .case-header {
+            padding: 120px 0 60px;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-surface) 100%);
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-hover);
+        }
+
+        .breadcrumb-separator {
+            color: var(--text-secondary);
+        }
+
+        .case-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .case-metadata {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .metadata-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .metadata-value {
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .case-content {
+            padding: 60px 0;
+        }
+
+        .content-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-layered);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+        }
+
+        .section-icon {
+            font-size: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .impact-quote {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.05));
+            border-left: 4px solid var(--accent-primary);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .subsection {
+            margin: 2rem 0;
+        }
+
+        .subsection-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .subsection-content {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .subsection-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 1rem 0;
+        }
+
+        .subsection-content li {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            position: relative;
+        }
+
+        .subsection-content li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .highlight-box {
+            background: rgba(99, 102, 241, 0.05);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box strong {
+            color: var(--accent-primary);
+        }
+
+        .case-navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            border-color: var(--accent-primary);
+            background: rgba(99, 102, 241, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-button.back {
+            margin-right: auto;
+        }
+
+        /* Mobile Accordion */
+        @media (max-width: 768px) {
+            .case-title {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .impact-quote {
+                font-size: 1rem;
+                padding: 1rem 1.25rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metric-value {
+                font-size: 2rem;
+            }
+
+            .case-navigation {
+                flex-direction: column;
+            }
+
+            .nav-button.back {
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .case-header {
+                padding: 100px 0 40px;
+            }
+
+            .case-title {
+                font-size: 1.75rem;
+            }
+
+            .case-metadata {
+                padding: 1.5rem;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../index.html" class="logo">Emerson Goya</a>
+            <ul class="nav-links">
+                <li><a href="../index.html#hero">About</a></li>
+                <li><a href="../case-studies/index.html">Cases</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#tools">Tools</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <!-- Case Header -->
+    <header class="case-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="breadcrumb-separator">›</span>
+                <a href="index.html">Case Studies</a>
+                <span class="breadcrumb-separator">›</span>
+                <span>Dell Salesforce</span>
+            </nav>
+
+            <h1 class="case-title">Dell Salesforce – SMB Sales Rep Journey Optimization</h1>
+
+            <div class="case-metadata">
+                <div class="metadata-item">
+                    <span class="metadata-label">Company</span>
+                    <span class="metadata-value">Dell Technologies</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Role</span>
+                    <span class="metadata-value">Senior Product Designer (Salesforce)</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Period</span>
+                    <span class="metadata-value">2022–2024</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Location</span>
+                    <span class="metadata-value">Remote / São Paulo</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Case Content -->
+    <section class="case-content">
+        <div class="container">
+            
+            <!-- 🎯 Topo 6s Section -->
+            <div class="content-section">
+                <div class="section-header">
+                    <span class="section-icon">🎯</span>
+                    <div>
+                        <h2 class="section-title">Impacto Imediato (6 segundos)</h2>
+                        <p class="section-subtitle">O resultado mais importante que você precisa saber</p>
+                    </div>
+                </div>
+
+                <div class="impact-quote">
+                    Otimizei journeys Salesforce para sales reps SMB na Dell; cortei 35% fricção (cliques múltiplos), +36% adoção (22→58%), deals 25% mais rápidos.
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">-35%</div>
+                        <div class="metric-label">Redução de Fricção Operacional</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">+36pp</div>
+                        <div class="metric-label">Aumento na Adoção (22→58%)</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">+25%</div>
+                        <div class="metric-label">Velocidade de Deals</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ⏱️ 60s Section -->
+            <div class="content-section">
+                <div class="section-header">
+                    <span class="section-icon">⏱️</span>
+                    <div>
+                        <h2 class="section-title">Conflito e Decisão (60 segundos)</h2>
+                        <p class="section-subtitle">O problema, as opções consideradas e a escolha estratégica</p>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">⚠️ Conflito</h3>
+                    <div class="subsection-content">
+                        <p>Sales reps de Small and Medium Business (SMB) na Dell perdiam tempo precioso alternando entre múltiplas ferramentas internas e externas para acessar informações críticas durante o processo de vendas. O fluxo fragmentado resultava em:</p>
+                        <ul>
+                            <li>Excesso de cliques e navegação complexa entre sistemas</li>
+                            <li>Baixa taxa de adoção inicial (apenas 22%)</li>
+                            <li>Risco alto de churn de ferramentas críticas</li>
+                            <li>Perda de tempo em tarefas operacionais vs. venda consultiva</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">🤔 Opções Consideradas</h3>
+                    <div class="subsection-content">
+                        <div class="highlight-box">
+                            <p><strong>Opção A:</strong> Implementar automações complexas e integrações profundas</p>
+                            <p style="margin-top: 0.5rem; font-size: 0.875rem;">❌ Descartada: Alto custo de engenharia, timeline longo (6+ meses), risco técnico elevado</p>
+                        </div>
+
+                        <div class="highlight-box">
+                            <p><strong>Opção B:</strong> Programa extensivo de treinamento e mudança de cultura</p>
+                            <p style="margin-top: 0.5rem; font-size: 0.875rem;">❌ Descartada: Adoção historicamente lenta, baixo engajamento, resultados imprevisíveis</p>
+                        </div>
+
+                        <div class="highlight-box">
+                            <p><strong>Opção C (Escolhida):</strong> Redesign focado dos flows principais + automações mínimas viáveis</p>
+                            <p style="margin-top: 0.5rem; font-size: 0.875rem;">✅ Selecionada: Entrega rápida (3 meses), risco controlado, foco em tarefas de maior impacto</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">⚖️ Trade-off Consciente</h3>
+                    <div class="subsection-content">
+                        <p><strong>Sacrifiquei:</strong> Funcionalidades "nice-to-have" e features secundárias que beneficiariam casos de uso menos frequentes.</p>
+                        <p style="margin-top: 1rem;"><strong>Para ganhar:</strong> Velocidade crítica nas tarefas principais (consulta de produtos, criação de quotes, gestão de pipeline) que representavam 80% do uso diário dos reps.</p>
+                        <p style="margin-top: 1rem;"><strong>Raciocínio:</strong> Em ambiente de vendas SMB, velocidade é conversão. Cada segundo economizado no fluxo operacional é um segundo a mais para venda consultiva e relacionamento com o cliente.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 📊 6min Section -->
+            <div class="content-section">
+                <div class="section-header">
+                    <span class="section-icon">📊</span>
+                    <div>
+                        <h2 class="section-title">Evidências e Resultados (6 minutos)</h2>
+                        <p class="section-subtitle">Dados, metodologia e aprendizados</p>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">📈 Proxy de Sucesso</h3>
+                    <div class="subsection-content">
+                        <p>Medimos sucesso através da <strong>redução comprovada de 35% nos cliques necessários</strong> para completar as tarefas críticas (product search → quote creation → deal update). Tracking detalhado via Salesforce Analytics demonstrou que:</p>
+                        <ul>
+                            <li>Tempo médio de criação de quote caiu de 8min para 5min</li>
+                            <li>Navegação entre tools externas reduziu em 40%</li>
+                            <li>Clicks por sessão diminuíram de média de 42 para 27</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">🛡️ Mitigação de Riscos</h3>
+                    <div class="subsection-content">
+                        <p>Para suavizar a transição e reduzir resistência à mudança, implementamos:</p>
+                        <ul>
+                            <li><strong>Quick Guides:</strong> Documentação visual de 1 página para cada flow redesenhado</li>
+                            <li><strong>Office Hours:</strong> Sessões de suporte ao vivo durante primeiras 2 semanas</li>
+                            <li><strong>Champions Program:</strong> 5 sales reps early adopters como embaixadores internos</li>
+                            <li><strong>Rollout Gradual:</strong> Fase piloto com 20% dos reps antes de full deployment</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">✅ Resultados Mensuráveis</h3>
+                    <div class="subsection-content">
+                        <div class="metrics-grid">
+                            <div class="metric-card">
+                                <div class="metric-value">22→58%</div>
+                                <div class="metric-label">Taxa de Adoção (+36 pontos percentuais)</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">+25%</div>
+                                <div class="metric-label">Aceleração de Deals</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">-35%</div>
+                                <div class="metric-label">Redução de Fricção Operacional</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">-40%</div>
+                                <div class="metric-label">Redução de Navegação Externa</div>
+                            </div>
+                        </div>
+
+                        <p style="margin-top: 2rem;">Feedback qualitativo via NPS interno: <strong>+42 pontos</strong> (de 18 para 60) em satisfação com ferramentas Salesforce.</p>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">⚠️ O que piorou</h3>
+                    <div class="subsection-content">
+                        <p>Durante o período de transição (primeiras 2 semanas), tivemos:</p>
+                        <ul>
+                            <li><strong>+5 dias de suporte intensivo:</strong> Volume de tickets 3x maior que o normal</li>
+                            <li><strong>Curva de aprendizado:</strong> Reps mais antigos levaram 20% mais tempo para adaptação</li>
+                            <li><strong>Features removidas:</strong> 3 funcionalidades legacy tiveram que ser descontinuadas, causando reclamações pontuais de 8% dos usuários</li>
+                        </ul>
+                        <p style="margin-top: 1rem;"><em>Aprendizado:</em> O suporte extra foi previsto e orçado. As features removidas eram usadas por <5% dos reps, confirmando a decisão de priorizar o core.</p>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">🔮 Faria diferente hoje</h3>
+                    <div class="subsection-content">
+                        <p>Com o avanço de AI generativa, implementaria:</p>
+                        <ul>
+                            <li><strong>Personalização dinâmica de journeys:</strong> AI para adaptar interface baseada no perfil e comportamento de cada rep (hunter vs. farmer, tech-savvy vs. tradicional)</li>
+                            <li><strong>Predictive search:</strong> Sugestões contextuais de produtos baseadas no histórico do cliente e conversas anteriores</li>
+                            <li><strong>Auto-summary de deals:</strong> Geração automática de resumos executivos para handoffs e management reviews</li>
+                        </ul>
+                        <p style="margin-top: 1rem;"><strong>Impacto estimado:</strong> Adicional de 15-20% em ganho de produtividade com essas capabilities de AI.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="case-navigation">
+                <a href="index.html" class="nav-button back">
+                    ← Voltar para Cases
+                </a>
+                <a href="prudential.html" class="nav-button">
+                    Próximo Case: Prudential →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Emerson Goya • Senior Product Designer</p>
+        </div>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="../script.js"></script>
+    <script>
+        // Proteger página
+        protectPage();
+    </script>
+</body>
+</html>

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prudential Case Study - Emerson Goya</title>
+    <meta name="description" content="Prudential B2B insurance platform design case study by Emerson Goya.">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Case Study Page Styles */
+        .case-header {
+            padding: 120px 0 60px;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-surface) 100%);
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-hover);
+        }
+
+        .breadcrumb-separator {
+            color: var(--text-secondary);
+        }
+
+        .case-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .case-metadata {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .metadata-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .metadata-value {
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .case-content {
+            padding: 60px 0;
+        }
+
+        .content-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-layered);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+        }
+
+        .section-icon {
+            font-size: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .impact-quote {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.05));
+            border-left: 4px solid var(--accent-primary);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .subsection {
+            margin: 2rem 0;
+        }
+
+        .subsection-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .subsection-content {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .subsection-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 1rem 0;
+        }
+
+        .subsection-content li {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            position: relative;
+        }
+
+        .subsection-content li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .highlight-box {
+            background: rgba(99, 102, 241, 0.05);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box strong {
+            color: var(--accent-primary);
+        }
+
+        .case-navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            border-color: var(--accent-primary);
+            background: rgba(99, 102, 241, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-button.back {
+            margin-right: auto;
+        }
+
+        /* Mobile Accordion */
+        @media (max-width: 768px) {
+            .case-title {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .impact-quote {
+                font-size: 1rem;
+                padding: 1rem 1.25rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metric-value {
+                font-size: 2rem;
+            }
+
+            .case-navigation {
+                flex-direction: column;
+            }
+
+            .nav-button.back {
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .case-header {
+                padding: 100px 0 40px;
+            }
+
+            .case-title {
+                font-size: 1.75rem;
+            }
+
+            .case-metadata {
+                padding: 1.5rem;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../index.html" class="logo">Emerson Goya</a>
+            <ul class="nav-links">
+                <li><a href="../index.html#hero">About</a></li>
+                <li><a href="../case-studies/index.html">Cases</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#tools">Tools</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <!-- Case Header -->
+    <header class="case-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="breadcrumb-separator">›</span>
+                <a href="index.html">Case Studies</a>
+                <span class="breadcrumb-separator">›</span>
+                <span>Prudential</span>
+            </nav>
+
+            <h1 class="case-title">Prudential – B2B Insurance Platform</h1>
+
+            <div class="case-metadata">
+                <div class="metadata-item">
+                    <span class="metadata-label">Company</span>
+                    <span class="metadata-value">Prudential do Brasil</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Role</span>
+                    <span class="metadata-value">Product Designer</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Period</span>
+                    <span class="metadata-value">2020–2021 (1.5 anos)</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Location</span>
+                    <span class="metadata-value">São Paulo, Brazil</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Case Content -->
+    <section class="case-content">
+        <div class="container">
+            
+            <!-- 🎯 Topo 6s Section -->
+            <div class="content-section">
+                <div class="section-header">
+                    <span class="section-icon">🎯</span>
+                    <div>
+                        <h2 class="section-title">Impacto Imediato (6 segundos)</h2>
+                        <p class="section-subtitle">O resultado mais importante que você precisa saber</p>
+                    </div>
+                </div>
+
+                <div class="impact-quote">
+                    Padronizei UX com Itaú/XP/BTG; fixei 15% perdas por inconsistência, +18% lucratividade via Design System compartilhado.
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">-15%</div>
+                        <div class="metric-label">Perdas por Inconsistência Eliminadas</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">+18%</div>
+                        <div class="metric-label">Aumento em Lucratividade</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">10</div>
+                        <div class="metric-label">Personas Criadas</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">11 dias</div>
+                        <div class="metric-label">Ciclo Médio de Emissão</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ⏱️ 60s Section -->
+            <div class="content-section">
+                <div class="section-header">
+                    <span class="section-icon">⏱️</span>
+                    <div>
+                        <h2 class="section-title">Conflito e Decisão (60 segundos)</h2>
+                        <p class="section-subtitle">O problema, as opções consideradas e a escolha estratégica</p>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">⚠️ Conflito</h3>
+                    <div class="subsection-content">
+                        <p>A Prudential enfrentava journeys fragmentados e inconsistentes na venda de seguros individuais através de parceiros bancários (Itaú, XP, BTG). A falta de padronização UX estava causando:</p>
+                        <ul>
+                            <li>15% de perdas identificadas devido a inconsistências nos fluxos de venda</li>
+                            <li>Experiências diferentes para o mesmo produto em parceiros distintos</li>
+                            <li>Baixa escalabilidade - cada novo parceiro exigia desenvolvimento custom</li>
+                            <li>Dificuldade em medir e otimizar conversão de forma unificada</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">🤔 Opções Consideradas</h3>
+                    <div class="subsection-content">
+                        <div class="highlight-box">
+                            <p><strong>Opção A:</strong> Customização profunda por parceiro bancário</p>
+                            <p style="margin-top: 0.5rem; font-size: 0.875rem;">❌ Descartada: Baixíssima escalabilidade, custo de manutenção insustentável, impossível de padronizar métricas</p>
+                        </div>
+
+                        <div class="highlight-box">
+                            <p><strong>Opção B:</strong> Template genérico único sem personalização</p>
+                            <p style="margin-top: 0.5rem; font-size: 0.875rem;">❌ Descartada: Resistência dos parceiros, perda de identidade de marca, baixa adesão esperada</p>
+                        </div>
+
+                        <div class="highlight-box">
+                            <p><strong>Opção C (Escolhida):</strong> Design System compartilhado e flexível com componentes modulares</p>
+                            <p style="margin-top: 0.5rem; font-size: 0.875rem;">✅ Selecionada: Equilíbrio entre consistência e flexibilidade, escalável, componentes reutilizáveis</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">⚖️ Trade-off Consciente</h3>
+                    <div class="subsection-content">
+                        <p><strong>Sacrifiquei:</strong> Customizações extremas e deep personalization que alguns parceiros desejavam para suas experiências específicas.</p>
+                        <p style="margin-top: 1rem;"><strong>Para ganhar:</strong> Experiência unificada e consistente cross-partners, escalabilidade para novos parceiros, e capacidade de medir/otimizar de forma centralizada.</p>
+                        <p style="margin-top: 1rem;"><strong>Raciocínio:</strong> Em ecossistema B2B com múltiplos parceiros, consistência é trust. Clientes finais ganham confiança quando a experiência é previsível, independentemente do canal de entrada.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 📊 6min Section -->
+            <div class="content-section">
+                <div class="section-header">
+                    <span class="section-icon">📊</span>
+                    <div>
+                        <h2 class="section-title">Evidências e Resultados (6 minutos)</h2>
+                        <p class="section-subtitle">Dados, metodologia e aprendizados</p>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">📈 Proxy de Sucesso</h3>
+                    <div class="subsection-content">
+                        <p>O mapeamento inicial identificou <strong>15% de perdas atribuídas a inconsistências</strong> nos journeys entre parceiros. Após implementação do Design System compartilhado:</p>
+                        <ul>
+                            <li>Redução para <2% de perdas por fricção UX</li>
+                            <li>Tempo de onboarding de novos parceiros caiu de 4 meses para 6 semanas</li>
+                            <li>Ciclo médio de emissão de apólice reduzido para 11 dias</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">🛡️ Mitigação de Riscos</h3>
+                    <div class="subsection-content">
+                        <p>Para garantir adoção do Design System por todos os stakeholders:</p>
+                        <ul>
+                            <li><strong>Guidelines Code-Ready:</strong> Documentação técnica completa com componentes prontos para implementação</li>
+                            <li><strong>Workshops Colaborativos:</strong> 64 participantes (designers, devs, product owners) em sessões de priorização</li>
+                            <li><strong>Pilot com Itaú:</strong> Validação inicial com parceiro principal antes de rollout completo</li>
+                            <li><strong>Flexibilidade Controlada:</strong> Tokens de design customizáveis (cores, logos) mantendo estrutura fixa</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">✅ Resultados Mensuráveis</h3>
+                    <div class="subsection-content">
+                        <div class="metrics-grid">
+                            <div class="metric-card">
+                                <div class="metric-value">+18%</div>
+                                <div class="metric-label">Aumento em Lucratividade</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">10</div>
+                                <div class="metric-label">Personas Completas Criadas</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">64</div>
+                                <div class="metric-label">Participantes em Workshops</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">11 dias</div>
+                                <div class="metric-label">Ciclo Médio de Emissão</div>
+                            </div>
+                        </div>
+
+                        <p style="margin-top: 2rem;"><strong>Entregáveis:</strong></p>
+                        <ul>
+                            <li>Complete sales journey mapping para 10 personas</li>
+                            <li>Design System com 45+ componentes reutilizáveis</li>
+                            <li>Protótipos testados com consultores e corretores</li>
+                            <li>Documentação técnica code-ready para developers</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">⚠️ O que piorou</h3>
+                    <div class="subsection-content">
+                        <p>Durante a implementação do Design System:</p>
+                        <ul>
+                            <li><strong>Curva de aprendizado para devs:</strong> Onboarding inicial +2 semanas para equipes técnicas aprenderem o sistema</li>
+                            <li><strong>Resistência inicial:</strong> Alguns parceiros queriam mais customização do que o sistema permitia</li>
+                            <li><strong>Refactoring necessário:</strong> Código legacy de 2 parceiros precisou ser reescrito (custo não previsto inicialmente)</li>
+                        </ul>
+                        <p style="margin-top: 1rem;"><em>Aprendizado:</em> Investimento em documentação e training upfront teria reduzido friction no onboarding técnico.</p>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">🔮 Faria diferente hoje</h3>
+                    <div class="subsection-content">
+                        <p>Com tecnologias atuais de GenAI, implementaria:</p>
+                        <ul>
+                            <li><strong>Variants automáticas por parceiro:</strong> AI para gerar variações de componentes respeitando brand guidelines de cada banco</li>
+                            <li><strong>Geração inteligente de documentação:</strong> Auto-update de guidelines baseada em mudanças de código</li>
+                            <li><strong>Teste automatizado de consistência:</strong> AI para validar que implementações seguem o Design System</li>
+                            <li><strong>Personalização dinâmica:</strong> Adaptar journey baseado em perfil do cliente final (idade, risco, produto desejado)</li>
+                        </ul>
+                        <p style="margin-top: 1rem;"><strong>Impacto estimado:</strong> Redução de 50% no tempo de onboarding de novos parceiros + aumento de 10-15% em conversão via personalização.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="case-navigation">
+                <a href="dell-salesforce.html" class="nav-button back">
+                    ← Case Anterior: Dell Salesforce
+                </a>
+                <a href="braskem.html" class="nav-button">
+                    Próximo Case: Braskem →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Emerson Goya • Senior Product Designer</p>
+        </div>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="../script.js"></script>
+    <script>
+        // Proteger página
+        protectPage();
+    </script>
+</body>
+</html>
