@@ -53,7 +53,7 @@ body {
 }
 
 /* Navigation Bar */
-nav {
+.main-nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -65,12 +65,12 @@ nav {
     transition: all 0.3s ease;
 }
 
-nav.scrolled {
+.main-nav.scrolled {
     background: var(--glass-bg);
     box-shadow: var(--shadow-sm);
 }
 
-nav .container {
+.main-nav .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -568,7 +568,7 @@ footer p {
         padding: 1.5rem;
     }
     
-    nav .container {
+    .main-nav .container {
         flex-direction: row;
         gap: 0;
     }
@@ -596,7 +596,7 @@ footer p {
         display: block;
     }
     
-    nav .container {
+    .main-nav .container {
         position: relative;
     }
     
