@@ -9,7 +9,7 @@
     <style>
         /* Case Study Page Styles */
         .case-header {
-            padding: 120px 0 60px;
+            padding: 0 0 60px;
             background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-surface) 100%);
         }
 
@@ -19,7 +19,7 @@
             gap: 0.5rem;
             font-size: 0.875rem;
             color: var(--text-secondary);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .breadcrumb a {
@@ -287,7 +287,7 @@
 
         @media (max-width: 480px) {
             .case-header {
-                padding: 100px 0 40px;
+                padding: 0 0 40px;
             }
 
             .case-title {
@@ -317,17 +317,20 @@
         </div>
     </nav>
 
+    <!-- Breadcrumb -->
+    <div class="container" style="padding-top: 100px;">
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Case Studies</a>
+            <span class="breadcrumb-separator">›</span>
+            <span>Prudential</span>
+        </nav>
+    </div>
+
     <!-- Case Header -->
     <header class="case-header">
         <div class="container">
-            <nav class="breadcrumb">
-                <a href="../index.html">Home</a>
-                <span class="breadcrumb-separator">›</span>
-                <a href="index.html">Case Studies</a>
-                <span class="breadcrumb-separator">›</span>
-                <span>Prudential</span>
-            </nav>
-
             <h1 class="case-title">Prudential – B2B Insurance Platform</h1>
 
             <div class="case-metadata">
@@ -360,31 +363,31 @@
                 <div class="section-header">
                     <span class="section-icon">🎯</span>
                     <div>
-                        <h2 class="section-title">Impacto Imediato (6 segundos)</h2>
-                        <p class="section-subtitle">O resultado mais importante que você precisa saber</p>
+                        <h2 class="section-title">Immediate Impact (6 seconds)</h2>
+                        <p class="section-subtitle">The most important result you need to know</p>
                     </div>
                 </div>
 
                 <div class="impact-quote">
-                    Padronizei UX com Itaú/XP/BTG; fixei 15% perdas por inconsistência, +18% lucratividade via Design System compartilhado.
+                    Standardized UX with Itaú/XP/BTG; fixed 15% losses due to inconsistency, +18% profitability via shared Design System.
                 </div>
 
                 <div class="metrics-grid">
                     <div class="metric-card">
                         <div class="metric-value">-15%</div>
-                        <div class="metric-label">Perdas por Inconsistência Eliminadas</div>
+                        <div class="metric-label">Losses Due to Inconsistency Eliminated</div>
                     </div>
                     <div class="metric-card">
                         <div class="metric-value">+18%</div>
-                        <div class="metric-label">Aumento em Lucratividade</div>
+                        <div class="metric-label">Profitability Increase</div>
                     </div>
                     <div class="metric-card">
                         <div class="metric-value">10</div>
-                        <div class="metric-label">Personas Criadas</div>
+                        <div class="metric-label">Personas Created</div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value">11 dias</div>
-                        <div class="metric-label">Ciclo Médio de Emissão</div>
+                        <div class="metric-value">11 days</div>
+                        <div class="metric-label">Average Issuance Cycle</div>
                     </div>
                 </div>
             </div>
@@ -394,50 +397,50 @@
                 <div class="section-header">
                     <span class="section-icon">⏱️</span>
                     <div>
-                        <h2 class="section-title">Conflito e Decisão (60 segundos)</h2>
-                        <p class="section-subtitle">O problema, as opções consideradas e a escolha estratégica</p>
+                        <h2 class="section-title">Conflict and Decision (60 seconds)</h2>
+                        <p class="section-subtitle">The problem, options considered, and strategic choice</p>
                     </div>
                 </div>
 
                 <div class="subsection">
-                    <h3 class="subsection-title">⚠️ Conflito</h3>
+                    <h3 class="subsection-title">⚠️ Conflict</h3>
                     <div class="subsection-content">
-                        <p>A Prudential enfrentava journeys fragmentados e inconsistentes na venda de seguros individuais através de parceiros bancários (Itaú, XP, BTG). A falta de padronização UX estava causando:</p>
+                        <p>Prudential faced fragmented and inconsistent journeys in selling individual insurance through bank partners (Itaú, XP, BTG). The lack of UX standardization was causing:</p>
                         <ul>
-                            <li>15% de perdas identificadas devido a inconsistências nos fluxos de venda</li>
-                            <li>Experiências diferentes para o mesmo produto em parceiros distintos</li>
-                            <li>Baixa escalabilidade - cada novo parceiro exigia desenvolvimento custom</li>
-                            <li>Dificuldade em medir e otimizar conversão de forma unificada</li>
+                            <li>15% of identified losses due to inconsistencies in sales flows</li>
+                            <li>Different experiences for the same product across different partners</li>
+                            <li>Low scalability - each new partner required custom development</li>
+                            <li>Difficulty in measuring and optimizing conversion in a unified way</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="subsection">
-                    <h3 class="subsection-title">🤔 Opções Consideradas</h3>
+                    <h3 class="subsection-title">🤔 Options Considered</h3>
                     <div class="subsection-content">
                         <div class="highlight-box">
-                            <p><strong>Opção A:</strong> Customização profunda por parceiro bancário</p>
-                            <p style="margin-top: 0.5rem; font-size: 0.875rem;">❌ Descartada: Baixíssima escalabilidade, custo de manutenção insustentável, impossível de padronizar métricas</p>
+                            <p><strong>Option A:</strong> Deep customization per bank partner</p>
+                            <p style="margin-top: 0.5rem; font-size: 0.875rem;">❌ Discarded: Very low scalability, unsustainable maintenance cost, impossible to standardize metrics</p>
                         </div>
 
                         <div class="highlight-box">
-                            <p><strong>Opção B:</strong> Template genérico único sem personalização</p>
-                            <p style="margin-top: 0.5rem; font-size: 0.875rem;">❌ Descartada: Resistência dos parceiros, perda de identidade de marca, baixa adesão esperada</p>
+                            <p><strong>Option B:</strong> Single generic template without personalization</p>
+                            <p style="margin-top: 0.5rem; font-size: 0.875rem;">❌ Discarded: Partner resistance, loss of brand identity, low expected adoption</p>
                         </div>
 
                         <div class="highlight-box">
-                            <p><strong>Opção C (Escolhida):</strong> Design System compartilhado e flexível com componentes modulares</p>
-                            <p style="margin-top: 0.5rem; font-size: 0.875rem;">✅ Selecionada: Equilíbrio entre consistência e flexibilidade, escalável, componentes reutilizáveis</p>
+                            <p><strong>Option C (Chosen):</strong> Shared and flexible Design System with modular components</p>
+                            <p style="margin-top: 0.5rem; font-size: 0.875rem;">✅ Selected: Balance between consistency and flexibility, scalable, reusable components</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="subsection">
-                    <h3 class="subsection-title">⚖️ Trade-off Consciente</h3>
+                    <h3 class="subsection-title">⚖️ Conscious Trade-off</h3>
                     <div class="subsection-content">
-                        <p><strong>Sacrifiquei:</strong> Customizações extremas e deep personalization que alguns parceiros desejavam para suas experiências específicas.</p>
-                        <p style="margin-top: 1rem;"><strong>Para ganhar:</strong> Experiência unificada e consistente cross-partners, escalabilidade para novos parceiros, e capacidade de medir/otimizar de forma centralizada.</p>
-                        <p style="margin-top: 1rem;"><strong>Raciocínio:</strong> Em ecossistema B2B com múltiplos parceiros, consistência é trust. Clientes finais ganham confiança quando a experiência é previsível, independentemente do canal de entrada.</p>
+                        <p><strong>Sacrificed:</strong> Extreme customizations and deep personalization that some partners wanted for their specific experiences.</p>
+                        <p style="margin-top: 1rem;"><strong>To gain:</strong> Unified and consistent cross-partner experience, scalability for new partners, and ability to measure/optimize centrally.</p>
+                        <p style="margin-top: 1rem;"><strong>Reasoning:</strong> In a B2B ecosystem with multiple partners, consistency is trust. End customers gain confidence when the experience is predictable, regardless of the entry channel.</p>
                     </div>
                 </div>
             </div>
@@ -447,92 +450,92 @@
                 <div class="section-header">
                     <span class="section-icon">📊</span>
                     <div>
-                        <h2 class="section-title">Evidências e Resultados (6 minutos)</h2>
-                        <p class="section-subtitle">Dados, metodologia e aprendizados</p>
+                        <h2 class="section-title">Evidence and Results (6 minutes)</h2>
+                        <p class="section-subtitle">Data, methodology and learnings</p>
                     </div>
                 </div>
 
                 <div class="subsection">
-                    <h3 class="subsection-title">📈 Proxy de Sucesso</h3>
+                    <h3 class="subsection-title">📈 Success Proxy</h3>
                     <div class="subsection-content">
-                        <p>O mapeamento inicial identificou <strong>15% de perdas atribuídas a inconsistências</strong> nos journeys entre parceiros. Após implementação do Design System compartilhado:</p>
+                        <p>Initial mapping identified <strong>15% of losses attributed to inconsistencies</strong> in journeys between partners. After implementing the shared Design System:</p>
                         <ul>
-                            <li>Redução para <2% de perdas por fricção UX</li>
-                            <li>Tempo de onboarding de novos parceiros caiu de 4 meses para 6 semanas</li>
-                            <li>Ciclo médio de emissão de apólice reduzido para 11 dias</li>
+                            <li>Reduction to <2% of losses due to UX friction</li>
+                            <li>Onboarding time for new partners dropped from 4 months to 6 weeks</li>
+                            <li>Average policy issuance cycle reduced to 11 days</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="subsection">
-                    <h3 class="subsection-title">🛡️ Mitigação de Riscos</h3>
+                    <h3 class="subsection-title">🛡️ Risk Mitigation</h3>
                     <div class="subsection-content">
-                        <p>Para garantir adoção do Design System por todos os stakeholders:</p>
+                        <p>To ensure Design System adoption by all stakeholders:</p>
                         <ul>
-                            <li><strong>Guidelines Code-Ready:</strong> Documentação técnica completa com componentes prontos para implementação</li>
-                            <li><strong>Workshops Colaborativos:</strong> 64 participantes (designers, devs, product owners) em sessões de priorização</li>
-                            <li><strong>Pilot com Itaú:</strong> Validação inicial com parceiro principal antes de rollout completo</li>
-                            <li><strong>Flexibilidade Controlada:</strong> Tokens de design customizáveis (cores, logos) mantendo estrutura fixa</li>
+                            <li><strong>Code-Ready Guidelines:</strong> Complete technical documentation with components ready for implementation</li>
+                            <li><strong>Collaborative Workshops:</strong> 64 participants (designers, devs, product owners) in prioritization sessions</li>
+                            <li><strong>Pilot with Itaú:</strong> Initial validation with main partner before complete rollout</li>
+                            <li><strong>Controlled Flexibility:</strong> Customizable design tokens (colors, logos) while maintaining fixed structure</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="subsection">
-                    <h3 class="subsection-title">✅ Resultados Mensuráveis</h3>
+                    <h3 class="subsection-title">✅ Measurable Results</h3>
                     <div class="subsection-content">
                         <div class="metrics-grid">
                             <div class="metric-card">
                                 <div class="metric-value">+18%</div>
-                                <div class="metric-label">Aumento em Lucratividade</div>
+                                <div class="metric-label">Profitability Increase</div>
                             </div>
                             <div class="metric-card">
                                 <div class="metric-value">10</div>
-                                <div class="metric-label">Personas Completas Criadas</div>
+                                <div class="metric-label">Complete Personas Created</div>
                             </div>
                             <div class="metric-card">
                                 <div class="metric-value">64</div>
-                                <div class="metric-label">Participantes em Workshops</div>
+                                <div class="metric-label">Workshop Participants</div>
                             </div>
                             <div class="metric-card">
-                                <div class="metric-value">11 dias</div>
-                                <div class="metric-label">Ciclo Médio de Emissão</div>
+                                <div class="metric-value">11 days</div>
+                                <div class="metric-label">Average Issuance Cycle</div>
                             </div>
                         </div>
 
-                        <p style="margin-top: 2rem;"><strong>Entregáveis:</strong></p>
+                        <p style="margin-top: 2rem;"><strong>Deliverables:</strong></p>
                         <ul>
-                            <li>Complete sales journey mapping para 10 personas</li>
-                            <li>Design System com 45+ componentes reutilizáveis</li>
-                            <li>Protótipos testados com consultores e corretores</li>
-                            <li>Documentação técnica code-ready para developers</li>
+                            <li>Complete sales journey mapping for 10 personas</li>
+                            <li>Design System with 45+ reusable components</li>
+                            <li>Prototypes tested with consultants and brokers</li>
+                            <li>Code-ready technical documentation for developers</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="subsection">
-                    <h3 class="subsection-title">⚠️ O que piorou</h3>
+                    <h3 class="subsection-title">⚠️ What Got Worse</h3>
                     <div class="subsection-content">
-                        <p>Durante a implementação do Design System:</p>
+                        <p>During Design System implementation:</p>
                         <ul>
-                            <li><strong>Curva de aprendizado para devs:</strong> Onboarding inicial +2 semanas para equipes técnicas aprenderem o sistema</li>
-                            <li><strong>Resistência inicial:</strong> Alguns parceiros queriam mais customização do que o sistema permitia</li>
-                            <li><strong>Refactoring necessário:</strong> Código legacy de 2 parceiros precisou ser reescrito (custo não previsto inicialmente)</li>
+                            <li><strong>Learning curve for devs:</strong> Initial onboarding +2 weeks for technical teams to learn the system</li>
+                            <li><strong>Initial resistance:</strong> Some partners wanted more customization than the system allowed</li>
+                            <li><strong>Necessary refactoring:</strong> Legacy code from 2 partners needed to be rewritten (cost not initially planned)</li>
                         </ul>
-                        <p style="margin-top: 1rem;"><em>Aprendizado:</em> Investimento em documentação e training upfront teria reduzido friction no onboarding técnico.</p>
+                        <p style="margin-top: 1rem;"><em>Learning:</em> Investment in documentation and upfront training would have reduced friction in technical onboarding.</p>
                     </div>
                 </div>
 
                 <div class="subsection">
-                    <h3 class="subsection-title">🔮 Faria diferente hoje</h3>
+                    <h3 class="subsection-title">🔮 Would Do Differently Today</h3>
                     <div class="subsection-content">
-                        <p>Com tecnologias atuais de GenAI, implementaria:</p>
+                        <p>With current GenAI technologies, I would implement:</p>
                         <ul>
-                            <li><strong>Variants automáticas por parceiro:</strong> AI para gerar variações de componentes respeitando brand guidelines de cada banco</li>
-                            <li><strong>Geração inteligente de documentação:</strong> Auto-update de guidelines baseada em mudanças de código</li>
-                            <li><strong>Teste automatizado de consistência:</strong> AI para validar que implementações seguem o Design System</li>
-                            <li><strong>Personalização dinâmica:</strong> Adaptar journey baseado em perfil do cliente final (idade, risco, produto desejado)</li>
+                            <li><strong>Automatic variants per partner:</strong> AI to generate component variations respecting each bank's brand guidelines</li>
+                            <li><strong>Intelligent documentation generation:</strong> Auto-update of guidelines based on code changes</li>
+                            <li><strong>Automated consistency testing:</strong> AI to validate that implementations follow the Design System</li>
+                            <li><strong>Dynamic personalization:</strong> Adapt journey based on end customer profile (age, risk, desired product)</li>
                         </ul>
-                        <p style="margin-top: 1rem;"><strong>Impacto estimado:</strong> Redução de 50% no tempo de onboarding de novos parceiros + aumento de 10-15% em conversão via personalização.</p>
+                        <p style="margin-top: 1rem;"><strong>Estimated impact:</strong> 50% reduction in onboarding time for new partners + 10-15% increase in conversion via personalization.</p>
                     </div>
                 </div>
             </div>
@@ -540,10 +543,10 @@
             <!-- Navigation -->
             <div class="case-navigation">
                 <a href="dell-salesforce.html" class="nav-button back">
-                    ← Case Anterior: Dell Salesforce
+                    ← Previous Case: Dell Salesforce
                 </a>
                 <a href="braskem.html" class="nav-button">
-                    Próximo Case: Braskem →
+                    Next Case: Braskem →
                 </a>
             </div>
         </div>
@@ -559,7 +562,7 @@
     <script src="auth.js"></script>
     <script src="../script.js"></script>
     <script>
-        // Proteger página
+        // Protect page
         protectPage();
     </script>
 </body>
