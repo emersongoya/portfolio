@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revista Ferroviária Case Study - Emerson Goya</title>
+    <meta name="description" content="Revista Ferroviária responsive website redesign case study by Emerson Goya.">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Case Study Page Styles */
+        .case-header {
+            padding: 120px 0 60px;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-surface) 100%);
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-hover);
+        }
+
+        .breadcrumb-separator {
+            color: var(--text-secondary);
+        }
+
+        .case-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .case-metadata {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .metadata-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .metadata-value {
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .case-content {
+            padding: 60px 0;
+        }
+
+        .content-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-layered);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+        }
+
+        .description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+        }
+
+        .achievements-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .achievements-list li {
+            padding: 0.75rem 0 0.75rem 2rem;
+            position: relative;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .achievements-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .case-navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            border-color: var(--accent-primary);
+            background: rgba(99, 102, 241, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-button.back {
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .case-title {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metric-value {
+                font-size: 2rem;
+            }
+
+            .case-navigation {
+                flex-direction: column;
+            }
+
+            .nav-button.back {
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .case-header {
+                padding: 100px 0 40px;
+            }
+
+            .case-title {
+                font-size: 1.75rem;
+            }
+
+            .case-metadata {
+                padding: 1.5rem;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../index.html" class="logo">Emerson Goya</a>
+            <ul class="nav-links">
+                <li><a href="../index.html#hero">About</a></li>
+                <li><a href="../case-studies/index.html">Cases</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#tools">Tools</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <!-- Case Header -->
+    <header class="case-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="breadcrumb-separator">›</span>
+                <a href="index.html">Case Studies</a>
+                <span class="breadcrumb-separator">›</span>
+                <span>Revista Ferroviária</span>
+            </nav>
+
+            <h1 class="case-title">Revista Ferroviária – Responsive Website Redesign</h1>
+
+            <div class="case-metadata">
+                <div class="metadata-item">
+                    <span class="metadata-label">Company</span>
+                    <span class="metadata-value">Revista Ferroviária</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Role</span>
+                    <span class="metadata-value">UX Researcher, Designer, Full-Stack Developer</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Period</span>
+                    <span class="metadata-value">2018</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Location</span>
+                    <span class="metadata-value">São Paulo, Brazil</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Case Content -->
+    <section class="case-content">
+        <div class="container">
+            
+            <!-- Project Overview -->
+            <div class="content-section">
+                <h2 class="section-title">Project Overview</h2>
+                <p class="description">
+                    Complete redesign of Revista Ferroviária website, modernizing the interface while preserving the essence of the previous version. As Brazil's leading railway industry publication, the project required balancing modernization with the trust and authority the brand had built over decades.
+                </p>
+            </div>
+
+            <!-- Key Achievements -->
+            <div class="content-section">
+                <h2 class="section-title">Key Achievements</h2>
+                <ul class="achievements-list">
+                    <li>Research with 459 users (subscribers, newsletter readers, and visitors)</li>
+                    <li>Identified three main personas: CEO, young engineer, and commercial manager</li>
+                    <li>Implemented fully responsive design with improved navigation for desktop and mobile</li>
+                    <li>Complete frontend and backend development on modern architecture</li>
+                    <li>Achieved +81% increase in new user rate according to Google Analytics</li>
+                    <li>Improved content discoverability and search functionality</li>
+                    <li>Maintained brand heritage while modernizing visual design</li>
+                </ul>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="content-section">
+                <h2 class="section-title">Impact Metrics</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">459</div>
+                        <div class="metric-label">Users Researched</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">3</div>
+                        <div class="metric-label">Main Personas Created</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">+81%</div>
+                        <div class="metric-label">Increase in New User Rate</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Design Process -->
+            <div class="content-section">
+                <h2 class="section-title">Design & Development Process</h2>
+                <p class="description">
+                    <strong>User Research:</strong> Conducted comprehensive research with 459 users across different audience segments—long-time subscribers, newsletter readers, and new visitors—to understand diverse needs and expectations.
+                </p>
+                <p class="description">
+                    <strong>Persona Development:</strong> Identified three distinct user archetypes: C-level executives seeking industry insights, young engineers looking for technical content, and commercial managers tracking market trends. Each persona informed specific design decisions.
+                </p>
+                <p class="description">
+                    <strong>Responsive Design:</strong> Created mobile-first responsive layouts ensuring optimal reading experience across all devices, critical for professionals accessing content on-the-go.
+                </p>
+                <p class="description">
+                    <strong>Full-Stack Implementation:</strong> Handled both frontend (HTML/CSS/JS) and backend development, ensuring performance, scalability, and easy content management for the editorial team.
+                </p>
+                <p class="description">
+                    <strong>Results:</strong> The redesign led to an 81% increase in new user acquisition while maintaining high engagement from existing subscribers, validating the balance between modernization and brand continuity.
+                </p>
+            </div>
+
+            <!-- Navigation -->
+            <div class="case-navigation">
+                <a href="wher.html" class="nav-button back">
+                    ← Case Anterior: Wher
+                </a>
+                <a href="birra-virgilius.html" class="nav-button">
+                    Próximo Case: Birra Virgilius →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Emerson Goya • Senior Product Designer</p>
+        </div>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="../script.js"></script>
+    <script>
+        // Proteger página
+        protectPage();
+    </script>
+</body>
+</html>
