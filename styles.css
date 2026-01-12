@@ -620,7 +620,7 @@ footer p {
         padding: 1.5rem;
     }
     
-    nav .container {
+    .main-nav .container {
         flex-direction: row;
         gap: 0;
     }
@@ -648,7 +648,7 @@ footer p {
         display: block;
     }
     
-    nav .container {
+    .main-nav .container {
         position: relative;
     }
     
