@@ -1,4 +1,5 @@
 // Navigation scroll effect
+// NAV_HEIGHT should match --nav-height in styles.css
 const nav = document.querySelector('nav.main-nav');
 const NAV_HEIGHT = 80; // Fixed navigation height
 
@@ -27,7 +28,9 @@ if (dynamicBreadcrumb && breadcrumbSection) {
         'contact': 'Contact'
     };
 
-    // Navigation offset constant
+    // Navigation offset constant for section detection
+    // Larger than NAV_HEIGHT to account for breadcrumb and provide better UX
+    // when determining which section is currently "active"
     const NAV_OFFSET = 150;
 
     // Track active section and update breadcrumb
