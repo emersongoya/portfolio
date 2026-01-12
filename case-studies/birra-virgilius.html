@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birra Virgilius Case Study - Emerson Goya</title>
+    <meta name="description" content="Birra Virgilius craft brewery brand and website case study by Emerson Goya.">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Case Study Page Styles */
+        .case-header {
+            padding: 120px 0 60px;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-surface) 100%);
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-hover);
+        }
+
+        .breadcrumb-separator {
+            color: var(--text-secondary);
+        }
+
+        .case-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .case-metadata {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .metadata-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .metadata-value {
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .case-content {
+            padding: 60px 0;
+        }
+
+        .content-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-layered);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+        }
+
+        .description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+        }
+
+        .achievements-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .achievements-list li {
+            padding: 0.75rem 0 0.75rem 2rem;
+            position: relative;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .achievements-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .case-navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            border-color: var(--accent-primary);
+            background: rgba(99, 102, 241, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-button.back {
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .case-title {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metric-value {
+                font-size: 2rem;
+            }
+
+            .case-navigation {
+                flex-direction: column;
+            }
+
+            .nav-button.back {
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .case-header {
+                padding: 100px 0 40px;
+            }
+
+            .case-title {
+                font-size: 1.75rem;
+            }
+
+            .case-metadata {
+                padding: 1.5rem;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../index.html" class="logo">Emerson Goya</a>
+            <ul class="nav-links">
+                <li><a href="../index.html#hero">About</a></li>
+                <li><a href="../case-studies/index.html">Cases</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#tools">Tools</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <!-- Case Header -->
+    <header class="case-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="breadcrumb-separator">›</span>
+                <a href="index.html">Case Studies</a>
+                <span class="breadcrumb-separator">›</span>
+                <span>Birra Virgilius</span>
+            </nav>
+
+            <h1 class="case-title">Birra Virgilius – Craft Brewery Brand & Website</h1>
+
+            <div class="case-metadata">
+                <div class="metadata-item">
+                    <span class="metadata-label">Company</span>
+                    <span class="metadata-value">Birra Virgilius</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Role</span>
+                    <span class="metadata-value">UI Designer, Developer, Photographer</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Period</span>
+                    <span class="metadata-value">2018</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Location</span>
+                    <span class="metadata-value">Mantova, Italy</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Case Content -->
+    <section class="case-content">
+        <div class="container">
+            
+            <!-- Project Overview -->
+            <div class="content-section">
+                <h2 class="section-title">Project Overview</h2>
+                <p class="description">
+                    Creation of the institutional website for Birra Virgilius, a craft brewery in Mantova, Italy. The project encompassed complete brand development including visual identity, typography, color palette, and photographic production of products. The goal was to establish a premium, artisanal positioning in the competitive Italian craft beer market.
+                </p>
+            </div>
+
+            <!-- Key Achievements -->
+            <div class="content-section">
+                <h2 class="section-title">Key Achievements</h2>
+                <ul class="achievements-list">
+                    <li>WordPress development with fully responsive design optimized for mobile and desktop</li>
+                    <li>Complete photographic production and professional image editing for beer catalog</li>
+                    <li>Visual identity development including typography, color palette, and brand guidelines</li>
+                    <li>Brand consolidation with "Birra da Favola" (Fairytale Beer) narrative</li>
+                    <li>Reinforced artisanal and premium positioning in craft beer market</li>
+                    <li>E-commerce integration for online beer sales</li>
+                    <li>Multilingual support (Italian/English) for international visitors</li>
+                </ul>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="content-section">
+                <h2 class="section-title">Project Scope</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">100%</div>
+                        <div class="metric-label">Custom Photography</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">WordPress</div>
+                        <div class="metric-label">CMS Platform</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">2</div>
+                        <div class="metric-label">Languages (IT/EN)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Design Process -->
+            <div class="content-section">
+                <h2 class="section-title">Creative Process</h2>
+                <p class="description">
+                    <strong>Brand Strategy:</strong> Developed the "Birra da Favola" narrative positioning, connecting the brewery's artisanal approach to the rich storytelling tradition of the Mantova region, home to the poet Virgil.
+                </p>
+                <p class="description">
+                    <strong>Visual Identity:</strong> Created a cohesive visual system with carefully selected typography, a warm color palette reflecting the amber tones of craft beer, and elegant design elements suggesting premium quality.
+                </p>
+                <p class="description">
+                    <strong>Photography:</strong> Produced all product photography in-house, capturing the character of each beer variety through lighting, composition, and styling that emphasized the artisanal nature of the brewing process.
+                </p>
+                <p class="description">
+                    <strong>Web Development:</strong> Built a responsive WordPress site that serves as both a brand showcase and e-commerce platform, making it easy for the brewery to manage content and process online orders.
+                </p>
+                <p class="description">
+                    <strong>Results:</strong> Successfully established Birra Virgilius as a premium craft brewery with a distinctive brand identity and professional digital presence that supports both local and international sales.
+                </p>
+            </div>
+
+            <!-- Navigation -->
+            <div class="case-navigation">
+                <a href="revista-ferroviaria.html" class="nav-button back">
+                    ← Case Anterior: Revista Ferroviária
+                </a>
+                <a href="index.html" class="nav-button">
+                    Voltar para Cases →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Emerson Goya • Senior Product Designer</p>
+        </div>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="../script.js"></script>
+    <script>
+        // Proteger página
+        protectPage();
+    </script>
+</body>
+</html>
