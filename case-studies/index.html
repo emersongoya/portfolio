@@ -32,18 +32,18 @@
             margin: 0 auto;
         }
 
-        .back-link {
+        .breadcrumb {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             color: var(--accent-primary);
             text-decoration: none;
             font-weight: 500;
-            margin-bottom: 2rem;
+            padding: 1.5rem 0;
             transition: all 0.3s ease;
         }
 
-        .back-link:hover {
+        .breadcrumb:hover {
             gap: 0.75rem;
         }
 
@@ -130,7 +130,6 @@
             font-size: 1rem;
             color: var(--text-secondary);
             line-height: 1.6;
-            font-style: italic;
         }
 
         .case-link {
@@ -201,6 +200,11 @@
         </div>
     </nav>
 
+    <!-- Breadcrumb -->
+    <div class="container">
+        <a href="../index.html" class="breadcrumb">← Back to Portfolio</a>
+    </div>
+
     <!-- Header -->
     <header class="case-studies-header">
         <div class="container">
@@ -212,11 +216,9 @@
     <!-- Case Studies Content -->
     <section>
         <div class="container">
-            <a href="../index.html" class="back-link">← Back to Portfolio</a>
-
             <!-- Case Study 1: Dell Salesforce (Featured) -->
             <a href="dell-salesforce.html" class="case-study-card featured">
-                <span class="featured-badge">⭐ Featured Case</span>
+                <span class="featured-badge">Featured Case</span>
                 <h2 class="case-study-title">Dell Salesforce – SMB Sales Rep Journey Optimization</h2>
                 <div class="case-meta">
                     <div class="case-meta-item">
@@ -233,9 +235,9 @@
                     </div>
                 </div>
                 <div class="case-preview">
-                    🎯 Otimizei journeys Salesforce para sales reps SMB na Dell; cortei 35% fricção (cliques múltiplos), +36% adoção (22→58%), deals 25% mais rápidos.
+                    Optimized Salesforce journeys for SMB sales reps at Dell, reducing friction by 35% through streamlined workflows, increasing adoption from 22% to 58%, and accelerating deal cycles by 25%.
                 </div>
-                <span class="case-link">Ver Case Completo →</span>
+                <span class="case-link">View Full Case Study →</span>
             </a>
 
             <!-- Case Study 2: Prudential -->
@@ -252,13 +254,13 @@
                     </div>
                     <div class="case-meta-item">
                         <span class="case-meta-label">Period</span>
-                        <span class="case-meta-value">2020–2021 (1.5 anos)</span>
+                        <span class="case-meta-value">2020–2021</span>
                     </div>
                 </div>
                 <div class="case-preview">
-                     Designed Prudential's B2B/B2C Life Insurance Platform. Streamlined the electronic proposal workflow after a 64-participant FitGap study, achieving a 15% reduction in drop-off rates for strategic partners like Itaú, XP Investments, and BTG Pactual (top-tier Brazilian banks and investment firms).
+                     Designed Prudential's B2B/B2C Life Insurance Platform. Streamlined the electronic proposal workflow after a 64-participant FitGap study, achieving a 15% reduction in drop-off rate for strategic partners including Itaú, XP Investments, and BTG Pactual.
                 </div>
-                <span class="case-link">Ver Case Completo →</span>
+                <span class="case-link">View Full Case Study →</span>
             </a>
 
             <!-- Case Study 3: Braskem -->
@@ -279,9 +281,9 @@
                     </div>
                 </div>
                 <div class="case-preview">
-                    🎯 Criei framework Design Thinking para petroquímicas digitais na Braskem/Cazoolo; cortei 20% ciclos dev treinando 40 pros em UX sustentável.
+                    Created a Design Thinking framework for digital petrochemical initiatives at Braskem/Cazoolo, reducing development cycles by 20% while training 40 professionals in sustainable UX practices.
                 </div>
-                <span class="case-link">Ver Case Completo →</span>
+                <span class="case-link">View Full Case Study →</span>
             </a>
 
             <!-- Case Study 4: Wher -->
@@ -304,7 +306,7 @@
                 <div class="case-preview">
                     Research with 178 women across 6 European cities to design the first collaborative safe route navigation app. Launched with 4.7-star rating.
                 </div>
-                <span class="case-link">Ver Case Completo →</span>
+                <span class="case-link">View Full Case Study →</span>
             </a>
 
             <!-- Case Study 5: Revista Ferroviária -->
@@ -325,9 +327,9 @@
                     </div>
                 </div>
                 <div class="case-preview">
-                    Complete modernization with research on 459 users, achieving +81% increase in new user rate according to Google Analytics.
+                    Complete modernization with research on 459 users, achieving an 81% increase in new user rate according to Google Analytics.
                 </div>
-                <span class="case-link">Ver Case Completo →</span>
+                <span class="case-link">View Full Case Study →</span>
             </a>
 
             <!-- Case Study 6: Birra Virgilius -->
@@ -350,7 +352,7 @@
                 <div class="case-preview">
                     Brand consolidation with "Birra da Favola" narrative, complete photographic production, and WordPress development.
                 </div>
-                <span class="case-link">Ver Case Completo →</span>
+                <span class="case-link">View Full Case Study →</span>
             </a>
         </div>
     </section>
@@ -365,7 +367,7 @@
     <script src="auth.js"></script>
     <script src="../script.js"></script>
     <script>
-        // Proteger página - redirecionar para login se não autenticado
+        // Protect page - redirect to login if not authenticated
         protectPage();
     </script>
 </body>
