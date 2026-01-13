@@ -32,6 +32,9 @@
     --shadow-layered: 0 1px 2px rgba(0, 0, 0, 0.3), 
                       0 8px 16px rgba(0, 0, 0, 0.2), 
                       0 16px 32px rgba(0, 0, 0, 0.15);
+    
+    /* Layout */
+    --nav-height: 80px;
 }
 
 html {
@@ -53,7 +56,7 @@ body {
 }
 
 /* Navigation Bar */
-.main-nav {
+nav.main-nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -65,12 +68,12 @@ body {
     transition: all 0.3s ease;
 }
 
-.main-nav.scrolled {
+nav.main-nav.scrolled {
     background: var(--glass-bg);
     box-shadow: var(--shadow-sm);
 }
 
-.main-nav .container {
+nav.main-nav .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -117,6 +120,55 @@ body {
 
 .nav-links a:hover::after {
     width: 100%;
+}
+
+/* Dynamic Breadcrumb */
+.dynamic-breadcrumb {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 0.75rem 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.dynamic-breadcrumb.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.dynamic-breadcrumb .container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.dynamic-breadcrumb a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.dynamic-breadcrumb a:hover {
+    color: var(--accent-hover);
+}
+
+.dynamic-breadcrumb .breadcrumb-separator {
+    color: var(--text-secondary);
+}
+
+.dynamic-breadcrumb #breadcrumbSection {
+    color: var(--text-primary);
 }
 
 /* Hero Section */
