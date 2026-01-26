@@ -54,9 +54,16 @@ if (dynamicBreadcrumb && breadcrumbSection) {
         });
         
         // If we're on the case-studies listing (or other standalone pages)
-        // force the breadcrumb to show and keep the label stable.
+        // force the breadcrumb to show. If this is an individual case page
+        // (body[data-case-title] is present) keep the final crumb as the
+        // case title instead of overriding to 'Case Studies'.
         if (forceBreadcrumbVisible) {
-            breadcrumbSection.textContent = 'Case Studies';
+            const caseTitle = document.body && document.body.dataset && document.body.dataset.caseTitle;
+            if (caseTitle) {
+                breadcrumbSection.textContent = caseTitle;
+            } else {
+                breadcrumbSection.textContent = 'Case Studies';
+            }
             dynamicBreadcrumb.classList.add('visible');
             return;
         }

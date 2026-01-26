@@ -7,7 +7,7 @@
     <meta name="description" content="Prudential B2B insurance platform design case study by Emerson Goya.">
     <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body data-case-title="Prudential">
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="container">
@@ -26,12 +26,16 @@
     <!-- Case Header -->
     <header class="case-header">
         <div class="container">
-            <nav class="breadcrumb">
-                <a href="../index.html">Home</a>
-                <span class="breadcrumb-separator">›</span>
-                <a href="index.html">Case Studies</a>
-                <span class="breadcrumb-separator">›</span>
-                <span>Prudential</span>
+            <nav id="dynamicBreadcrumb" class="dynamic-breadcrumb" aria-label="Breadcrumb navigation">
+                <div class="container">
+                    <div class="breadcrumb-inner">
+                        <a href="../index.html">Home</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <a href="index.html">Case Studies</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <span id="breadcrumbSection">Prudential</span>
+                    </div>
+                </div>
             </nav>
 
             <h1 class="case-title">Prudential – B2B Insurance Platform</h1>
