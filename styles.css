@@ -1,75 +1,296 @@
+/* Strong override: only .case-link gets underline/blue, all others never */
+.card h2, .card h2 a,
+.card ul, .card ul a,
+.card li, .card li a,
+.card strong, .card strong a,
+.card .case-preview, .card .case-preview a,
+.logo, .logo:hover {
+    color: var(--text-primary) !important;
+    text-decoration: none !important;
+}
+
+/* Remove underline/blue from all headings, lists, strong, preview, logo, even on hover */
+.card h2:hover, .card h2 a:hover,
+.card ul:hover, .card ul a:hover,
+.card li:hover, .card li a:hover,
+.card strong:hover, .card strong a:hover,
+.card .case-preview:hover, .card .case-preview a:hover,
+.logo:hover {
+    color: var(--text-primary) !important;
+    text-decoration: none !important;
+}
+/* Utility: margin-top equal to nav+breadcrumb (for first section) */
+.u-mt-nav {
+    margin-top: 9.5rem;
+}
 /* Import Inter Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* CSS Reset & Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* ======================
+   Base / Tokens
+   Single-file canonical stylesheet
+   ====================== */
 
 :root {
-    /* Dark Mode Color Palette */
+    /* Colors */
     --bg-primary: #0a0a0a;
     --bg-surface: #141414;
     --bg-card: #1a1a1a;
     --text-primary: #e4e4e7;
     --text-secondary: #a1a1aa;
-    
-    /* Accent Colors */
     --accent-primary: #6366f1;
     --accent-secondary: #8b5cf6;
     --accent-hover: #4f46e5;
-    
-    /* Glassmorphism */
+
+    /* Glass */
     --glass-bg: rgba(26, 26, 26, 0.7);
     --glass-border: rgba(255, 255, 255, 0.05);
-    
+
     /* Shadows */
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.2);
     --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.15);
-    --shadow-layered: 0 1px 2px rgba(0, 0, 0, 0.3), 
-                      0 8px 16px rgba(0, 0, 0, 0.2), 
-                      0 16px 32px rgba(0, 0, 0, 0.15);
-    
+    --shadow-layered: 0 1px 2px rgba(0,0,0,0.3), 0 8px 16px rgba(0,0,0,0.2), 0 16px 32px rgba(0,0,0,0.15);
+
     /* Layout */
     --nav-height: 80px;
+    --space-1: 4px; --space-2:8px; --space-3:16px; --space-4:24px; --space-5:32px;
+    /* horizontal container padding (kept as a token so all sections stay aligned) */
+    --container-h: 2rem;
+    --container-max-width: 1400px;
 }
 
-html {
+/* Base */
+html, body {
     scroll-behavior: smooth;
-}
-
-body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     line-height: 1.7;
     color: var(--text-primary);
     background: var(--bg-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
 }
 
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 2rem;
+*, *::before, *::after { box-sizing: border-box; }
+
+.container { max-width: var(--container-max-width); margin: 0 auto; padding: 0 var(--container-h); }
+
+/* Links */
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
 }
 
-/* Navigation Bar */
-nav.main-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: transparent;
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--glass-border);
-    transition: all 0.3s ease;
+/* Only explicit links in card content get blue and underline */
+.case-link, .case-link a {
+    color: var(--accent-primary) !important;
+    text-decoration: underline;
 }
+.case-link:hover, .case-link a:hover {
+    color: var(--accent-hover) !important;
+    text-decoration: underline;
+}
+
+/* Prevent headings and list items from being underlined/blue */
+.card h2 a,
+.card ul a,
+.card .case-preview a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+/* Only underline explicit links in card content */
+.case-link { text-decoration: underline; }
+.case-link:hover { text-decoration: underline; color: var(--accent-hover); }
+
+/* Prevent headings and list items from being underlined */
+.card h2 a,
+.card ul a,
+.card .case-preview a {
+    text-decoration: none;
+}
+
+/* Headings */
+h1,h2,h3,h4,h5 { color: var(--text-primary); margin: 0 0 var(--space-3) 0; }
+
+/* ======================
+   Navigation
+   ====================== */
+nav.main-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: transparent; backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border); transition: all .3s ease;
+}
+nav.main-nav.scrolled { background: var(--glass-bg) !important; box-shadow: var(--shadow-sm); }
+
+nav.main-nav .container { display:flex; justify-content:space-between; align-items:center; padding-top:1.5rem; padding-bottom:1.5rem; /* left padding removed so logo uses the gutter variable */ padding-left:0; padding-right:var(--container-h); }
+.logo { font-size: 1.25rem; font-weight:700; color:var(--text-primary); text-decoration:none; margin-left: var(--container-h); }
+
+.nav-links { display:flex; gap:2rem; list-style:none; margin:0; padding:0; }
+.nav-links a { color: var(--text-secondary); text-decoration:none; font-weight:500; position:relative; }
+.nav-links a:hover { color: var(--accent-primary); }
+.nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background: linear-gradient(90deg,var(--accent-primary),var(--accent-secondary)); transition:width .3s ease; }
+.nav-links a:hover::after { width:100%; }
+
+/* Active state from scroll: underline without changing text color */
+.nav-links a.active::after { width: 100%; }
+.nav-links a.active { color: inherit !important; }
+
+/* color behavior: lighter text when over hero (no scrolled), switch to secondary when scrolled */
+nav.main-nav:not(.scrolled) .nav-links a { color: var(--text-primary); }
+
+.mobile-menu-toggle { display:none; background:none; border:none; color:var(--text-primary); font-size:1.5rem; cursor:pointer; padding:0.5rem; z-index:1001; }
+
+@media (max-width:768px) {
+    .mobile-menu-toggle { display:block; }
+    .nav-links { display:none !important; position:absolute; top:100%; left:0; right:0; background:var(--bg-surface); backdrop-filter:blur(20px); border:1px solid var(--glass-border); border-radius:12px; margin-top:1rem; padding:1rem; flex-direction:column; gap:0; box-shadow:var(--shadow-layered); }
+    .nav-links.active { display:flex !important; }
+    .nav-links li { width:100%; }
+    .nav-links a { display:block; padding:1rem; border-radius:8px; }
+    .nav-links a::after { display:none; }
+}
+
+/* ======================
+   Hero
+   ====================== */
+.hero { min-height:100vh; display:flex; align-items:center; justify-content:flex-start; text-align:left; padding:100px 0; background: linear-gradient(180deg,var(--bg-primary) 0%, var(--bg-surface) 100%); position:relative; overflow:hidden; }
+.hero-content,
+.about-content,
+.tools-content,
+.contact-content {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    animation: fadeInUp 1s ease-out;
+    padding-left: 0;
+    padding-right: 0;
+}
+.hero h1 { font-size:4.5rem; font-weight:700; margin-bottom:1.5rem; letter-spacing:-0.03em; line-height:1.1; background:linear-gradient(135deg,var(--text-primary) 0%, var(--text-secondary) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.subtitle { font-size:1.5rem; color:var(--text-secondary); margin-bottom:1.5rem; }
+.hero-description { font-size:1.125rem; color:var(--text-secondary); line-height:1.7; max-width:700px; margin:1.5rem auto 2rem; }
+
+/* CTA Buttons */
+.cta-buttons { display:flex; gap:1.5rem; justify-content:flex-start; flex-wrap:wrap; }
+.btn { padding:1rem 2.5rem; font-size:1rem; font-weight:600; border-radius:12px; cursor:pointer; transition:transform .2s ease, box-shadow .2s ease; text-decoration:none; display:inline-block; border:none; }
+.btn--primary { background: linear-gradient(135deg,var(--accent-primary),var(--accent-secondary)); color:#fff; box-shadow:0 8px 24px rgba(99,102,241,0.18); }
+.btn--primary:hover { transform: translateY(-2px); box-shadow:0 12px 28px rgba(99,102,241,0.22); }
+.btn--secondary { background: var(--glass-bg); border:1px solid var(--glass-border); color:var(--text-primary); }
+.btn--secondary:hover { border-color:var(--accent-primary); background: rgba(99,102,241,0.08); transform: translateY(-2px); }
+
+/* Legacy aliases removed: use `.btn--primary` / `.btn--secondary` modifiers */
+
+/* ======================
+   Sections / Cards
+   ====================== */
+.about-section, .tools-section, .contact-section { padding:100px 0; background:var(--bg-surface); }
+section h2 { font-size:3rem; font-weight:700; margin-bottom:1.5rem; text-align:left; letter-spacing:-0.02em; }
+section h2::after { content:''; display:block; width:60px; height:4px; background:linear-gradient(90deg,var(--accent-primary),var(--accent-secondary)); margin:1.5rem 0 0; border-radius:2px; }
+
+@media (max-width: 768px) {
+    section h2 { text-align:center; }
+    section h2::after { margin:1.5rem auto 0; }
+}
+
+.card { background:var(--glass-bg); backdrop-filter:blur(20px); border:1px solid var(--glass-border); border-radius:16px; padding:2.5rem; transition:all .3s ease; box-shadow:var(--shadow-layered); }
+.card--elevated{ box-shadow:0 20px 40px rgba(0,0,0,0.3); }
+.card:hover{ transform: translateY(-8px); border-color:var(--accent-primary); }
+.card h3{ font-size:1.5rem; font-weight:600; margin-bottom:1rem; }
+.card p, .card ul{ color:var(--text-secondary); line-height:1.7; }
+
+/* Prevent the anchor-as-card from applying underline/color to all inner text on hover
+   Keep only explicit `.case-link` elements colored/underlined. */
+.card, .card:hover, .card:focus {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+.card * { color: inherit !important; text-decoration: none !important; }
+
+/* Skills / Expertise grid: default 3 columns, responsive to single column on small screens */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+@media (max-width: 900px) {
+    .skills-grid { grid-template-columns: 1fr; }
+}
+
+/* Tags */
+.expertise-tags { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2rem; }
+.tag { background:var(--glass-bg); border:1px solid var(--glass-border); padding:.625rem 1.25rem; border-radius:24px; font-size:.875rem; color:var(--text-primary); font-weight:500; }
+.tag:hover{ background:var(--accent-primary); border-color:var(--accent-primary); transform: translateY(-2px); }
+
+/* Contact links */
+.contact-grid{ display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap; margin-top:3rem; }
+.contact-link{ padding:1rem 2rem; background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:12px; color:var(--text-primary); text-decoration:none; display:inline-flex; align-items:center; gap:.5rem; }
+
+/* Footer */
+footer{ background:var(--bg-primary); padding:3rem 0; text-align:center; border-top:1px solid var(--glass-border); }
+footer p{ color:var(--text-secondary); font-size:.95rem; }
+
+/* Animations */
+@keyframes fadeInUp { from{ opacity:0; transform:translateY(30px);} to{opacity:1; transform:translateY(0);} }
+.fade-in{ animation: fadeInUp .8s ease-out; }
+
+/* Responsive tweaks */
+@media (max-width:1024px){ .hero h1{ font-size:3.5rem; } section{ padding:80px 0; } section h2{ font-size:2.5rem; } }
+@media (max-width:768px){ .hero h1{ font-size:2.5rem; } .subtitle{ font-size:1.25rem; } .about-section{ padding:60px 0; } .cta-buttons{ flex-direction:column; } .btn{ width:100%; } .services-grid,.skills-grid,.portfolio-grid{ grid-template-columns:1fr; gap:1.5rem; } }
+@media (max-width:480px){ .container{ padding:0 1rem; } .hero h1{ font-size:2rem; } }
+
+/* Ensure Contact section has extra bottom padding so it can be scrolled
+   fully into view and trigger the active nav state on small pages. */
+section#contact {
+    padding-bottom: 220px;
+}
+@media (max-width: 768px) {
+    section#contact { padding-bottom: 120px; }
+}
+
+/* Add extra spacing for logo and nav container on small→medium screens (mobile/tablet) */
+@media (min-width:320px) and (max-width:1024px) {
+    /* reduce the container horizontal padding on small→medium screens */
+    :root { --container-h: 1.25rem; }
+
+    /* ensure logo has breathing room on the left */
+    .logo {
+        margin-left: 0;
+    }
+
+    /* if menu toggle sits too close to the logo, add slight right margin */
+    .mobile-menu-toggle {
+        margin-left: 0.5rem;
+    }
+    
+    /* Make breadcrumb container padding match nav container for pixel-perfect alignment */
+    .dynamic-breadcrumb .container {
+        /* now follows the same variable-driven padding defined above */
+        padding-left: var(--container-h);
+        padding-right: var(--container-h);
+    }
+}
+
+/* Mobile menu toggle styles already above; keep last utilities */
+
+/* Utilities & Accessibility */
+.skip-link{ position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; z-index:1002; }
+.skip-link:focus, .skip-link:active{ left:1rem; top:1rem; width:auto; height:auto; padding:.5rem .75rem; background:var(--accent-primary); color:#fff; border-radius:6px; text-decoration:none; }
+.sr-only,.visually-hidden{ position:absolute !important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; border:0; padding:0; margin:-1px; }
+a:focus-visible, button:focus-visible, .btn:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, .nav-links a:focus-visible{ outline:none; box-shadow:0 0 0 4px rgba(99,102,241,0.16); border-radius:8px; }
+.stack{ display:flex; flex-direction:column; gap:1rem; } .stack--sm{ gap:.5rem; }
+.u-mt-4{ margin-top:1rem; } .u-mt-6{ margin-top:1.5rem; } .u-mb-4{ margin-bottom:1rem; } .u-p-4{ padding:1rem; }
+.btn{ position:relative; }
+.btn:focus-visible{ box-shadow:0 0 0 4px rgba(99,102,241,0.18); }
 
 nav.main-nav.scrolled {
-    background: var(--glass-bg);
+    background: var(--glass-bg) !important;
     box-shadow: var(--shadow-sm);
 }
 
@@ -79,7 +300,21 @@ nav.main-nav .container {
     align-items: center;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+    padding-left: var(--container-h);
+    padding-right: var(--container-h);
 }
+
+/* Nav link color behavior: use lighter text over hero (top), switch to secondary on scrolled glass */
+nav.main-nav .nav-links a {
+    color: var(--text-secondary);
+}
+
+nav.main-nav:not(.scrolled) .nav-links a {
+    color: var(--text-primary);
+}
+
+/* Ensure mobile toggle is visible on top of hero */
+.mobile-menu-toggle { color: var(--text-primary); }
 
 .logo {
     font-size: 1.5rem;
@@ -124,61 +359,96 @@ nav.main-nav .container {
 
 /* Dynamic Breadcrumb */
 .dynamic-breadcrumb {
-    position: fixed;
-    top: var(--nav-height);
+    position: absolute;
+    /* place breadcrumb slightly below the nav so it doesn't appear glued to it */
+    top: calc(var(--nav-height) + 0.5rem);
     left: 0;
     right: 0;
     z-index: 100;
-    background: var(--glass-bg);
+    background: transparent; /* start transparent */
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--glass-border);
     padding: 0.75rem 0;
+    min-height: 48px; /* ensure breadcrumb bar is visibly taller on large screens */
     opacity: 0;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
     pointer-events: none;
+    transform: translateY(-1.5rem);
+    transition: background 0.25s ease, opacity 0.3s cubic-bezier(.4,0,.2,1), transform 0.3s;
 }
-
 .dynamic-breadcrumb.visible {
+    position: fixed;
     opacity: 1;
-    transform: translateY(0);
     pointer-events: auto;
+    transform: translateY(0);
+    background: transparent; /* remain transparent until scrolled */
 }
-
+.dynamic-breadcrumb.visible.scrolled {
+    background: var(--glass-bg) !important;
+}
 .dynamic-breadcrumb .container {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     font-size: 0.875rem;
     color: var(--text-secondary);
+    max-width: var(--container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-h);
+    padding-right: var(--container-h);
+    justify-content: flex-start;
 }
-
 .dynamic-breadcrumb a {
     color: var(--accent-primary);
     text-decoration: none;
     transition: color 0.3s ease;
 }
-
 .dynamic-breadcrumb a:hover {
     color: var(--accent-hover);
 }
-
 .dynamic-breadcrumb .breadcrumb-separator {
     color: var(--text-secondary);
 }
-
-.dynamic-breadcrumb #breadcrumbSection {
-    color: var(--text-primary);
+.dynamic-breadcrumb [aria-current="page"] {
+    color: var(--text-secondary);
+}
+@media (max-width: 1200px) {
+    .dynamic-breadcrumb .container {
+        max-width: 96vw;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+@media (max-width: 900px) {
+    .dynamic-breadcrumb a { color: inherit; text-decoration: none; transition: color 0.3s; }
+    .dynamic-breadcrumb a:hover { color: inherit; text-decoration: none; }
 }
 
-/* Hero Section */
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 100px 0;
+/* Ensure `.case-link` rules are defined globally (not nested) */
+.case-link, .case-link a { color: var(--accent-primary) !important; text-decoration: underline; }
+            text-decoration: underline;
+        }
+        .case-link:hover, .case-link a:hover {
+            color: var(--accent-hover) !important;
+            text-decoration: underline;
+        }
+
+        /* Prevent headings, logo, and list items from being underlined/blue */
+        .card h2,
+        .card h2 a,
+        .card ul,
+        .card ul a,
+        .card li,
+        .card li a,
+        .card strong,
+        .card strong a,
+        .card .case-preview,
+        .card .case-preview a,
+        .logo,
+        .logo:hover {
+            color: var(--text-primary) !important;
+            text-decoration: none !important;
+        }
     background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-surface) 100%);
     position: relative;
     overflow: hidden;
@@ -186,7 +456,21 @@ nav.main-nav .container {
 
 .hero-content {
     max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
     animation: fadeInUp 1s ease-out;
+    padding-left: 0;
+    padding-right: 0;
+    transform: none;    
+}
+
+/* Reusable gutter utility: apply the same left offset used by the hero */
+.gutter-aligned {
+    padding-left: var(--container-h);
+    padding-right: var(--container-h);
+    box-sizing: border-box;
+    text-align: left;
 }
 
 .hero h1 {
@@ -214,13 +498,13 @@ nav.main-nav .container {
     color: var(--text-secondary);
     line-height: 1.7;
     max-width: 700px;
-    margin: 1.5rem auto 2rem;
+    margin: 1.5rem 0 2rem 0;
 }
 
 .cta-buttons {
     display: flex;
     gap: 1.5rem;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 
@@ -236,29 +520,10 @@ nav.main-nav .container {
     display: inline-block;
 }
 
-.btn-primary {
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-    color: white;
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-}
+/* ensure button label is centered */
+.btn { text-align: center; }
 
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
-}
-
-.btn-secondary {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    color: var(--text-primary);
-}
-
-.btn-secondary:hover {
-    border-color: var(--accent-primary);
-    background: rgba(99, 102, 241, 0.1);
-    transform: translateY(-2px);
-}
+/* All button styles live under `.btn` + modifier (`.btn--primary`, `.btn--secondary`) */
 
 /* About Section */
 .about-section {
@@ -274,6 +539,75 @@ nav.main-nav .container {
 .about-content {
     max-width: 900px;
     margin: 0 auto;
+}
+
+/* Align main section content to the same left gutter used by the hero */
+/* Default (desktop): DO NOT add inner padding — rely on the global .container gutter */
+.about-section .about-content,
+#skills .container > h2,
+#skills .container > .skills-grid,
+#tools .about-content,
+#contact .about-content {
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+}
+
+/* For narrower viewports (<=1024) use the inner gutter for comfortable spacing */
+@media (max-width: 1024px) {
+    .about-section .about-content,
+    #skills .container > h2,
+    #skills .container > .skills-grid,
+    #tools .about-content,
+    #contact .about-content {
+        padding-left: var(--container-h);
+        padding-right: var(--container-h);
+    }
+} 
+
+/* For very small screens, fall back to centered/full-width behavior */
+@media (max-width:480px) {
+    .about-section .about-content,
+    #skills .container > h2,
+    #skills .container > .skills-grid,
+    #tools .about-content,
+    #contact .about-content {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Broader alignment: ensure all main section content aligns to the hero gutter */
+.container > .about-content,
+.container > .skills-grid,
+.container > .experience-container,
+.container > .tool-category,
+.container > .contact-grid,
+.about-section .about-content,
+#tools .about-content,
+#contact .about-content {
+    /* no extra lateral padding here; .container provides the gutter */
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+} 
+
+@media (max-width:480px) {
+    .container > .about-content,
+    .container > .skills-grid,
+    .container > .experience-container,
+    .container > .tool-category,
+    .container > .contact-grid,
+    .about-section .about-content,
+    #tools .about-content,
+    #contact .about-content {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }
 
 .about-content .intro {
@@ -410,6 +744,17 @@ section h2::after {
     box-shadow: var(--shadow-layered);
 }
 
+/* Modifier for elevated card variant */
+.card--elevated {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-layered);
+}
+
 .card:hover {
     transform: translateY(-8px);
     border-color: var(--accent-primary);
@@ -426,10 +771,9 @@ section h2::after {
 
 .card p,
 .card ul {
-    color: var(--text-secondary);
-    font-size: 1rem;
-    line-height: 1.7;
-}
+    .hero-content {
+        /* padding removido para alinhar com .about-content e .container */
+    }
 
 .card ul {
     list-style: none;
@@ -550,6 +894,18 @@ footer p {
     }
 }
 
+/* Keep nav/logo using the gutter token for consistent alignment */
+nav.main-nav .container { padding-left: 0; padding-right: var(--container-h); }
+.logo { margin-left: var(--container-h); }
+
+/* Ensure hero uses the consolidated gutter rules and the reusable utility */
+.hero { text-align: left; }
+.hero-content { max-width: 900px; width:100%; margin: 0; box-sizing: border-box; }
+.gutter-aligned { padding-left: var(--container-h); padding-right: var(--container-h); }
+.hero h1, .hero .subtitle, .hero-description { text-align: left; }
+
+.cta-buttons { justify-content: center; }
+
 @media (max-width: 768px) {
     .nav-links {
         gap: 1.5rem;
@@ -604,9 +960,8 @@ footer p {
 }
 
 @media (max-width: 480px) {
-    .container {
-        padding: 0 1rem;
-    }
+    /* reduce horizontal container padding on small screens */
+    :root { --container-h: 1rem; }
     
     .hero h1 {
         font-size: 2rem;
@@ -628,6 +983,97 @@ footer p {
     .nav-links {
         gap: 1rem;
         font-size: 0.9rem;
+    }
+}
+
+/* On small screens, align hero content to the same left gutter as the logo */
+@media (max-width: 480px) {
+    .hero {
+        text-align: left;
+    }
+
+    .hero-content {
+        max-width: none;
+        width: 100%;
+        padding-left: var(--container-h);
+        padding-right: var(--container-h);
+        box-sizing: border-box;
+    }
+
+    .hero h1, .hero .subtitle, .hero-description {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .cta-buttons {
+        justify-content: center;
+    }
+}
+
+/* Desktop: ensure breadcrumb uses inner block for alignment and no outer padding */
+@media (min-width: 1025px) {
+    /* give breadcrumb the same left gutter as the nav container (logo) */
+    .dynamic-breadcrumb {
+        padding-left: var(--container-h) !important;
+        padding-right: var(--container-h) !important;
+    }
+    /* container inside breadcrumb should not add extra padding */
+    .dynamic-breadcrumb .container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .dynamic-breadcrumb .breadcrumb-inner {
+        /* align inner block to the exact left of the centered .container content
+           using a calc that accounts for viewport width and the container max width */
+        padding-left: calc((100vw - var(--container-max-width)) / 2 + var(--container-h));
+        padding-right: calc((100vw - var(--container-max-width)) / 2 + var(--container-h));
+        max-width: var(--container-max-width);
+        margin-left: 0;
+        margin-right: auto;
+        box-sizing: border-box;
+    }
+}
+
+/* Align logo to the same left gutter as hero on small screens */
+@media (max-width: 480px) {
+    /* remove extra left padding from nav container and shift logo visually by the gutter */
+    nav.main-nav .container {
+        padding-left: 0;
+    }
+
+    .logo {
+        margin-left: var(--container-h);
+    }
+}
+
+/* Apply same gutter alignment and hero left-alignment for tablet and small desktop widths */
+@media (max-width: 1024px) {
+    nav.main-nav .container { padding-left: 0; }
+    .logo { margin-left: var(--container-h); }
+    .hero { text-align: left; }
+    .hero-content { padding-left: var(--container-h); padding-right: var(--container-h); }
+    /* On wider tablets / small desktops (<=1024) we want the hero text block left-aligned
+       but the CTA buttons visually centered. */
+    .hero h1,
+    .hero .subtitle,
+    .hero-description { text-align: left; margin-left: 0; margin-right: 0; }
+    .cta-buttons { justify-content: center; }
+    .btn { text-align: center; }
+}
+
+@media (max-width: 768px) {
+    nav.main-nav .container { padding-left: 0; }
+    .logo { margin-left: var(--container-h); }
+    .hero { text-align: left; }
+    .hero-content { padding-left: var(--container-h); padding-right: var(--container-h); }
+    .cta-buttons { justify-content: flex-start; }
+    .btn { text-align: center; }
+}
+
+/* Move breadcrumb slightly lower on small viewports so it doesn't sit too close to the nav */
+@media (max-width: 480px) {
+    .dynamic-breadcrumb {
+        top: calc(var(--nav-height) + 1.25rem);
     }
 }
 
@@ -692,3 +1138,142 @@ footer p {
         display: none;
     }
 }
+
+/* --- Strong override: force section headings and primary blocks to use hero gutter --- */
+/* Placed at the end to avoid earlier overrides; targets the specific sections requested. */
+/* Use a padding-based gutter utility for consistent alignment.
+   Avoid applying negative margins broadly — keep the hero's visual nudge local. */
+.gutter-aligned {
+    padding-left: var(--container-h);
+    padding-right: var(--container-h);
+    box-sizing: border-box;
+    text-align: left;
+}
+
+/* Keep hero's custom left nudge (only the hero needs the visual shift) */
+/* Use transform so the hero's visual nudge doesn't affect document flow. */
+.hero-content { transform: none; }
+
+/* Ensure other main blocks follow the padding gutter rather than negative margins */
+/* Inner blocks should not add extra horizontal padding — the `.container` provides the gutter. */
+.about-section .about-content,
+.container > .about-content,
+#about .container > h2,
+#skills .container > h2,
+#skills .container > .skills-grid,
+#tools .about-content,
+#tools .about-content > h2,
+#contact .about-content,
+#contact .about-content > h2,
+.container > .experience-container,
+.container > .tool-category,
+.container > .contact-grid,
+.container > .skills-grid {
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+/* If a section doesn't use the centered `.container`, apply the same outer gutter
+   to the section itself and remove inner padding so edges align with the hero. */
+#tools,
+#contact {
+    padding-left: var(--container-h);
+    padding-right: var(--container-h);
+}
+
+#tools .about-content,
+#contact .about-content {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Tablet/mobile fallback: collapse to container padding and remove extra nudge */
+@media (max-width: 768px) {
+    .gutter-aligned,
+    .about-section .about-content,
+    .container > .about-content,
+    #about .container > h2,
+    #skills .container > h2,
+    #skills .container > .skills-grid,
+    #tools .about-content,
+    #tools .about-content > h2,
+    #contact .about-content,
+    #contact .about-content > h2,
+    .container > .experience-container,
+    .container > .tool-category,
+    .container > .contact-grid,
+    .container > .skills-grid {
+        margin-left: 0;
+        padding-left: var(--container-h);
+        padding-right: var(--container-h);
+    }
+    /* hero keeps its local nudge but we zero it on small screens */
+    .hero-content { transform: none; margin-left: 0; }
+}
+
+/* ==========================
+   Utilities & Accessibility
+   - Keep single file but organized by sections
+   ========================== */
+
+/* Skip link (visible on keyboard focus) */
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: 1002;
+}
+.skip-link:focus,
+.skip-link:active {
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 0.75rem;
+    background: var(--accent-primary);
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+/* Screen-reader only helper */
+.sr-only,
+.visually-hidden {
+    position: absolute !important;
+    height: 1px; width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+    border: 0;
+    padding: 0; margin: -1px;
+}
+
+/* Focus ring for keyboard users */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+.nav-links a:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(99,102,241,0.16);
+    border-radius: 8px;
+}
+
+/* Small set of layout utilities (explicit and limited) */
+.stack { display: flex; flex-direction: column; gap: 1rem; }
+.stack--sm { gap: 0.5rem; }
+.u-mt-4 { margin-top: 1rem; }
+.u-mt-6 { margin-top: 1.5rem; }
+.u-mb-4 { margin-bottom: 1rem; }
+.u-p-4 { padding: 1rem; }
+
+/* Ensure buttons have visible focus on most backgrounds */
+.btn { position: relative; }
+.btn:focus-visible { box-shadow: 0 0 0 4px rgba(99,102,241,0.18); }

@@ -8,33 +8,38 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <!-- Navigation -->
-    <nav class="main-nav">
+    <nav class="main-nav" aria-label="Main navigation">
         <div class="container">
             <a href="#" class="logo">Emerson Goya</a>
-            <ul class="nav-links">
+            <button class="mobile-menu-toggle" aria-label="Open main menu" aria-controls="primary-navigation" aria-expanded="false">☰</button>
+            <ul id="primary-navigation" class="nav-links" role="menubar">
                 <li><a href="#about">About</a></li>
                 <li><a href="case-studies/index.html">Cases</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#tools">Tools</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
         </div>
     </nav>
 
     <!-- Dynamic Breadcrumb -->
-    <nav class="dynamic-breadcrumb" id="dynamicBreadcrumb">
+    <nav class="dynamic-breadcrumb" id="dynamicBreadcrumb" aria-label="Breadcrumb navigation">
         <div class="container">
-            <a href="#">Home</a>
-            <span class="breadcrumb-separator">›</span>
-            <span id="breadcrumbSection">Home</span>
+            <div class="breadcrumb-inner">
+                <a href="#">Home</a>
+                <span class="breadcrumb-separator">›</span>
+                <span id="breadcrumbSection">Home</span>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-content">
+    <main id="main">
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
             <h1>Senior Product Designer</h1>
             <p class="subtitle">Senior Product Designer | B2B SaaS Strategy & Design Systems 20+ Years | 3 Enterprise Companies | Impact-Driven Outcomes</p>
             <p class="hero-description">
@@ -42,17 +47,18 @@
             </p>
             <p class="hero-description">EU Citizen. Ready for European opportunities.</p>
             <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Get in Touch</a>
-                <a href="case-studies/index.html" class="btn btn-secondary">View Case Studies</a>
+                <a href="#contact" class="btn btn--primary">Get in Touch</a>
+                <a href="case-studies/index.html" class="btn btn--secondary">View Case Studies</a>
+            </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about-section">
+    <section id="about" class="about-section u-mt-nav">
         <div class="container">
-            <h2>About Me</h2>
             <div class="about-content">
+                <h2>About Me</h2>
                 <p class="intro">
                     20+ years transforming B2B SaaS through strategic UX design.
                 </p>
@@ -99,23 +105,23 @@ access was repetitive data lookups. Consolidation > redesign. Design Solution: B
         <div class="container">
             <h2>Expertise & Methodologies</h2>
             <div class="skills-grid">
-                <div class="card">
+                <div class="card card--elevated">
                     <h3>Design Sprints</h3>
                     <p>I run 4-day sprints aligning sales, product, and engineering. We exit with tested prototypes and prioritized roadmap in one week.</p>
                 </div>
-                <div class="card">
+                <div class="card card--elevated">
                     <h3>Design Systems</h3>
                     <p>I build complete systems for complex B2B. Every component ships with guidelines, states, and code-ready specs. Zero handoff debate.</p>
                 </div>
-                <div class="card">
+                <div class="card card--elevated">
                     <h3>Journey Mapping</h3>
                     <p>I map multi-stakeholder ecosystems like banks + insurance companys. I uncover invisible friction points for sales reps, delivering executable wireflows.</p>
                 </div>
-                <div class="card">
+                <div class="card card--elevated">
                     <h3>Generative AI</h3>
                     <p>I use AI to analyze research data, uncover outlier insights, and design AI micro-interactions + agent-executable features.</p>
                 </div>
-                <div class="card">
+                <div class="card card--elevated">
                     <h3>Prototyping Workshops</h3>
                     <p>I structure 90min sessions: problem → ideation → test. 9/10 prototypes get approved first pass.</p>
                 </div>
@@ -125,10 +131,10 @@ access was repetitive data lookups. Consolidation > redesign. Design Solution: B
 
     <!-- Tools & Technologies Section -->
     <section id="tools" class="about-section">
-        <div class="about-content">
-            <h2>Tools & Technologies</h2>
-            
-            <div class="tool-category">
+        <div class="container">
+            <div class="about-content">
+                <h2>Tools & Technologies</h2>
+                <div class="tool-category">
                 <h3 class="company-highlight">Figma</h3>
                 <p>Full Design Systems + complex B2B components. 90% of my daily workflow.</p>
             </div>
@@ -157,11 +163,13 @@ access was repetitive data lookups. Consolidation > redesign. Design Solution: B
                 <h3>Daily support</h3>
                 <p>Miro, Figma, Jira, Kanban</p>
             </div>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="about-section">
+        <div class="container">
             <div class="about-content">
                 <h2>Let's work together, seeking:</h2>
                 <div class="experience-container">
@@ -182,10 +190,13 @@ access was repetitive data lookups. Consolidation > redesign. Design Solution: B
                     emersongoya@gmail.com
                 </a>
             </div>
+                </div>
             </div>
       </section>
 
 
+
+    </main>
 
     <!-- Footer -->
     <footer>
