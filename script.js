@@ -62,7 +62,7 @@ if (dynamicBreadcrumb && breadcrumbSection) {
             if (caseTitle) {
                 breadcrumbSection.textContent = caseTitle;
             } else {
-                breadcrumbSection.textContent = 'Case Studies';
+                breadcrumbSection.textContent = 'Cases';
             }
             dynamicBreadcrumb.classList.add('visible');
             return;
