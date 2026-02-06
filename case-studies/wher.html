@@ -1,197 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wher Case Study - Emerson Goya</title>
-    <meta name="description" content="Wher safe navigation app case study by Emerson Goya.">
     <link rel="stylesheet" href="../styles.css">
-    <style>
-        /* Case Study Page Styles */
-        .case-header {
-            padding: 120px 0 60px;
-            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-surface) 100%);
-        }
-
-        .breadcrumb {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-
-        .breadcrumb a {
-            color: var(--accent-primary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .breadcrumb a:hover {
-            color: var(--accent-hover);
-        }
-
-        .breadcrumb-separator {
-            color: var(--text-secondary);
-        }
-
-        .case-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .case-metadata {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-            padding: 2rem;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-        }
-
-        .metadata-item {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .metadata-label {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600;
-        }
-
-        .metadata-value {
-            font-size: 1rem;
-            color: var(--text-primary);
-            font-weight: 500;
-        }
-
-        .case-content {
-            padding: 60px 0;
-        }
-
-        .content-section {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            box-shadow: var(--shadow-layered);
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--accent-primary);
-        }
-
-        .description {
-            color: var(--text-secondary);
-            line-height: 1.8;
-            font-size: 1.125rem;
-            margin-bottom: 2rem;
-        }
-
-        .achievements-list {
-            list-style: none;
-            padding: 0;
-            margin: 1.5rem 0;
-        }
-
-        .achievements-list li {
-            padding: 0.75rem 0 0.75rem 2rem;
-            position: relative;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .achievements-list li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent-primary);
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
-
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .metric-card {
-            background: var(--bg-card);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--glass-border);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .metric-card:hover {
-            border-color: var(--accent-primary);
-            transform: translateY(-2px);
-        }
-
-        .metric-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .metric-label {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            line-height: 1.4;
-        }
-
-        .case-navigation {
-            display: flex;
-            justify-content: space-between;
-            gap: 1rem;
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--glass-border);
-        }
-
-        .nav-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 1.5rem;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .nav-button:hover {
-            border-color: var(--accent-primary);
-            background: rgba(99, 102, 241, 0.1);
-            transform: translateY(-2px);
         }
 
         .nav-button.back {
@@ -240,7 +48,7 @@
         }
     </style>
 </head>
-<body>
+<body data-case-title="Wher">
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="container">
@@ -259,12 +67,16 @@
     <!-- Case Header -->
     <header class="case-header">
         <div class="container">
-            <nav class="breadcrumb">
-                <a href="../index.html">Home</a>
-                <span class="breadcrumb-separator">›</span>
-                <a href="index.html">Cases</a>
-                <span class="breadcrumb-separator">›</span>
-                <span>Wher</span>
+            <nav id="dynamicBreadcrumb" class="dynamic-breadcrumb" aria-label="Breadcrumb navigation">
+                <div class="container">
+                    <div class="breadcrumb-inner">
+                        <a href="../index.html">Home</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <a href="index.html">Cases</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <span id="breadcrumbSection">Wher</span>
+                    </div>
+                </div>
             </nav>
 
             <h1 class="case-title">Wher – Safe Navigation App for Women</h1>
@@ -372,9 +184,5 @@
 
     
     <script src="../script.js"></script>
-    <script>
-        // Protect page
-        protectPage();
-    </script>
 </body>
 </html>

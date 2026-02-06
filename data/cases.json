@@ -1,0 +1,34 @@
+[
+  {
+    "id": "dell-salesforce",
+    "title": "Dell Salesforce – Small Business Sales Rep Journey Optimization",
+    "slug": "dell-salesforce",
+    "path": "case-studies/dell-salesforce.html",
+    "visible": false,
+    "restricted": true,
+    "passwordHash": "$2a$10$AOpLu.TNNnSl7YNRf.J16OyKA67Grzhq6qBy3YEs/jiEFDhnrYPqm",
+    "order": 0,
+    "meta": {
+      "company": "Dell Technologies",
+      "role": "Senior Product Designer",
+      "period": "2022–2024"
+    },
+    "heroImage": "assets/dell/dell-hero@1200w.jpg"
+  },
+  {
+    "id": "prudential",
+    "title": "Prudential – B2B Insurance Plan Platform",
+    "slug": "prudential",
+    "path": "case-studies/prudential.html",
+    "visible": true,
+    "restricted": false,
+    "passwordHash": null,
+    "order": 1,
+    "meta": {
+      "company": "Prudential do Brasil",
+      "role": "Senior Product Designer",
+      "period": "2020–2021"
+    },
+    "heroImage": "assets/prudential/portfolio-prudential@1200w.webp"
+  }
+]

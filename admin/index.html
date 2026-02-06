@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin — Cases</title>
+  <link rel="stylesheet" href="admin/styles.css">
+</head>
+<body>
+  <main class="admin">
+    <header>
+      <h1>Cases Admin</h1>
+      <p class="muted">Use a local/admin token to update `data/cases.json` via the minimal API.</p>
+    </header>
+
+    <section class="controls">
+      <label>Admin token <input id="adminToken" placeholder="x-admin-token" /></label>
+      <button id="reloadBtn">Reload cases</button>
+      <span id="status" class="status muted"></span>
+    </section>
+
+    <section id="list" class="case-list" aria-live="polite">
+      Loading…
+    </section>
+  </main>
+
+  <script src="admin/admin.js"></script>
+</body>
+</html>

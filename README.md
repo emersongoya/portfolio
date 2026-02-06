@@ -2,6 +2,8 @@
 
 20+ years crafting exceptional digital experiences through user-centered design, scalable systems, and strategic thinking.
 
+**Admin panel & instructions:** See [ADMIN-DOCS.md](ADMIN-DOCS.md) for how to run the local admin UI, manage case visibility and passwords, and publish changes to GitHub Pages.
+
 ## Specialized Services
 
 - **UX/UI Design Consultation** - Strategic design guidance for digital products

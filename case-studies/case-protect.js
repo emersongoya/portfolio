@@ -57,10 +57,31 @@
     const form = modal.querySelector('#case-password-form');
     const input = modal.querySelector('#case-password-input');
     const error = modal.querySelector('#case-password-error');
-    form.onsubmit = (e) => {
+    form.onsubmit = async (e) => {
       e.preventDefault();
       const pass = input.value;
-      // Check per-case password first
+      const shortId = caseFile.replace(/^.*\//, '').replace(/\.html$/, '');
+      // Try server-side verification first
+      try {
+        const resp = await fetch('/api/verify/' + encodeURIComponent(shortId), {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password: pass })
+        });
+        if (resp.ok) {
+          const body = await resp.json();
+          if (body && body.ok) {
+            unlockCase(caseFile);
+            modal.remove();
+            onSuccess();
+            return;
+          }
+        }
+      } catch (err) {
+        // network/server not available — fall back to client-side config
+      }
+
+      // Fallback: check per-case password first (client-only config)
       const casePass = config.casePasswords[caseFile];
       const valid = (casePass && pass === casePass) || (!casePass && pass === config.globalPassword);
       if (valid) {

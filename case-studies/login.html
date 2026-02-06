@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Case Studies - Emerson Goya</title>
+    <meta name="description" content="Access protected case studies from Emerson Goya's portfolio.">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-surface) 100%);
+        }
+
+        .login-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: var(--shadow-layered);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .login-header p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .form-group input {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1rem;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: var(--text-secondary);
+            opacity: 0.5;
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            padding: 0.75rem;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 8px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .submit-button {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .submit-button:active {
+            transform: translateY(0);
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .back-link a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            color: var(--accent-hover);
+        }
+
+        .lock-icon {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .login-card {
+                padding: 2rem;
+            }
+
+            .login-header h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="lock-icon">🔐</div>
+            <div class="login-header">
+                <h1>Access Case Studies</h1>
+                <p>Enter the password to view protected content</p>
+            </div>
+
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Enter password"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
+
+                <div id="errorMessage" class="error-message">
+                    Incorrect password. Please try again.
+                </div>
+
+                <button type="submit" class="submit-button">
+                    Access Case Studies
+                </button>
+            </form>
+
+            <div class="back-link">
+                <a href="../index.html">← Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        // Redirecionar se já autenticado
+        redirectIfAuthenticated();
+
+        // Handler do formulário de login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const passwordInput = document.getElementById('password');
+            const errorMessage = document.getElementById('errorMessage');
+            const password = passwordInput.value;
+
+            if (login(password)) {
+                // Login bem-sucedido
+                window.location.href = 'index.html';
+            } else {
+                // Senha incorreta
+                errorMessage.classList.add('show');
+                passwordInput.value = '';
+                passwordInput.focus();
+                
+                // Remover mensagem de erro após 3 segundos
+                setTimeout(() => {
+                    errorMessage.classList.remove('show');
+                }, 3000);
+            }
+        });
+
+        // Remover mensagem de erro quando usuário começa a digitar
+        document.getElementById('password').addEventListener('input', function() {
+            document.getElementById('errorMessage').classList.remove('show');
+        });
+    </script>
+</body>
+</html>

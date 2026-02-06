@@ -19,13 +19,13 @@ function login(password) {
 // Fazer logout
 function logout() {
     sessionStorage.removeItem(AUTH_KEY);
-    window.location.href = 'login.html';
+    window.location.href = 'index.html';
 }
 
 // Proteger página
 function protectPage() {
     if (!isAuthenticated()) {
-        window.location.href = 'login.html';
+        window.location.href = 'index.html';
     }
 }
 

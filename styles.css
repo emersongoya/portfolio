@@ -173,6 +173,144 @@ nav.main-nav:not(.scrolled) .nav-links a { color: var(--text-primary); }
     padding-left: 0;
     padding-right: 0;
 }
+/* Layout: hero content + media side-by-side */
+.hero-inner { display:flex; align-items:center; gap:3.5rem; justify-content:space-between; }
+.hero-media { flex:0 0 360px; display:flex; align-items:center; justify-content:center; }
+.hero-figure { margin:0; width:100%; max-width:360px; }
+.hero-portrait { display:block; width:100%; height:auto; border-radius:18px; object-fit:cover; filter:grayscale(100%) contrast(1.05) saturate(0.8); box-shadow: 0 20px 40px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.04); }
+
+/* Optional circular crop for tighter look on wide screens */
+.hero-portrait.circular { border-radius:50%; }
+
+/* Responsive: stack media below content on small screens */
+@media (max-width:900px) {
+    .hero-inner { flex-direction:column-reverse; gap:2rem; }
+    .hero-media { width:100%; flex:0 0 auto; }
+    .hero-figure { max-width:420px; margin:0 auto; }
+
+/* Tablet-specific: ensure title and subtitle are on separate lines around 768px
+   (applies to Immediate Impact, Conflict and Decision, Evidence and Results) */
+@media (min-width: 600px) and (max-width: 900px) {
+    .section-header--hero { flex-direction: column; align-items: flex-start; }
+    .section-header--hero .case-media--large { margin-bottom: 1rem; }
+    .section-header--hero .section-title { display: block; width: 100%; margin-bottom: 0.25rem; text-align: left; }
+    .section-header--hero .section-subtitle { display: block; width: 100%; text-align: left; margin-top: 0; }
+}
+    .hero-portrait { width:80%; }
+}
+
+@media (max-width:480px) {
+    .hero-portrait { width:100%; border-radius:12px; }
+}
+
+/* Case study media (images replacing icons) */
+.case-media { display:block; width:120px; height:80px; overflow:hidden; border-radius:12px; flex:0 0 auto; margin-right:1rem; }
+.case-media img { width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(10%) contrast(1.03) saturate(0.95); border:1px solid rgba(255,255,255,0.03); box-shadow: 0 8px 24px rgba(0,0,0,0.35); }
+.case-media img.focus-face {
+    /* shift focus toward the person & whiteboard, increase clarity */
+    object-position: 30% 50%;
+    filter: none; /* remove subtle desaturation for natural color */
+    -webkit-filter: brightness(1.06) contrast(1.08) saturate(1.05);
+    filter: brightness(1.06) contrast(1.08) saturate(1.05);
+    transition: filter .25s ease, object-position .25s ease;
+}
+
+/* Portfolio-specific focus adjustments to keep family visible across breakpoints */
+.case-media img.portfolio-focus { object-position: 70% 0%; }
+@media (max-width: 900px) {
+    .case-media img.portfolio-focus { object-position: 60% 0%; }
+    /*  .case-media img.portfolio-focus { object-position: 60% 45%; }*/
+}
+@media (max-width: 480px) {
+   /* .case-media img.portfolio-focus { object-position: 50% 40%; }*/
+    .case-media img.portfolio-focus { object-position: 50% 0%; }
+}
+@media (min-width: 1024px) {
+    .case-media img.portfolio-focus { object-position: 74% 0%; }
+}
+@media (min-width: 1440px) {
+    .case-media img.portfolio-focus { object-position: 78% 8%; }
+}
+@media (min-width: 2000px) {
+    .case-media img.portfolio-focus { object-position: 82% 8%; }
+}
+
+@media (max-width: 900px) {
+    .case-media img.focus-face { object-position: 50% 0%; }
+}
+
+@media (max-width: 480px) {
+    .case-media img.focus-face { object-position: 50% 45%; }
+}
+.case-media--large { width:100%; height:400px; border-radius:14px; margin-bottom:1rem; }
+.case-media--large img { height:100%; width:100%; border-radius:14px; }
+
+@media (max-width:900px) {
+    .case-media { width:72px; height:56px; }
+    .case-media--large { height:300px; }
+
+    /* Ensure hero-style media use full width on tablet/mobile */
+    .section-header--hero .case-media,
+    .section-header--hero .case-media--large {
+        width: 100%;
+        height: auto;
+        margin: 0 0 1rem 0;
+        display: block;
+    }
+    .section-header--hero .case-media img,
+    .section-header--hero .case-media--large img {
+        width:100%;
+        height:auto;
+        border-radius:12px;
+    }
+}
+
+/* Ensure hero image fills full width on small screens */
+@media (max-width:600px) {
+    .section-header--hero .case-media--large { width:100%; height:auto; display:block; }
+    .section-header--hero .case-media--large img { width:100%; height:auto; border-radius:12px; }
+}
+
+/* Overlay + contrast improvements for title readability on large screens */
+.section-header--hero .case-media--large { position:relative; }
+.section-header--hero .case-media--large::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    /* stronger gradient to improve contrast for overlaid text */
+    background: linear-gradient(90deg, rgba(0,0,0,0.6) 25%, rgba(0,0,0,0.8) 100%);
+    pointer-events: none;
+}
+
+/* Ensure title/subtitle have enhanced text-shadow for readability without crude backgrounds */
+.section-header--hero .section-title,
+.section-header--hero .section-subtitle {
+    position:absolute;
+    right:32px;
+    z-index:6;
+    text-align:right;
+    display:inline-block;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 4px 8px rgba(0,0,0,0.6), 0 8px 16px rgba(0,0,0,0.4);
+}
+.section-header--hero .section-title { top:18px; font-size:2.25rem; line-height:1.02; font-weight:700; }
+.section-header--hero .section-subtitle { top:66px; font-size:1rem; opacity:0.95; }
+
+@media (max-width:900px) {
+    .section-header--hero .section-title, .section-header--hero .section-subtitle { position:static; text-align:left; text-shadow:none; margin-top:1rem; color:var(--text-primary); opacity:1; background:transparent; padding:0; border-radius:0; }
+    .section-header--hero .case-media--large::after { display:none; }
+}
+
+/* Hero-style section header: image with title overlaid */
+.section-header--hero { position:relative; padding-top:0; }
+.section-header--hero .case-media--large { margin-bottom:0; }
+.section-header--hero .section-title { position:absolute; top:18px; right:32px; z-index:5; color:var(--text-primary); text-align:right; font-size:2rem; line-height:1.05; text-shadow:0 6px 18px rgba(0,0,0,0.6); }
+.section-header--hero .section-subtitle { position:absolute; top:58px; right:32px; z-index:5; color:var(--text-secondary); text-align:right; margin:0; }
+
+@media (max-width:900px) {
+    .section-header--hero .section-title, .section-header--hero .section-subtitle { position:static; text-align:left; text-shadow:none; margin-top:1rem; }
+}
 .hero h1 { font-size:4.5rem; font-weight:700; margin-bottom:1.5rem; letter-spacing:-0.03em; line-height:1.1; background:linear-gradient(135deg,var(--text-primary) 0%, var(--text-secondary) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
 .subtitle { font-size:1.5rem; color:var(--text-secondary); margin-bottom:1.5rem; }
 .hero-description { font-size:1.125rem; color:var(--text-secondary); line-height:1.7; max-width:700px; margin:1.5rem auto 2rem; }
@@ -199,11 +337,16 @@ section h2::after { content:''; display:block; width:60px; height:4px; backgroun
     section h2::after { margin:1.5rem auto 0; }
 }
 
+/* Remove decorative gradient bar for hero titles entirely (user prefers no dash) */
+.section-header--hero .section-title::after { display: none !important; }
+
 .card { background:var(--glass-bg); backdrop-filter:blur(20px); border:1px solid var(--glass-border); border-radius:16px; padding:2.5rem; transition:all .3s ease; box-shadow:var(--shadow-layered); }
 .card--elevated{ box-shadow:0 20px 40px rgba(0,0,0,0.3); }
 .card:hover{ transform: translateY(-8px); border-color:var(--accent-primary); }
 .card h3{ font-size:1.5rem; font-weight:600; margin-bottom:1rem; }
 .card p, .card ul{ color:var(--text-secondary); line-height:1.7; }
+
+/* `.alpha-list` styles are defined per-context below (e.g. `.subsection-content .alpha-list`) */
 
 /* Prevent the anchor-as-card from applying underline/color to all inner text on hover
    Keep only explicit `.case-link` elements colored/underlined. */
@@ -311,18 +454,56 @@ section#contact {
 .section-title { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); }
 .section-subtitle { font-size: 0.875rem; color: var(--text-secondary); margin-top: 0.25rem; }
 .impact-quote { background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.05)); border-left: 4px solid var(--accent-primary); padding: 1.5rem 2rem; margin: 1.5rem 0; border-radius: 8px; font-size: 1.25rem; line-height: 1.6; color: var(--text-primary); font-weight: 500; }
-.subsection { margin: 2rem 0; }
-.subsection-title { font-size: 1.125rem; font-weight: 600; color: var(--accent-primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+.subsection { margin: 3.5rem 0; }
+.subsection-title { font-size: 1.125rem; font-weight: 600; color: #ffffff; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
 .subsection-content { color: var(--text-secondary); line-height: 1.8; font-size: 1rem; }
+.subsection-content p { line-height: 1.5; }
 .subsection-content ul { list-style: none; padding-left: 0; margin: 1rem 0; }
-.subsection-content li { padding: 0.5rem 0 0.5rem 1.5rem; position: relative; }
-.subsection-content li::before { content: '→'; position: absolute; left: 0; color: var(--accent-primary); font-weight: 600; }
+.case-content ul,
+.card ul,
+.about-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+/* Keep default padding/bullets for regular lists, but exclude .alpha-list (alphabetic items) */
+.case-content ul li,
+.subsection-content ul:not(.alpha-list) li,
+.card ul li,
+.about-section ul li {
+    padding: 0.5rem 0 0.5rem 1rem;
+    position: relative;
+}
+.case-content ul li::before,
+.subsection-content ul:not(.alpha-list) li::before,
+.card ul li::before,
+.about-section ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: rgb(161,161,170);
+    font-weight: 700;
+}
+/* Use native alphabetic markers for alpha lists and keep spacing consistent */
+.subsection-content .alpha-list {
+    list-style: lower-latin;
+    list-style-position: outside;
+    padding-left: 1.25rem;
+    margin: 0;
+}
+.subsection-content .alpha-list li {
+    margin-bottom: 0.75rem;
+}
+.subsection-content .alpha-list .alpha-body { display:block; }
+.subsection-content .alpha-list .alpha-heading { display:block; }
+
+.alpha-heading { margin: 0; font-weight: 600; color: var(--text-primary); }
+.alpha-note { margin: 0.5rem 0 0; font-size: 0.875rem; color: var(--text-secondary); }
 .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
 .metric-card { background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--glass-border); text-align: center; transition: all 0.3s ease; }
 .metric-card:hover { border-color: var(--accent-primary); transform: translateY(-2px); }
 .metric-value { font-size: 2.5rem; font-weight: 700; color: var(--accent-primary); margin-bottom: 0.5rem; }
 .metric-label { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.4; }
-.highlight-box { background: rgba(99, 102, 241, 0.05); border: 1px solid rgba(99, 102, 241, 0.2); padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; }
+.highlight-box { background: rgba(99, 102, 241, 0.05); border: 1px solid rgba(99, 102, 241, 0.2); padding: 1.5rem; border-radius: 8px; margin: 1rem 0; }
 .highlight-box strong { color: var(--accent-primary); }
 .case-navigation { display: flex; justify-content: space-between; gap: 1rem; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--glass-border); }
 .nav-button { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 1.5rem; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 12px; color: var(--text-primary); text-decoration: none; font-weight: 500; transition: all 0.3s ease; }
@@ -331,7 +512,11 @@ section#contact {
 @media (max-width: 768px) {
     .case-title { font-size: 2rem; }
     .content-section { padding: 1.5rem; }
+    /* On tablet/mobile stack the section header content and left-align titles */
     .section-header { flex-direction: column; align-items: flex-start; }
+    .section-header .case-media--large { margin-bottom: 1rem; }
+    .section-header--hero .section-title,
+    .section-header--hero .section-subtitle { position: static; text-align: left; margin-top: 0.5rem; color: var(--text-primary); opacity: 1; background: transparent; padding: 0; border-radius: 0; }
     .impact-quote { font-size: 1rem; padding: 1rem 1.25rem; }
     .metrics-grid { grid-template-columns: 1fr; }
     .metric-value { font-size: 2rem; }
@@ -342,6 +527,10 @@ section#contact {
     .case-header { padding: 100px 0 40px; }
     .case-title { font-size: 1.75rem; }
     .case-metadata { padding: 1.5rem; gap: 1rem; }
+    /* Ensure title is left-aligned on small mobile layouts */
+    .section-header { align-items: flex-start; }
+    .section-header--hero .section-title,
+    .section-header--hero .section-subtitle { text-align: left; }
 }
 .skip-link{ position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; z-index:1002; }
 .skip-link:focus, .skip-link:active{ left:1rem; top:1rem; width:auto; height:auto; padding:.5rem .75rem; background:var(--accent-primary); color:#fff; border-radius:6px; text-decoration:none; }
