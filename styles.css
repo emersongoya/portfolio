@@ -76,6 +76,15 @@ html, body {
 
 .container { max-width: var(--container-max-width); margin: 0 auto; padding: 0 var(--container-h); }
 
+ p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    /* ou use a sintaxe tradicional: */
+    margin-top: 0;
+    margin-bottom: 2.5em;
+}
+
+
 /* Links */
 
 a {
@@ -87,6 +96,8 @@ a:hover {
     color: var(--accent-hover);
     text-decoration: underline;
 }
+
+
 
 /* Only explicit links in card content get blue and underline */
 .case-link, .case-link a {
@@ -118,7 +129,9 @@ a:hover {
 }
 
 /* Headings */
-h1,h2,h3,h4,h5 { color: var(--text-primary); margin: 0 0 var(--space-3) 0; }
+/*h1,h2,h3,h4,h5 { color: var(--text-primary); margin: 0 0 var(--space-3) 0; }*/
+h1,h2,h3,h4,h5 { color: var(--text-primary); margin: 0 0 var(--space-1) 0; } 
+
 
 /* ======================
    Navigation
@@ -637,12 +650,13 @@ nav.main-nav:not(.scrolled) .nav-links a {
 .dynamic-breadcrumb.visible.scrolled {
     background: var(--glass-bg) !important;
 }
-.dynamic-breadcrumb .container {
+.dynamic-breadcrumb .container .dynamic-breadcrumb [aria-current="page"] {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     font-size: 0.875rem;
-    color: var(--text-secondary);
+    /*color: var(--text-secondary);*/
+    color: var(--text-primary);
     max-width: var(--container-max-width);
     margin-left: auto;
     margin-right: auto;
@@ -651,7 +665,8 @@ nav.main-nav:not(.scrolled) .nav-links a {
     justify-content: flex-start;
 }
 .dynamic-breadcrumb a {
-    color: var(--accent-primary);
+    /*color: var(--accent-primary); */
+    color: var(--text-secondary); 
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -661,9 +676,9 @@ nav.main-nav:not(.scrolled) .nav-links a {
 .dynamic-breadcrumb .breadcrumb-separator {
     color: var(--text-secondary);
 }
-.dynamic-breadcrumb [aria-current="page"] {
+/*.dynamic-breadcrumb [aria-current="page"] {
     color: var(--text-secondary);
-}
+}*/
 @media (max-width: 1200px) {
     .dynamic-breadcrumb .container {
         max-width: 96vw;
@@ -1045,14 +1060,24 @@ section h2::after {
     color: var(--accent-primary);
 }
 
+
+
+
 /* Tools Section */
+
+
+
+
+
 .tools-section {
     background: var(--bg-surface);
 }
 
 .tool-category {
     margin-bottom: 2.5rem;
-}
+     
+
+   
 
 .tool-category h3 {
     font-size: 1.25rem;
